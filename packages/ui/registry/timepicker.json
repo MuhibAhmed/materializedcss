@@ -1,0 +1,17 @@
+{
+  "name": "timepicker",
+  "type": "registry:ui",
+  "title": "Timepicker",
+  "description": "Materialize's clock-dial time picker in a modal, with keyboard spinbuttons, localized AM/PM and an HH:mm value.",
+  "category": "Forms",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "icons", "button", "picker-input", "use-controllable-state", "date-utils"],
+  "files": [{ "path": "components/ui/timepicker.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Keyboard and screen-reader support: hour and minute spinbuttons (arrows, PageUp/PageDown, typed digits) and a focusable dial.",
+    "Pointer Events drag on the dial for mouse, touch and pen, snapping to the minute step.",
+    "Localized AM/PM labels and a 12/24-hour default taken from the locale's hour cycle.",
+    "minTime, maxTime and step are enforced on the dial, the spinbuttons and typed input.",
+    "onOpenChange fires on every close path, and vibration only happens when you opt in."
+  ]
+}

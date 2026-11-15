@@ -1,0 +1,17 @@
+{
+  "name": "datepicker",
+  "type": "registry:ui",
+  "title": "Datepicker",
+  "description": "A date field that opens Materialize's modal calendar, or an anchored popover, with typing, i18n and form support.",
+  "category": "Forms",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "icons", "button", "calendar", "picker-input", "use-controllable-state", "date-utils"],
+  "files": [{ "path": "components/ui/datepicker.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "onOpenChange fires on every close path, including Esc and overlay click (#6500); focus is trapped and returned to the field.",
+    "A date typed in the field is respected when the picker opens (#6575), and typed dates are parsed in the user's locale.",
+    "readOnly and disabled fields never open the picker (#6538).",
+    "Controlled or uncontrolled value as a Date, submitted in forms as yyyy-mm-dd through a hidden input.",
+    "Popover variant with collision-aware positioning, and a header-on-top layout on small screens."
+  ]
+}

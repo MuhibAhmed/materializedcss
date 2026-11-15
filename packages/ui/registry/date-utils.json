@@ -1,0 +1,7 @@
+{
+  "name": "date-utils",
+  "type": "registry:lib",
+  "title": "Date utilities",
+  "description": "Dependency-free date and time helpers (calendar matrix, Intl names, first day of week, locale-aware parsing) used by the pickers.",
+  "files": [{ "path": "lib/date.ts", "type": "registry:lib" }]
+}

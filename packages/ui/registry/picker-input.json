@@ -1,0 +1,9 @@
+{
+  "name": "picker-input",
+  "type": "registry:ui",
+  "title": "Picker Input",
+  "description": "Shared Materialize-style field, modal shell and footer used by the date and time pickers.",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "date-utils"],
+  "files": [{ "path": "components/ui/picker-input.tsx", "type": "registry:ui" }]
+}

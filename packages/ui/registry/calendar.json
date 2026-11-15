@@ -1,0 +1,16 @@
+{
+  "name": "calendar",
+  "type": "registry:ui",
+  "title": "Calendar",
+  "description": "An accessible month grid with single or range selection, min/max and disabled days, event dots and a built-in month/year picker.",
+  "category": "Data Display",
+  "registryDependencies": ["utils", "icons", "use-controllable-state", "date-utils"],
+  "files": [{ "path": "components/ui/calendar.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Full WAI-ARIA date grid: arrow keys, PageUp/PageDown (with Shift for years), Home/End, roving tabindex and month changes announced to screen readers.",
+    "Month and year are picked from an in-calendar grid instead of a nested select, so the year list no longer jumps off-screen (#6552, #6388).",
+    "The previous-month button is correctly disabled at minDate (#6541), and keyboard focus is clamped to min/max.",
+    "Range selection with a hover preview, plus single-date mode.",
+    "Locale-aware names, digits, first day of the week (Intl week info) and right-to-left layout with no date library."
+  ]
+}
