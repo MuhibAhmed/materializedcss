@@ -5,10 +5,10 @@
   "title": "Chips Input",
   "description": "Tag input that turns typed text into chips, with keyboard editing, limits and optional suggestions.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json",
-    "https://materializedcss.dev/r/chip.json",
-    "https://materializedcss.dev/r/text-field.json",
-    "https://materializedcss.dev/r/autocomplete.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json",
+    "https://muhibahmed.github.io/materializedcss/r/chip.json",
+    "https://muhibahmed.github.io/materializedcss/r/text-field.json",
+    "https://muhibahmed.github.io/materializedcss/r/autocomplete.json"
   ],
   "categories": [
     "forms"

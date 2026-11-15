@@ -4,7 +4,7 @@
   "description": "Material Design (Materialize) components rebuilt for React 19, Tailwind CSS v4 and TypeScript. Copy them into your app with the CLI or import them from npm.",
   "license": "MIT",
   "author": "Muhib Ahmed (https://github.com/MuhibAhmed)",
-  "homepage": "https://github.com/MuhibAhmed/materializedcss#readme",
+  "homepage": "https://muhibahmed.github.io/materializedcss/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MuhibAhmed/materializedcss.git",

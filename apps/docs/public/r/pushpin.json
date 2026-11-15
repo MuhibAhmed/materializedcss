@@ -5,7 +5,7 @@
   "title": "Pushpin",
   "description": "Pin an element while its section scrolls, with pin-top, pinned and pin-bottom states.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json"
   ],
   "categories": [
     "media & motion"

@@ -25,7 +25,7 @@ const urlFlag = process.argv.indexOf("--url");
 const registryUrl = (
   (urlFlag !== -1 ? process.argv[urlFlag + 1] : undefined) ??
   process.env.MATERIALIZEDCSS_REGISTRY_URL ??
-  "https://materializedcss.dev/r"
+  "https://muhibahmed.github.io/materializedcss/r"
 ).replace(/\/$/, "");
 
 function readMeta(): RegistryItemMeta[] {

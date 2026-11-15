@@ -5,10 +5,10 @@
   "title": "Carousel",
   "description": "The 3D cover-flow carousel and a full-width slider, with drag, swipe, keyboard, indicators and accessible autoplay.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json",
-    "https://materializedcss.dev/r/icons.json",
-    "https://materializedcss.dev/r/use-controllable-state.json",
-    "https://materializedcss.dev/r/use-media-query.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json",
+    "https://muhibahmed.github.io/materializedcss/r/icons.json",
+    "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+    "https://muhibahmed.github.io/materializedcss/r/use-media-query.json"
   ],
   "categories": [
     "media & motion"

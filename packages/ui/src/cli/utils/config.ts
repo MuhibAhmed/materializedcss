@@ -5,7 +5,7 @@ import { CliError } from "./logger.ts";
 import { resolveAlias, type ProjectInfo, type TsConfigInfo } from "./project.ts";
 
 export const CONFIG_FILE = "materialized.json";
-export const CONFIG_SCHEMA_URL = "https://materializedcss.dev/schema.json";
+export const CONFIG_SCHEMA_URL = "https://muhibahmed.github.io/materializedcss/schema.json";
 
 export interface ConfigAliases {
   components: string;

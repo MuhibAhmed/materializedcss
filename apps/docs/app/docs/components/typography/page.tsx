@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CodeBlock } from "~/components/docs/code-block";
 import { ComponentDoc } from "~/components/docs/component-doc";
@@ -81,7 +82,7 @@ export default function TypographyPage(): React.JSX.Element {
         <p>
           <code>Blockquote</code>, <code>Lead</code> and <code>Muted</code> render <code>&lt;blockquote&gt;</code> and{" "}
           <code>&lt;p&gt;</code> and forward their props. <code>headingVariants()</code> is exported. For the line
-          separator, see <a href="/docs/components/divider" className="underline">Divider</a>.
+          separator, see <Link href="/docs/components/divider" className="underline">Divider</Link>.
         </p>
       </DocSection>
 

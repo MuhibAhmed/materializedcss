@@ -5,9 +5,9 @@
   "title": "Table of Contents",
   "description": "Scrollspy links to the sections of a page, highlighting the section being read.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json",
-    "https://materializedcss.dev/r/use-scroll-spy.json",
-    "https://materializedcss.dev/r/use-media-query.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json",
+    "https://muhibahmed.github.io/materializedcss/r/use-scroll-spy.json",
+    "https://muhibahmed.github.io/materializedcss/r/use-media-query.json"
   ],
   "categories": [
     "navigation"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CodeBlock } from "~/components/docs/code-block";
 import { ComponentDoc } from "~/components/docs/component-doc";
@@ -48,7 +49,7 @@ export default function NavbarPage(): React.JSX.Element {
         <p>
           <code>NavbarBrand position</code> is <code>left</code>, <code>center</code> or <code>right</code>.{" "}
           <code>NavbarMenuButton</code> is the hamburger trigger for a side navigation: pass it the{" "}
-          <code>aria-expanded</code> and <code>aria-controls</code> of your <a href="/docs/components/sidenav" className="underline">Sidenav</a>,
+          <code>aria-expanded</code> and <code>aria-controls</code> of your <Link href="/docs/components/sidenav" className="underline">Sidenav</Link>,
           and hide it on large screens with <code>className=&quot;lg:hidden&quot;</code> when the links are visible there.
         </p>
         <ComponentPreview name="navbar-brand-position" align="start">

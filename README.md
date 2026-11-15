@@ -8,6 +8,8 @@
 
 Copy the components into your app with one command, or install them from npm.
 
+**[Docs and live demos →](https://muhibahmed.github.io/materializedcss/)**
+
 ![React 19](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
 ![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
@@ -115,10 +117,10 @@ import { Modal } from "materializedcss/modal";
 
 ### Option 3: the shadcn CLI
 
-Each component is also published as a shadcn-compatible registry item. This needs the docs site to be hosted:
+Each component is also published as a shadcn-compatible registry item on the docs site:
 
 ```bash
-npx shadcn add https://materializedcss.dev/r/button.json
+npx shadcn add https://muhibahmed.github.io/materializedcss/r/button.json
 ```
 
 > [!NOTE]
@@ -151,7 +153,7 @@ The docs site includes **Paperplane**, a complete ecommerce storefront built onl
 <img src=".github/assets/store.png" alt="Paperplane, a demo store built with materializedcss" width="900" />
 </div>
 
-Run `npm run dev`, then open <http://localhost:3000/examples/store>.
+[Try it live](https://muhibahmed.github.io/materializedcss/examples/store/), or run `npm run dev` and open <http://localhost:3000/examples/store>.
 
 ## CLI reference
 

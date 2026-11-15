@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CodeBlock } from "~/components/docs/code-block";
 import { Callout, DocHeader, DocSection, PagerLinks } from "~/components/docs/doc-parts";
@@ -93,8 +94,8 @@ export default function ThemingPage(): React.JSX.Element {
           The theme also adds the z-depth shadows (<code>shadow-z1</code> … <code>shadow-z5</code>), Materialize easing
           curves (<code>ease-out-quad</code>, <code>ease-out-cubic</code>, …), heading sizes (<code>text-h1</code> …{" "}
           <code>text-h6</code>), the full palette (<code>bg-md-teal-500</code>) and the <code>animate-md-*</code> keyframes
-          used by the components. See <a href="/docs/shadows">Shadows</a>, <a href="/docs/typography">Typography</a> and{" "}
-          <a href="/docs/colors">Colors</a>.
+          used by the components. See <Link href="/docs/shadows">Shadows</Link>, <Link href="/docs/typography">Typography</Link> and{" "}
+          <Link href="/docs/colors">Colors</Link>.
         </p>
       </DocSection>
       <PagerLinks prev={{ title: "CLI", href: "/docs/cli" }} next={{ title: "Dark mode", href: "/docs/dark-mode" }} />

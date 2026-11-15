@@ -12,8 +12,8 @@ export const siteConfig = {
   name: "materializedcss",
   description:
     "Materialize's Material Design components, rebuilt for React 19, Tailwind CSS v4 and TypeScript. Copy them into your app with a CLI, or install them from npm.",
-  url: "https://materializedcss.dev",
-  registryUrl: "https://materializedcss.dev/r",
+  url: "https://muhibahmed.github.io/materializedcss",
+  registryUrl: "https://muhibahmed.github.io/materializedcss/r",
 } as const;
 
 /** Order of component categories in the sidebar. Unknown categories go last. */

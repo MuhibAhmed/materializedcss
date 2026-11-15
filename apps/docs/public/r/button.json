@@ -9,8 +9,8 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json",
-    "https://materializedcss.dev/r/use-ripple.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json",
+    "https://muhibahmed.github.io/materializedcss/r/use-ripple.json"
   ],
   "categories": [
     "actions"

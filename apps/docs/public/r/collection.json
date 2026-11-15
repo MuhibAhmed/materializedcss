@@ -8,7 +8,7 @@
     "radix-ui"
   ],
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json"
   ],
   "categories": [
     "data display"

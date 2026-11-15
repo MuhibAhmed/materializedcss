@@ -5,9 +5,9 @@
   "title": "Floating Action Button",
   "description": "A fixed floating button that reveals mini action buttons in any direction, or morphs into a toolbar.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json",
-    "https://materializedcss.dev/r/use-controllable-state.json",
-    "https://materializedcss.dev/r/button.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json",
+    "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+    "https://muhibahmed.github.io/materializedcss/r/button.json"
   ],
   "categories": [
     "actions"

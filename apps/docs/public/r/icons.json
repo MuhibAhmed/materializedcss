@@ -5,7 +5,7 @@
   "title": "Icons",
   "description": "Inline Material Design SVG icons used by the components, plus a MaterialIcon font helper.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json"
   ],
   "categories": [
     "foundations"

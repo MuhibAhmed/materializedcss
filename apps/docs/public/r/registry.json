@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "materializedcss",
-  "homepage": "https://materializedcss.dev",
+  "homepage": "https://muhibahmed.github.io/materializedcss",
   "items": [
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -13,8 +13,8 @@
         "@floating-ui/react"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/text-field.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/text-field.json"
       ],
       "categories": [
         "forms"
@@ -36,7 +36,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "data display"
@@ -58,8 +58,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json"
       ],
       "categories": [
         "navigation"
@@ -82,8 +82,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-ripple.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-ripple.json"
       ],
       "categories": [
         "actions"
@@ -102,10 +102,10 @@
       "title": "Calendar",
       "description": "An accessible month grid with single or range selection, min/max and disabled days, event dots and a built-in month/year picker.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/date-utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/date-utils.json"
       ],
       "categories": [
         "data display"
@@ -127,9 +127,9 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/use-controllable-state.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json"
       ],
       "categories": [
         "layout"
@@ -152,10 +152,10 @@
       "title": "Carousel",
       "description": "The 3D cover-flow carousel and a full-width slider, with drag, swipe, keyboard, indicators and accessible autoplay.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/use-media-query.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-media-query.json"
       ],
       "categories": [
         "media & motion"
@@ -177,7 +177,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "forms"
@@ -199,8 +199,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json"
       ],
       "categories": [
         "forms"
@@ -219,10 +219,10 @@
       "title": "Chips Input",
       "description": "Tag input that turns typed text into chips, with keyboard editing, limits and optional suggestions.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/chip.json",
-        "https://materializedcss.dev/r/text-field.json",
-        "https://materializedcss.dev/r/autocomplete.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/chip.json",
+        "https://muhibahmed.github.io/materializedcss/r/text-field.json",
+        "https://muhibahmed.github.io/materializedcss/r/autocomplete.json"
       ],
       "categories": [
         "forms"
@@ -244,8 +244,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json"
       ],
       "categories": [
         "layout"
@@ -267,7 +267,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "data display"
@@ -302,13 +302,13 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/button.json",
-        "https://materializedcss.dev/r/calendar.json",
-        "https://materializedcss.dev/r/picker-input.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/date-utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/button.json",
+        "https://muhibahmed.github.io/materializedcss/r/calendar.json",
+        "https://muhibahmed.github.io/materializedcss/r/picker-input.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/date-utils.json"
       ],
       "categories": [
         "forms"
@@ -327,7 +327,7 @@
       "title": "Divider",
       "description": "A 1px horizontal or vertical line in the border color.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "foundations"
@@ -349,9 +349,9 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/icons.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json"
       ],
       "categories": [
         "overlays"
@@ -370,9 +370,9 @@
       "title": "Floating Action Button",
       "description": "A fixed floating button that reveals mini action buttons in any direction, or morphs into a toolbar.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/button.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/button.json"
       ],
       "categories": [
         "actions"
@@ -394,11 +394,11 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-ripple.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/button.json",
-        "https://materializedcss.dev/r/text-field.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-ripple.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/button.json",
+        "https://muhibahmed.github.io/materializedcss/r/text-field.json"
       ],
       "categories": [
         "forms"
@@ -420,7 +420,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "layout"
@@ -439,7 +439,7 @@
       "title": "Icons",
       "description": "Inline Material Design SVG icons used by the components, plus a MaterialIcon font helper.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "foundations"
@@ -461,9 +461,9 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/icons.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json"
       ],
       "categories": [
         "media & motion"
@@ -482,7 +482,7 @@
       "title": "Media",
       "description": "Responsive images, circle images and aspect-ratio video embeds.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "media & motion"
@@ -505,8 +505,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json"
       ],
       "categories": [
         "overlays"
@@ -528,9 +528,9 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/use-controllable-state.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json"
       ],
       "categories": [
         "navigation"
@@ -552,9 +552,9 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/use-controllable-state.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json"
       ],
       "categories": [
         "navigation"
@@ -573,8 +573,8 @@
       "title": "Parallax",
       "description": "A container whose background image scrolls slower than the page.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-media-query.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-media-query.json"
       ],
       "categories": [
         "media & motion"
@@ -596,8 +596,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/date-utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/date-utils.json"
       ],
       "files": [
         {
@@ -616,7 +616,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "feedback"
@@ -635,7 +635,7 @@
       "title": "Progress",
       "description": "Thin linear progress bar: determinate with a smooth width transition, or the two-bar indeterminate loop.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "feedback"
@@ -654,7 +654,7 @@
       "title": "Pushpin",
       "description": "Pin an element while its section scrolls, with pin-top, pinned and pin-bottom states.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "media & motion"
@@ -676,7 +676,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "forms"
@@ -698,8 +698,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json"
       ],
       "categories": [
         "forms"
@@ -722,10 +722,10 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/text-field.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/text-field.json"
       ],
       "categories": [
         "forms"
@@ -747,9 +747,9 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/icons.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json"
       ],
       "categories": [
         "navigation"
@@ -768,10 +768,10 @@
       "title": "Slider",
       "description": "A full-width image slide show with crossfading slides, animated captions and indicator dots.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/carousel.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/carousel.json"
       ],
       "categories": [
         "media & motion"
@@ -793,7 +793,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "forms"
@@ -812,9 +812,9 @@
       "title": "Table of Contents",
       "description": "Scrollspy links to the sections of a page, highlighting the section being read.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-scroll-spy.json",
-        "https://materializedcss.dev/r/use-media-query.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-scroll-spy.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-media-query.json"
       ],
       "categories": [
         "navigation"
@@ -833,7 +833,7 @@
       "title": "Table",
       "description": "Data tables with striped rows, hover highlight, centered text and a responsive scroll container.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "data display"
@@ -855,9 +855,9 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/use-ripple.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-ripple.json"
       ],
       "categories": [
         "navigation"
@@ -879,8 +879,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json"
       ],
       "categories": [
         "feedback"
@@ -902,7 +902,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "forms"
@@ -921,8 +921,8 @@
       "title": "Textarea",
       "description": "Auto-resizing multi-line text field with the same floating label, helper text and character counter as Text Field.",
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/text-field.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/text-field.json"
       ],
       "categories": [
         "forms"
@@ -944,12 +944,12 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json",
-        "https://materializedcss.dev/r/button.json",
-        "https://materializedcss.dev/r/picker-input.json",
-        "https://materializedcss.dev/r/use-controllable-state.json",
-        "https://materializedcss.dev/r/date-utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json",
+        "https://muhibahmed.github.io/materializedcss/r/button.json",
+        "https://muhibahmed.github.io/materializedcss/r/picker-input.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+        "https://muhibahmed.github.io/materializedcss/r/date-utils.json"
       ],
       "categories": [
         "forms"
@@ -971,8 +971,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/icons.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/icons.json"
       ],
       "categories": [
         "feedback"
@@ -994,8 +994,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json",
-        "https://materializedcss.dev/r/use-controllable-state.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json",
+        "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json"
       ],
       "categories": [
         "overlays"
@@ -1017,7 +1017,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://materializedcss.dev/r/utils.json"
+        "https://muhibahmed.github.io/materializedcss/r/utils.json"
       ],
       "categories": [
         "foundations"

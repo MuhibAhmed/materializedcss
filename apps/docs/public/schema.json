@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://materializedcss.dev/schema.json",
+  "$id": "https://muhibahmed.github.io/materializedcss/schema.json",
   "title": "materialized.json",
   "description": "Configuration for the materializedcss CLI.",
   "type": "object",

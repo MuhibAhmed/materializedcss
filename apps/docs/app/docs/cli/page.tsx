@@ -43,7 +43,7 @@ function RefTable({ rows, head }: { rows: Row[]; head: [string, string] }): Reac
 }
 
 const configExample = `{
-  "$schema": "https://materializedcss.dev/schema.json",
+  "$schema": "https://muhibahmed.github.io/materializedcss/schema.json",
   "style": "default",
   "rsc": true,
   "tsx": true,

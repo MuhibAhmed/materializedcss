@@ -275,7 +275,7 @@ export async function runInit(options: InitOptions, context: CommandContext): Pr
   logger.success(kleur.bold("materializedcss is ready."));
   logger.log(`  Add components:  ${kleur.cyan("npx materializedcss add button")}`);
   logger.log(`  Browse them:     ${kleur.cyan("npx materializedcss list")}`);
-  logger.log(kleur.dim("  Load the Roboto font (and Material Icons if you use <MaterialIcon>): see https://materializedcss.dev/docs/installation"));
+  logger.log(kleur.dim("  Load the Roboto font (and Material Icons if you use <MaterialIcon>): see https://muhibahmed.github.io/materializedcss/docs/installation"));
 
   return { config, configFile: path.join(cwd, CONFIG_FILE), cssFile: cssPath, themeFile, files, dependencies, installed };
 }

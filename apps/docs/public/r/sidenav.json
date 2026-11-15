@@ -8,9 +8,9 @@
     "radix-ui"
   ],
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json",
-    "https://materializedcss.dev/r/use-controllable-state.json",
-    "https://materializedcss.dev/r/icons.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json",
+    "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+    "https://muhibahmed.github.io/materializedcss/r/icons.json"
   ],
   "categories": [
     "navigation"

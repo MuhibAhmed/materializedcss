@@ -5,10 +5,10 @@
   "title": "Calendar",
   "description": "An accessible month grid with single or range selection, min/max and disabled days, event dots and a built-in month/year picker.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json",
-    "https://materializedcss.dev/r/icons.json",
-    "https://materializedcss.dev/r/use-controllable-state.json",
-    "https://materializedcss.dev/r/date-utils.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json",
+    "https://muhibahmed.github.io/materializedcss/r/icons.json",
+    "https://muhibahmed.github.io/materializedcss/r/use-controllable-state.json",
+    "https://muhibahmed.github.io/materializedcss/r/date-utils.json"
   ],
   "categories": [
     "data display"

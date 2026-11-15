@@ -31,7 +31,7 @@ import { Button, Card } from "materializedcss";
 import { Modal } from "materializedcss/modal";
 ```
 
-Requires React 19 and Tailwind CSS v4.
+Requires React 19 and Tailwind CSS v4. See the [docs and live demos](https://muhibahmed.github.io/materializedcss/).
 
 ## Credits
 

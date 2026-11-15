@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CodeBlock } from "~/components/docs/code-block";
 import { ComponentDoc } from "~/components/docs/component-doc";
@@ -26,7 +27,7 @@ export default function PreloaderPage(): React.JSX.Element {
         <CodeBlock code={`import { Preloader } from "@/components/ui/preloader";`} />
         <CodeBlock className="mt-3" code={`<Preloader />`} />
         <p>
-          For a linear bar, see <a href="/docs/components/progress" className="underline">Progress</a>.
+          For a linear bar, see <Link href="/docs/components/progress" className="underline">Progress</Link>.
         </p>
       </DocSection>
 

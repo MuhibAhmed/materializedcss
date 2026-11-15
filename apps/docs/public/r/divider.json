@@ -5,7 +5,7 @@
   "title": "Divider",
   "description": "A 1px horizontal or vertical line in the border color.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json"
   ],
   "categories": [
     "foundations"

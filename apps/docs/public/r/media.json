@@ -5,7 +5,7 @@
   "title": "Media",
   "description": "Responsive images, circle images and aspect-ratio video embeds.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json"
   ],
   "categories": [
     "media & motion"

@@ -5,7 +5,7 @@
   "title": "Table",
   "description": "Data tables with striped rows, hover highlight, centered text and a responsive scroll container.",
   "registryDependencies": [
-    "https://materializedcss.dev/r/utils.json"
+    "https://muhibahmed.github.io/materializedcss/r/utils.json"
   ],
   "categories": [
     "data display"
