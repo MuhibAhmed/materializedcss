@@ -105,3 +105,7 @@ export function MaterialIcon({ name, size, className, style, ...props }: Materia
     </span>
   );
 }
+
+// Media controls (carousel, slider).
+export const PauseIcon: SvgIcon = createIcon("M6 19h4V5H6v14zm8-14v14h4V5h-4z", "PauseIcon");
+export const PlayArrowIcon: SvgIcon = createIcon("M8 5v14l11-7z", "PlayArrowIcon");

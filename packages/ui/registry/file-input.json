@@ -1,0 +1,16 @@
+{
+  "name": "file-input",
+  "type": "registry:ui",
+  "title": "File Input",
+  "description": "Materialize file field: a raised button and a read-only path field listing the selected files, with drag and drop.",
+  "category": "Forms",
+  "dependencies": ["class-variance-authority"],
+  "registryDependencies": ["utils", "use-ripple", "icons", "button", "text-field"],
+  "files": [{ "path": "components/ui/file-input.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "The real input[type=file] stays focusable (visually hidden, not an invisible overlay), so Tab, Enter and Space work and the button shows a focus ring.",
+    "The button and label name the file input; helper and error text are linked with aria-describedby.",
+    "Drag and drop files onto the field, filtered by accept and multiple.",
+    "The path field follows form resets and an optional clear button, and onFilesChange reports the File objects."
+  ]
+}

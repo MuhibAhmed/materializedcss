@@ -1,0 +1,17 @@
+{
+  "name": "range",
+  "type": "registry:ui",
+  "title": "Range",
+  "description": "Material range slider with the signature value bubble, multiple thumbs, steps and vertical orientation.",
+  "category": "Forms",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "use-controllable-state"],
+  "files": [{ "path": "components/ui/range.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Built on Radix Slider: real role=\"slider\" thumbs with arrow, Page Up/Down and Home/End keys, touch and pointer support.",
+    "Two or more thumbs for selecting a range, which native input[type=range] could not do.",
+    "The value bubble also appears for keyboard users, and its text and aria-valuetext can be formatted (currency, units).",
+    "Controlled values update the thumbs and the bubble; name submits the value with the form.",
+    "Vertical orientation, disabled state and reduced motion support."
+  ]
+}

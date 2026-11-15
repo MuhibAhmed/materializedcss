@@ -1,0 +1,17 @@
+{
+  "name": "text-field",
+  "type": "registry:ui",
+  "title": "Text Field",
+  "description": "Materialize text inputs with a floating label, prefix icon, helper and error text, character counter and an outlined variant.",
+  "category": "Forms",
+  "dependencies": ["class-variance-authority"],
+  "registryDependencies": ["utils"],
+  "files": [{ "path": "components/ui/text-field.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "The floating label is pure CSS (:placeholder-shown, :focus, :autofill), so autofilled and programmatically set values never overlap it. No M.updateTextFields().",
+    "Label, helper text, error message and counter are wired with id, aria-describedby and aria-invalid; error messages are announced.",
+    "The character counter announces politely after typing pauses instead of on every keystroke.",
+    "Opt-in validate uses :user-invalid, so fields only turn red after the user has interacted.",
+    "New outlined variant, and shared building blocks reused by Textarea, Select, Autocomplete and Chips."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "switch",
+  "type": "registry:ui",
+  "title": "Switch",
+  "description": "The Materialize lever switch with optional Off/On text, built on an accessible switch role.",
+  "category": "Forms",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils"],
+  "files": [{ "path": "components/ui/switch.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Exposed as role=switch with aria-checked; Space and Enter toggle it.",
+    "The Off/On text is decorative, so screen readers announce the real label and state instead of reading Off On.",
+    "Focus and press halos match Materialize, and the focus halo only shows for keyboard focus.",
+    "Works in native forms (name/value) and supports controlled or uncontrolled checked state.",
+    "Transitions are turned off when the user prefers reduced motion; colors follow dark mode."
+  ]
+}

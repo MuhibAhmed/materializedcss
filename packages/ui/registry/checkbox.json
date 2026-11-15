@@ -1,0 +1,17 @@
+{
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "Materialize checkboxes with the morphing tick, a filled-in style and an indeterminate state.",
+  "category": "Forms",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils"],
+  "files": [{ "path": "components/ui/checkbox.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Built on Radix Checkbox: role=checkbox with aria-checked, Space toggles, and a native input is still submitted with forms.",
+    "Indeterminate state (aria-checked=mixed) for both the default and filled-in styles.",
+    "Visible focus halo for keyboard users, tinted with the secondary color when checked.",
+    "Label and description are wired with htmlFor and aria-describedby instead of relying on a sibling span.",
+    "Transitions are turned off when the user prefers reduced motion; colors follow dark mode."
+  ]
+}

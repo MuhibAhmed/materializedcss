@@ -1,0 +1,17 @@
+{
+  "name": "radio-group",
+  "type": "registry:ui",
+  "title": "Radio Group",
+  "description": "Materialize radio buttons, filled or with-gap, as an accessible radio group with arrow-key navigation.",
+  "category": "Forms",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils"],
+  "files": [{ "path": "components/ui/radio-group.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Built on Radix RadioGroup: one tab stop, arrow keys move and select, and the group is exposed as role=radiogroup.",
+    "Controlled or uncontrolled value; name and required work in native forms.",
+    "Visible focus halo for keyboard users.",
+    "The with-gap style is a prop on the group (or per item) instead of a class on every input.",
+    "Transitions are turned off when the user prefers reduced motion; colors follow dark mode."
+  ]
+}

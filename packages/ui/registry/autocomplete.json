@@ -1,0 +1,17 @@
+{
+  "name": "autocomplete",
+  "type": "registry:ui",
+  "title": "Autocomplete",
+  "description": "Text field with a suggestion list: static data or async loading, highlighted matches and full keyboard support.",
+  "category": "Forms",
+  "dependencies": ["@floating-ui/react"],
+  "registryDependencies": ["utils", "text-field"],
+  "files": [{ "path": "components/ui/autocomplete.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "No XSS: matches are highlighted with React nodes, never innerHTML (Materialize CVE-2019-11003), and image URLs are scheme-checked.",
+    "Implements the WAI-ARIA combobox pattern: role=combobox, aria-expanded, aria-controls, aria-activedescendant and a listbox of options, plus a live result count.",
+    "Async loadOptions(query, signal) with debounce, AbortController cancellation and loading/empty states.",
+    "The list is portalled and positioned with Floating UI (flip, shift, size), so it is never clipped by overflow containers or modals.",
+    "Arrow keys, Home/End, Enter and Escape work; controlled and uncontrolled values."
+  ]
+}

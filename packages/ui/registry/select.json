@@ -1,0 +1,17 @@
+{
+  "name": "select",
+  "type": "registry:ui",
+  "title": "Select",
+  "description": "Materialize selects: a Radix-powered dropdown, a styled native select and a multiple select with checkboxes.",
+  "category": "Forms",
+  "dependencies": ["radix-ui", "class-variance-authority"],
+  "registryDependencies": ["utils", "use-controllable-state", "icons", "text-field"],
+  "files": [{ "path": "components/ui/select.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Built on Radix Select: touch taps pick the tapped option (the iOS wrong-item bug) and the dropdown never opens and closes immediately.",
+    "The dropdown is portaled and repositioned with collision detection, so it is never clipped by modals or overflow: hidden containers.",
+    "Fully controlled or uncontrolled: values changed from React state show up right away, with no re-initialisation.",
+    "Proper ARIA (combobox and listbox) and keyboard support: arrows, Home/End, type-ahead, Enter/Space and Escape with focus return.",
+    "Works in native forms (name, required) and ships a NativeSelect for touch devices and a MultiSelect with checkboxes."
+  ]
+}

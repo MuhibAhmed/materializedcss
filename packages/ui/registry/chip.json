@@ -1,0 +1,16 @@
+{
+  "name": "chip",
+  "type": "registry:ui",
+  "title": "Chip",
+  "description": "Compact pills for tags, contacts and filters, with an optional avatar image and close button.",
+  "category": "Forms",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "icons"],
+  "files": [{ "path": "components/ui/chip.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "The close button is a real button with an accessible name (\"Remove <label>\"), not a clickable icon font glyph.",
+    "Image URLs are plain <img> props with unsafe schemes dropped, never concatenated into HTML.",
+    "Selected and keyboard-focus states use the secondary color; dark mode via tokens.",
+    "asChild turns any element (button with aria-pressed, link) into a chip for filter or choice chips."
+  ]
+}

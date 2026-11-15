@@ -1,0 +1,16 @@
+{
+  "name": "textarea",
+  "type": "registry:ui",
+  "title": "Textarea",
+  "description": "Auto-resizing multi-line text field with the same floating label, helper text and character counter as Text Field.",
+  "category": "Forms",
+  "dependencies": [],
+  "registryDependencies": ["utils", "text-field"],
+  "files": [{ "path": "components/ui/textarea.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Grows with CSS field-sizing: content (no hidden clone div); a scrollHeight + ResizeObserver fallback covers older browsers.",
+    "minRows and maxRows limits; past maxRows it scrolls instead of growing forever.",
+    "Values set from state or autofill float the label without M.textareaAutoResize().",
+    "Character counter, helper and error text are linked with aria-describedby."
+  ]
+}

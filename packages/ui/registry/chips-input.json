@@ -1,0 +1,17 @@
+{
+  "name": "chips-input",
+  "type": "registry:ui",
+  "title": "Chips Input",
+  "description": "Tag input that turns typed text into chips, with keyboard editing, limits and optional suggestions.",
+  "category": "Forms",
+  "dependencies": [],
+  "registryDependencies": ["utils", "chip", "text-field", "autocomplete"],
+  "files": [{ "path": "components/ui/chips-input.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Controlled or uncontrolled value (strings or { tag, image }), with onAdd/onDelete and a name for form submission.",
+    "Full keyboard model: Enter or comma adds, Backspace or Left Arrow moves to the chips, arrows and Home/End move between them (roving tabindex), Delete/Backspace removes.",
+    "Additions and removals are announced; chips have accessible remove buttons.",
+    "Suggestions reuse the accessible Autocomplete combobox, portalled so they are never clipped.",
+    "No image src injection: chip images are plain <img> props with unsafe schemes dropped."
+  ]
+}
