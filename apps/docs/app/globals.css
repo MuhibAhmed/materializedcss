@@ -40,16 +40,21 @@
   min-width: 100%;
 }
 
-/* Inline code and simple prose used across docs pages. */
+/*
+ * Inline code and simple prose used across docs pages. Every selector is wrapped
+ * in :where() so it adds no specificity beyond .docs-prose, and skips anything
+ * inside a live preview ([data-preview]) or a component part ([data-slot]), so
+ * prose styles never leak into the components being demonstrated.
+ */
 @utility docs-prose {
-  & p {
+  & :where(p:not([data-preview] *, [data-slot] *)) {
     line-height: 1.75;
     color: var(--muted-foreground);
   }
-  & p + p {
+  & :where(p + p:not([data-preview] *, [data-slot] *)) {
     margin-top: 0.75rem;
   }
-  & a:not([data-slot]) {
+  & :where(a:not([data-slot], [data-preview] *, [data-slot] *)) {
     color: var(--link);
     text-decoration: underline;
     text-decoration-color: color-mix(in oklab, var(--link) 45%, transparent);
@@ -58,7 +63,7 @@
       text-decoration-color: currentColor;
     }
   }
-  & :not(pre) > code {
+  & :where(:not(pre) > code:not([data-preview] *, [data-slot] *)) {
     border-radius: 4px;
     background-color: var(--surface-hover);
     padding: 0.1rem 0.35rem;
@@ -66,7 +71,7 @@
     font-size: 0.85em;
     color: var(--foreground);
   }
-  & ul {
+  & :where(ul:not([data-slot], [data-preview] *, [data-slot] *)) {
     list-style: disc;
     padding-left: 1.25rem;
     color: var(--muted-foreground);
