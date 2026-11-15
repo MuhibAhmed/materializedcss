@@ -1,0 +1,16 @@
+{
+  "name": "materialbox",
+  "type": "registry:ui",
+  "title": "Materialbox",
+  "description": "Click an image to zoom it to fit the screen, with a dark overlay and an optional caption.",
+  "category": "Media & Motion",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "use-controllable-state", "icons"],
+  "files": [{ "path": "components/ui/materialbox.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "FLIP animation into a portal: no more forcing overflow: visible on every ancestor.",
+    "Keyboard accessible: the thumbnail is a button, Escape closes, focus returns to it.",
+    "alt is required and names both the button and the dialog.",
+    "Closes on a deliberate scroll or swipe instead of any scroll event; width/height pass through correctly."
+  ]
+}

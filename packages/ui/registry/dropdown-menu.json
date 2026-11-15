@@ -1,0 +1,16 @@
+{
+  "name": "dropdown-menu",
+  "type": "registry:ui",
+  "title": "Dropdown Menu",
+  "description": "Menus that cover their trigger, with icons, dividers, submenus, checkbox and radio items and a hover mode.",
+  "category": "Overlays",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "use-controllable-state", "icons"],
+  "files": [{ "path": "components/ui/dropdown-menu.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Radix menu semantics: arrow keys, type-ahead, Home/End, Escape and focus return to the trigger.",
+    "Rendered in a portal with flip/shift collision handling, so menus are never clipped by overflow containers or pushed off-screen.",
+    "Hover mode stays keyboard and touch accessible.",
+    "Adds submenus, checkbox and radio items, labels and shortcuts."
+  ]
+}

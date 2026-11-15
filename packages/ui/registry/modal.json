@@ -1,0 +1,17 @@
+{
+  "name": "modal",
+  "type": "registry:ui",
+  "title": "Modal",
+  "description": "Dialogs with a header, scrolling body and action footer, plus fixed-footer and bottom-sheet variants.",
+  "category": "Overlays",
+  "dependencies": ["radix-ui", "class-variance-authority"],
+  "registryDependencies": ["utils", "use-controllable-state"],
+  "files": [{ "path": "components/ui/modal.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Built on Radix Dialog: role=\"dialog\", aria-labelledby/aria-describedby, focus trap and focus returned to the trigger.",
+    "Overlays are removed with their modal, so no stray overlay is left behind (#1647).",
+    "Nested modals stack by open order, without a global z-index counter.",
+    "Scroll lock compensates for the scrollbar width and works on iOS Safari.",
+    "dismissible and preventScrolling are reactive props, and open state can be controlled."
+  ]
+}

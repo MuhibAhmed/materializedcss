@@ -1,0 +1,16 @@
+{
+  "name": "tooltip",
+  "type": "registry:ui",
+  "title": "Tooltip",
+  "description": "Snackbar-colored hints that slide in from any side on hover, keyboard focus or long-press.",
+  "category": "Overlays",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "use-controllable-state"],
+  "files": [{ "path": "components/ui/tooltip.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Content is a React node, never HTML, fixing the XSS in Materialize's html option (CVE-2019-11002).",
+    "Opens on keyboard focus and touch long-press, closes on Escape, and is linked with aria-describedby.",
+    "Radix state handling prevents stuck tooltips (#3566); hovering the tooltip keeps it open.",
+    "Collision-aware positioning flips and shifts tooltips back into the viewport."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sidenav",
+  "type": "registry:ui",
+  "title": "Sidenav",
+  "description": "Off-canvas navigation drawer with edge swipe gestures, user view, subheaders and collapsible groups, or a fixed desktop sidenav.",
+  "category": "Navigation",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "use-controllable-state", "icons"],
+  "files": [{ "path": "components/ui/sidenav.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Radix Dialog drawer: focus is trapped, Escape closes it and focus returns to the trigger.",
+    "The overlay is unmounted with the drawer, so it never stays after closing (#3872).",
+    "Swipe-to-open and drag-to-close use Pointer Events with touch-action: pan-y and honour reduced motion.",
+    "The edge drag target is rendered by React and removed on unmount instead of leaking into <body>.",
+    "variant=\"fixed\" renders a static <nav> from a breakpoint up and a drawer below it."
+  ]
+}

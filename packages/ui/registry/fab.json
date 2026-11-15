@@ -1,0 +1,16 @@
+{
+  "name": "fab",
+  "type": "registry:ui",
+  "title": "Floating Action Button",
+  "description": "A fixed floating button that reveals mini action buttons in any direction, or morphs into a toolbar.",
+  "category": "Actions",
+  "dependencies": [],
+  "registryDependencies": ["utils", "use-controllable-state", "button"],
+  "files": [{ "path": "components/ui/fab.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Menu button pattern: aria-haspopup, aria-expanded, arrow keys between actions, Escape closes and refocuses.",
+    "Hover mode still works with touch, click and keyboard.",
+    "Staggered CSS transitions without anime.js, disabled for reduced motion.",
+    "position=\"static\" for inline use and a clip-path toolbar morph."
+  ]
+}

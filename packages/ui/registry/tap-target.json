@@ -1,0 +1,16 @@
+{
+  "name": "tap-target",
+  "type": "registry:ui",
+  "title": "Tap Target",
+  "description": "Feature discovery: a large circle expands around an element to introduce it.",
+  "category": "Feedback",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "use-controllable-state"],
+  "files": [{ "path": "components/ui/tap-target.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "role=\"dialog\" labelled by its title; focus moves to the text and back to where it was.",
+    "Escape and outside clicks close it; it follows its target on scroll and resize.",
+    "Keeps Materialize's quadrant placement but clamps the text inside the viewport on small screens.",
+    "Controlled or uncontrolled open state and reduced-motion support."
+  ]
+}

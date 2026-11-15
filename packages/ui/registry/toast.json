@@ -1,0 +1,17 @@
+{
+  "name": "toast",
+  "type": "registry:ui",
+  "title": "Toast",
+  "description": "Snackbar notifications from an imperative toast() call, with actions, a queue and swipe to dismiss.",
+  "category": "Feedback",
+  "dependencies": ["class-variance-authority"],
+  "registryDependencies": ["utils", "icons"],
+  "files": [{ "path": "components/ui/toast.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Content is a React node, never HTML, fixing the XSS in Materialize's html option (CVE-2019-11004).",
+    "Announced through persistent aria-live regions (assertive for errors).",
+    "Timers pause on hover, focus and when the window loses focus.",
+    "Swipe to dismiss uses Pointer Events; no global listeners leak after a toast closes.",
+    "A queue limits how many toasts are visible at once."
+  ]
+}
