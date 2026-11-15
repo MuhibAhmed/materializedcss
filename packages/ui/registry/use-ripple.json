@@ -1,0 +1,7 @@
+{
+  "name": "use-ripple",
+  "type": "registry:hook",
+  "title": "useRipple",
+  "description": "Material ink ripple (Materialize Waves) as a React hook.",
+  "files": [{ "path": "hooks/use-ripple.ts", "type": "registry:hook" }]
+}

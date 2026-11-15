@@ -1,0 +1,23 @@
+{
+  "name": "materializedcss-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "npm run dev -w docs",
+    "build": "npm run build -w materializedcss && npm run build -w docs",
+    "build:ui": "npm run build -w materializedcss",
+    "registry": "npm run registry -w materializedcss",
+    "typecheck": "npm run typecheck -w materializedcss && npm run typecheck -w docs",
+    "test": "npm run test -w materializedcss",
+    "e2e": "playwright test",
+    "e2e:chromium": "playwright test --project=chromium"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  },
+  "engines": { "node": ">=22.12" }
+}

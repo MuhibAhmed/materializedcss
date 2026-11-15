@@ -1,0 +1,9 @@
+{
+  "name": "icons",
+  "type": "registry:ui",
+  "title": "Icons",
+  "description": "Inline Material Design SVG icons used by the components, plus a MaterialIcon font helper.",
+  "category": "Foundations",
+  "registryDependencies": ["utils"],
+  "files": [{ "path": "components/ui/icons.tsx", "type": "registry:ui" }]
+}

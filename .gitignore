@@ -1,0 +1,12 @@
+node_modules
+dist
+.next
+out
+*.tsbuildinfo
+test-results
+playwright-report
+blob-report
+.playwright
+*.tgz
+.DS_Store
+next-env.d.ts

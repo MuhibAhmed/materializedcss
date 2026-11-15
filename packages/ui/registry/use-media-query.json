@@ -1,0 +1,7 @@
+{
+  "name": "use-media-query",
+  "type": "registry:hook",
+  "title": "useMediaQuery",
+  "description": "Subscribe to a CSS media query, plus usePrefersReducedMotion.",
+  "files": [{ "path": "hooks/use-media-query.ts", "type": "registry:hook" }]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "utils",
+  "type": "registry:lib",
+  "title": "Utilities",
+  "description": "The cn() class merger and small helpers shared by every component.",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "registry/materializedcss/lib/utils.ts",
+      "type": "registry:lib",
+      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\n/** Merge class names, resolving conflicting Tailwind utilities (last one wins). */\nexport function cn(...inputs: ClassValue[]): string {\n  return twMerge(clsx(inputs));\n}\n\n/** Compose several event handlers; stops when a handler calls `preventDefault()`. */\nexport function composeEventHandlers<E extends { defaultPrevented: boolean }>(\n  ...handlers: Array<((event: E) => void) | undefined>\n): (event: E) => void {\n  return (event: E) => {\n    for (const handler of handlers) {\n      handler?.(event);\n      if (event.defaultPrevented) return;\n    }\n  };\n}\n\n/** True when the user asked the OS to minimise animation. Safe to call during SSR. */\nexport function prefersReducedMotion(): boolean {\n  return typeof window !== \"undefined\" && window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n}\n"
+    }
+  ]
+}

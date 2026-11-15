@@ -1,0 +1,83 @@
+{
+  "name": "materializedcss",
+  "version": "0.1.0",
+  "description": "Material Design (Materialize) components rebuilt for React 19, Tailwind CSS v4 and TypeScript. Copy them into your app with the CLI or import them from npm.",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "materialize",
+    "material-design",
+    "react",
+    "tailwindcss",
+    "components",
+    "shadcn",
+    "ui"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "bin": {
+    "materializedcss": "./dist/cli/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./theme.css": "./dist/theme.css",
+    "./utils": {
+      "types": "./dist/lib/utils.d.ts",
+      "import": "./dist/lib/utils.js"
+    },
+    "./hooks/*": {
+      "types": "./dist/hooks/*.d.ts",
+      "import": "./dist/hooks/*.js"
+    },
+    "./*": {
+      "types": "./dist/components/ui/*.d.ts",
+      "import": "./dist/components/ui/*.js"
+    },
+    "./package.json": "./package.json",
+    "./styles.css": "./dist/styles.css"
+  },
+  "scripts": {
+    "build": "tsx scripts/clean.ts && tsx scripts/build-registry.ts && tsdown && tsc -p tsconfig.build.json && tsx scripts/fix-dts.ts",
+    "dev": "tsdown --watch",
+    "registry": "tsx scripts/build-registry.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.27.20",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "radix-ui": "^1.8.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.3",
+    "@types/prompts": "^2.4.9",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "commander": "^15.1.0",
+    "jsdom": "^31.0.1",
+    "kleur": "^4.1.5",
+    "prompts": "^2.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.5",
+    "tsdown": "^0.23.7",
+    "tsx": "^4.23.15",
+    "vitest": "^5.1.0"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "materializedcss",
+  "homepage": "https://materializedcss.dev",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Raised, flat, outlined and floating buttons with ink ripples, sizes, colors and a pulse effect.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-ripple.json"
+      ],
+      "categories": [
+        "actions"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "icons",
+      "type": "registry:ui",
+      "title": "Icons",
+      "description": "Inline Material Design SVG icons used by the components, plus a MaterialIcon font helper.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "foundations"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/icons.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-controllable-state",
+      "type": "registry:hook",
+      "title": "useControllableState",
+      "description": "State that works controlled or uncontrolled.",
+      "files": [
+        {
+          "path": "registry/materializedcss/hooks/use-controllable-state.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "useMediaQuery",
+      "description": "Subscribe to a CSS media query, plus usePrefersReducedMotion.",
+      "files": [
+        {
+          "path": "registry/materializedcss/hooks/use-media-query.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-ripple",
+      "type": "registry:hook",
+      "title": "useRipple",
+      "description": "Material ink ripple (Materialize Waves) as a React hook.",
+      "files": [
+        {
+          "path": "registry/materializedcss/hooks/use-ripple.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utilities",
+      "description": "The cn() class merger and small helpers shared by every component.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    }
+  ]
+}

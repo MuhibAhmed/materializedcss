@@ -1,0 +1,9 @@
+/*
+ * materializedcss — stylesheet for npm-package mode.
+ *
+ * Import this (after `@import "tailwindcss";`) when you import components from
+ * the "materializedcss" package instead of copying them with the CLI. It adds the
+ * theme tokens and tells Tailwind to scan the package's compiled components.
+ */
+@import "./theme.css";
+@source "./";

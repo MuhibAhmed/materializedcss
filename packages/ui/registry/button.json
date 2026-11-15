@@ -1,0 +1,16 @@
+{
+  "name": "button",
+  "type": "registry:ui",
+  "title": "Button",
+  "description": "Raised, flat, outlined and floating buttons with ink ripples, sizes, colors and a pulse effect.",
+  "category": "Actions",
+  "dependencies": ["radix-ui", "class-variance-authority"],
+  "registryDependencies": ["utils", "use-ripple"],
+  "files": [{ "path": "components/ui/button.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Pointer Events ripple: no double-firing on touch devices, sized to the farthest corner, no global listeners.",
+    "Ripples are skipped when the user prefers reduced motion.",
+    "Visible keyboard focus ring and a hover/focus/press state layer that works in any color.",
+    "asChild renders links (or any element) with button styling; disabled links use aria-disabled."
+  ]
+}
