@@ -5,6 +5,74 @@
   "items": [
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "Text field with a suggestion list: static data or async loading, highlighted matches and full keyboard support.",
+      "dependencies": [
+        "@floating-ui/react"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/text-field.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/autocomplete.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Counts and \"new\" notification badges for collections, navbars and lists.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "data display"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "breadcrumbs",
+      "type": "registry:ui",
+      "title": "Breadcrumbs",
+      "description": "A trail of links to the current page with chevron separators, standalone or inside a navbar.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json"
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/breadcrumbs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
@@ -29,6 +97,343 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "An accessible month grid with single or range selection, min/max and disabled days, event dots and a built-in month/year picker.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/date-utils.json"
+      ],
+      "categories": [
+        "data display"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Raised surfaces with images, titles, actions, a reveal panel, horizontal layout and fixed sizes.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/use-controllable-state.json"
+      ],
+      "categories": [
+        "layout"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/card.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/materializedcss/components/ui/card-reveal.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "The 3D cover-flow carousel and a full-width slider, with drag, swipe, keyboard, indicators and accessible autoplay.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/use-media-query.json"
+      ],
+      "categories": [
+        "media & motion"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Materialize checkboxes with the morphing tick, a filled-in style and an indeterminate state.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "Compact pills for tags, contacts and filters, with an optional avatar image and close button.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/chip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chips-input",
+      "type": "registry:ui",
+      "title": "Chips Input",
+      "description": "Tag input that turns typed text into chips, with keyboard editing, limits and optional suggestions.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/chip.json",
+        "https://materializedcss.dev/r/text-field.json",
+        "https://materializedcss.dev/r/autocomplete.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/chips-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Accordion and expandable lists of sections, plus the popout style and a single collapsible section.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json"
+      ],
+      "categories": [
+        "layout"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "collection",
+      "type": "registry:ui",
+      "title": "Collection",
+      "description": "Bordered lists with headers, avatars, secondary content and link collections.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "data display"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/collection.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "date-utils",
+      "type": "registry:lib",
+      "title": "Date utilities",
+      "description": "Dependency-free date and time helpers (calendar matrix, Intl names, first day of week, locale-aware parsing) used by the pickers.",
+      "files": [
+        {
+          "path": "registry/materializedcss/lib/date.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "datepicker",
+      "type": "registry:ui",
+      "title": "Datepicker",
+      "description": "A date field that opens Materialize's modal calendar, or an anchored popover, with typing, i18n and form support.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/button.json",
+        "https://materializedcss.dev/r/calendar.json",
+        "https://materializedcss.dev/r/picker-input.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/date-utils.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/datepicker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "divider",
+      "type": "registry:ui",
+      "title": "Divider",
+      "description": "A 1px horizontal or vertical line in the border color.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "foundations"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/divider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Menus that cover their trigger, with icons, dividers, submenus, checkbox and radio items and a hover mode.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/icons.json"
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "fab",
+      "type": "registry:ui",
+      "title": "Floating Action Button",
+      "description": "A fixed floating button that reveals mini action buttons in any direction, or morphs into a toolbar.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/button.json"
+      ],
+      "categories": [
+        "actions"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/fab.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "file-input",
+      "type": "registry:ui",
+      "title": "File Input",
+      "description": "Materialize file field: a raised button and a read-only path field listing the selected files, with drag and drop.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-ripple.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/button.json",
+        "https://materializedcss.dev/r/text-field.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/file-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "footer",
+      "type": "registry:ui",
+      "title": "Footer",
+      "description": "Page footer with columns, links and a copyright strip.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "layout"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/footer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "icons",
       "type": "registry:ui",
       "title": "Icons",
@@ -42,6 +447,584 @@
       "files": [
         {
           "path": "registry/materializedcss/components/ui/icons.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "materialbox",
+      "type": "registry:ui",
+      "title": "Materialbox",
+      "description": "Click an image to zoom it to fit the screen, with a dark overlay and an optional caption.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/icons.json"
+      ],
+      "categories": [
+        "media & motion"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/materialbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "media",
+      "type": "registry:ui",
+      "title": "Media",
+      "description": "Responsive images, circle images and aspect-ratio video embeds.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "media & motion"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/media.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "modal",
+      "type": "registry:ui",
+      "title": "Modal",
+      "description": "Dialogs with a header, scrolling body and action footer, plus fixed-footer and bottom-sheet variants.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json"
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/modal.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "navbar",
+      "type": "registry:ui",
+      "title": "Navbar",
+      "description": "Top app bar with a brand logo, links, icons, buttons, an extended row, sticky positioning and a search field.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/use-controllable-state.json"
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/navbar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Square page links with chevrons, as composable parts or a ready-made control with ellipses.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/use-controllable-state.json"
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "parallax",
+      "type": "registry:ui",
+      "title": "Parallax",
+      "description": "A container whose background image scrolls slower than the page.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-media-query.json"
+      ],
+      "categories": [
+        "media & motion"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/parallax.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "picker-input",
+      "type": "registry:ui",
+      "title": "Picker Input",
+      "description": "Shared Materialize-style field, modal shell and footer used by the date and time pickers.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/date-utils.json"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/picker-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "preloader",
+      "type": "registry:ui",
+      "title": "Preloader",
+      "description": "Material circular spinner with Materialize's exact timings, three sizes and a four-color mode.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/preloader.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Thin linear progress bar: determinate with a smooth width transition, or the two-bar indeterminate loop.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "pushpin",
+      "type": "registry:ui",
+      "title": "Pushpin",
+      "description": "Pin an element while its section scrolls, with pin-top, pinned and pin-bottom states.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "media & motion"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/pushpin.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Materialize radio buttons, filled or with-gap, as an accessible radio group with arrow-key navigation.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "range",
+      "type": "registry:ui",
+      "title": "Range",
+      "description": "Material range slider with the signature value bubble, multiple thumbs, steps and vertical orientation.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/range.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Materialize selects: a Radix-powered dropdown, a styled native select and a multiple select with checkboxes.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/text-field.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sidenav",
+      "type": "registry:ui",
+      "title": "Sidenav",
+      "description": "Off-canvas navigation drawer with edge swipe gestures, user view, subheaders and collapsible groups, or a fixed desktop sidenav.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/icons.json"
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/sidenav.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A full-width image slide show with crossfading slides, animated captions and indicator dots.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/carousel.json"
+      ],
+      "categories": [
+        "media & motion"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "The Materialize lever switch with optional Off/On text, built on an accessible switch role.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "table-of-contents",
+      "type": "registry:ui",
+      "title": "Table of Contents",
+      "description": "Scrollspy links to the sections of a page, highlighting the section being read.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-scroll-spy.json",
+        "https://materializedcss.dev/r/use-media-query.json"
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/table-of-contents.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Data tables with striped rows, hover highlight, centered text and a responsive scroll container.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "data display"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Scrollable Material tabs with the stretching underline indicator, fixed-width and transparent styles.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/use-ripple.json"
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tap-target",
+      "type": "registry:ui",
+      "title": "Tap Target",
+      "description": "Feature discovery: a large circle expands around an element to introduce it.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json"
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/tap-target.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "text-field",
+      "type": "registry:ui",
+      "title": "Text Field",
+      "description": "Materialize text inputs with a floating label, prefix icon, helper and error text, character counter and an outlined variant.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/text-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Auto-resizing multi-line text field with the same floating label, helper text and character counter as Text Field.",
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/text-field.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "timepicker",
+      "type": "registry:ui",
+      "title": "Timepicker",
+      "description": "Materialize's clock-dial time picker in a modal, with keyboard spinbuttons, localized AM/PM and an HH:mm value.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json",
+        "https://materializedcss.dev/r/button.json",
+        "https://materializedcss.dev/r/picker-input.json",
+        "https://materializedcss.dev/r/use-controllable-state.json",
+        "https://materializedcss.dev/r/date-utils.json"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/timepicker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Snackbar notifications from an imperative toast() call, with actions, a queue and swipe to dismiss.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/icons.json"
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Snackbar-colored hints that slide in from any side on hover, keyboard focus or long-press.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json",
+        "https://materializedcss.dev/r/use-controllable-state.json"
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "typography",
+      "type": "registry:ui",
+      "title": "Typography",
+      "description": "Materialize headings, blockquotes, flow text and text helpers built on Roboto.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://materializedcss.dev/r/utils.json"
+      ],
+      "categories": [
+        "foundations"
+      ],
+      "files": [
+        {
+          "path": "registry/materializedcss/components/ui/typography.tsx",
           "type": "registry:ui"
         }
       ]
@@ -81,6 +1064,19 @@
       "files": [
         {
           "path": "registry/materializedcss/hooks/use-ripple.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-scroll-spy",
+      "type": "registry:hook",
+      "title": "useScrollSpy",
+      "description": "Return the id of the section being read, using an IntersectionObserver line at scrollOffset.",
+      "files": [
+        {
+          "path": "registry/materializedcss/hooks/use-scroll-spy.ts",
           "type": "registry:hook"
         }
       ]
