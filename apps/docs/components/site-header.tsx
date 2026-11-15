@@ -6,11 +6,44 @@ import { ModeToggle } from "~/components/mode-toggle";
 import { getComponentNav } from "~/lib/registry";
 import { designNav, examplesNav, gettingStartedNav, siteConfig } from "~/lib/site";
 
+/**
+ * The mark: an M folded from one strip of Material paper (red to the teal accent), with a
+ * Waves ripple. Same artwork as `.github/assets/logo.svg` and `app/icon.svg`.
+ */
 export function Logo({ className }: { className?: string }): React.JSX.Element {
   return (
-    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" className={className}>
-      <rect width="32" height="32" rx="6" fill="currentColor" opacity="0.18" />
-      <path d="M7 23V9l9 9 9-9v14" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 128 128" width="32" height="32" aria-hidden="true" className={className}>
+      <defs>
+        <linearGradient id="mz-bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#f4868a" />
+          <stop offset="1" stopColor="#e0484f" />
+        </linearGradient>
+        <linearGradient id="mz-back" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff1f1" />
+          <stop offset="1" stopColor="#f6c3c5" />
+        </linearGradient>
+        <linearGradient id="mz-teal" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor="#2bbbad" />
+          <stop offset="1" stopColor="#1c8379" />
+        </linearGradient>
+        <clipPath id="mz-tile">
+          <rect width="128" height="128" rx="30" />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#mz-tile)">
+        <rect width="128" height="128" fill="url(#mz-bg)" />
+        <g fill="none" stroke="#fff" strokeWidth="3">
+          <circle cx="106" cy="106" r="15" strokeOpacity=".28" />
+          <circle cx="106" cy="106" r="30" strokeOpacity=".16" />
+          <circle cx="106" cy="106" r="45" strokeOpacity=".08" />
+        </g>
+        <circle cx="106" cy="106" r="5" fill="#fff" fillOpacity=".55" />
+      </g>
+      <rect x="1.5" y="1.5" width="125" height="125" rx="28.5" fill="none" stroke="#fff" strokeOpacity=".35" strokeWidth="3" />
+      <path d="M26 96V34h16v62z" fill="#fff" />
+      <path d="M26 34h16l22 30v24z" fill="url(#mz-back)" />
+      <path d="M64 64l22-30h16L64 88z" fill="url(#mz-teal)" />
+      <path d="M86 34h16v62H86z" fill="#fff" />
     </svg>
   );
 }

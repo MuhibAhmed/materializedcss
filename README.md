@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src=".github/assets/logo.svg" width="72" height="72" alt="materializedcss logo" />
+<img src=".github/assets/logo.svg" width="96" height="96" alt="materializedcss logo" />
 
 # materializedcss
 
