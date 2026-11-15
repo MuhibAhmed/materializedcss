@@ -31,7 +31,7 @@
     "README.md"
   ],
   "bin": {
-    "materializedcss": "./dist/cli/index.js"
+    "materializedcss": "dist/cli/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
