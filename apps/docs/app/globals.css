@@ -51,9 +51,11 @@
   }
   & a:not([data-slot]) {
     color: var(--link);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--link) 45%, transparent);
     text-underline-offset: 3px;
     &:hover {
-      text-decoration: underline;
+      text-decoration-color: currentColor;
     }
   }
   & :not(pre) > code {

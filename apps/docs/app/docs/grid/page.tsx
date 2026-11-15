@@ -83,7 +83,7 @@ export default function GridPage(): React.JSX.Element {
       </DocSection>
 
       <DocSection title="Helper classes">
-        <div className="overflow-x-auto rounded-md border border-border">
+        <div tabIndex={0} role="region" aria-label="Reference table" className="overflow-x-auto rounded-md border border-border outline-none focus-visible:focus-ring">
           <table className="w-full text-left text-sm">
             <thead className="bg-surface-2 text-muted-foreground">
               <tr>

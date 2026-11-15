@@ -49,11 +49,11 @@ export function CommandMenu({ sections }: { sections: NavSection[] }): React.JSX
       <Dialog.Trigger asChild>
         <button
           type="button"
-          className="inline-flex h-9 w-full cursor-pointer items-center gap-2 rounded-sm bg-white/15 px-3 text-sm text-white/85 transition-colors hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-white sm:w-56"
+          className="inline-flex h-9 w-full cursor-pointer items-center gap-2 rounded-sm bg-black/20 px-3 text-sm text-white transition-colors hover:bg-black/30 focus-visible:outline-2 focus-visible:outline-white sm:w-56"
         >
           <SearchIcon className="size-5" />
           <span className="flex-1 text-left">Search docs…</span>
-          <kbd className="hidden rounded-sm bg-black/15 px-1.5 font-mono text-[11px] sm:inline">Ctrl K</kbd>
+          <kbd className="hidden rounded-sm bg-black/25 px-1.5 font-mono text-[11px] text-white sm:inline">Ctrl K</kbd>
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>

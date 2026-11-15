@@ -25,7 +25,7 @@ export function DocsNav({ sections, onNavigate }: { sections: NavSection[]; onNa
                     className={cn(
                       "flex h-8 items-center rounded-sm px-3 transition-colors",
                       active
-                        ? "bg-secondary/12 font-medium text-secondary"
+                        ? "bg-secondary/10 font-medium text-foreground shadow-[inset_3px_0_0_var(--color-secondary)]"
                         : "text-foreground/80 hover:bg-surface-hover hover:text-foreground",
                     )}
                   >

@@ -92,7 +92,12 @@ export function PropsTable({ props, title }: { props: PropDoc[]; title?: string 
   return (
     <div className="my-4">
       {title ? <p className="mb-2 font-mono text-sm font-medium text-foreground">{title}</p> : null}
-      <div className="overflow-x-auto rounded-md border border-border">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label={title ? `${title} props` : "Props"}
+        className="overflow-x-auto rounded-md border border-border outline-none focus-visible:focus-ring"
+      >
         <table className="w-full text-left text-sm">
           <thead className="bg-surface-2 text-muted-foreground">
             <tr>

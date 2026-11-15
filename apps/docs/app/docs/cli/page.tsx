@@ -19,7 +19,7 @@ interface Row {
 /** Two-column reference table (flag or field, description). */
 function RefTable({ rows, head }: { rows: Row[]; head: [string, string] }): React.JSX.Element {
   return (
-    <div className="my-4 overflow-x-auto rounded-md border border-border">
+    <div tabIndex={0} role="region" aria-label="Reference table" className="my-4 overflow-x-auto rounded-md border border-border outline-none focus-visible:focus-ring">
       <table className="w-full text-left text-sm">
         <thead className="bg-surface-2 text-muted-foreground">
           <tr>
