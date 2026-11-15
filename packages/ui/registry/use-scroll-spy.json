@@ -1,0 +1,7 @@
+{
+  "name": "use-scroll-spy",
+  "type": "registry:hook",
+  "title": "useScrollSpy",
+  "description": "Return the id of the section being read, using an IntersectionObserver line at scrollOffset.",
+  "files": [{ "path": "hooks/use-scroll-spy.ts", "type": "registry:hook" }]
+}

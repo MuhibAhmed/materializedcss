@@ -1,0 +1,18 @@
+{
+  "name": "tabs",
+  "type": "registry:ui",
+  "title": "Tabs",
+  "description": "Scrollable Material tabs with the stretching underline indicator, fixed-width and transparent styles.",
+  "category": "Navigation",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "use-controllable-state", "use-ripple"],
+  "files": [{ "path": "components/ui/tabs.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "The indicator is measured with a ResizeObserver, so it stays aligned with scrollbars, on resize, after fonts load, inside modals and collapsibles, and when first rendered hidden.",
+    "Correct indicator position in right-to-left layouts (set dir=\"rtl\").",
+    "Full WAI-ARIA tabs pattern from Radix: roving focus, arrow keys, Home/End, automatic or manual activation.",
+    "The active tab is scrolled into view inside the tab strip without scrolling the page.",
+    "Inactive labels meet WCAG AA contrast, and keyboard focus is clearly visible.",
+    "Controlled and uncontrolled value with onValueChange."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "table-of-contents",
+  "type": "registry:ui",
+  "title": "Table of Contents",
+  "description": "Scrollspy links to the sections of a page, highlighting the section being read.",
+  "category": "Navigation",
+  "registryDependencies": ["utils", "use-scroll-spy", "use-media-query"],
+  "files": [{ "path": "components/ui/table-of-contents.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Scroll tracking uses an IntersectionObserver instead of a throttled scroll listener, and works inside scroll containers via root.",
+    "The active link is announced with aria-current=\"location\".",
+    "Clicking a link scrolls smoothly (instantly with reduced motion), honours scroll-margin-top, updates the URL hash and moves focus to the section.",
+    "useScrollSpy is exported separately to build any custom scrollspy navigation."
+  ]
+}

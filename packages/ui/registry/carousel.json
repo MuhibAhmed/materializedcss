@@ -1,0 +1,16 @@
+{
+  "name": "carousel",
+  "type": "registry:ui",
+  "title": "Carousel",
+  "description": "The 3D cover-flow carousel and a full-width slider, with drag, swipe, keyboard, indicators and accessible autoplay.",
+  "category": "Media & Motion",
+  "registryDependencies": ["utils", "icons", "use-controllable-state", "use-media-query"],
+  "files": [{ "path": "components/ui/carousel.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Dragging uses Pointer Events with touch-action: pan-y, so vertical swipes still scroll the page (Materialize blocked it with non-passive touch listeners).",
+    "Only horizontal drags are captured, and taps are told apart from drags, so links and buttons inside slides work on touch screens.",
+    "Carousel and slide roles with \"n of N\" labels, previous/next buttons, arrow keys and polite announcements.",
+    "Optional autoplay pauses on hover and focus, starts paused under reduced motion and has a visible pause button (WCAG 2.2.2).",
+    "Controlled activeIndex plus an imperative ref with next, prev and set; re-measures on resize with a ResizeObserver."
+  ]
+}

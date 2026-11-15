@@ -1,0 +1,17 @@
+{
+  "name": "collapsible",
+  "type": "registry:ui",
+  "title": "Collapsible",
+  "description": "Accordion and expandable lists of sections, plus the popout style and a single collapsible section.",
+  "category": "Layout",
+  "dependencies": ["radix-ui"],
+  "registryDependencies": ["utils", "icons"],
+  "files": [{ "path": "components/ui/collapsible.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Headers are real buttons inside headings with aria-expanded and aria-controls, so screen readers announce the state.",
+    "Arrow keys, Home and End move between headers (WAI-ARIA accordion pattern).",
+    "Smooth 300ms height animation that measures content with no jQuery slideDown, and none under reduced motion.",
+    "Controlled and uncontrolled open state for accordion and expandable modes.",
+    "Visible keyboard focus on headers and a rotating expand chevron."
+  ]
+}

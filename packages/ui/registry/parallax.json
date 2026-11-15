@@ -1,0 +1,15 @@
+{
+  "name": "parallax",
+  "type": "registry:ui",
+  "title": "Parallax",
+  "description": "A container whose background image scrolls slower than the page.",
+  "category": "Media & Motion",
+  "registryDependencies": ["utils", "use-media-query"],
+  "files": [{ "path": "components/ui/parallax.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Uses CSS scroll-driven animations (ViewTimeline) when supported, so the effect runs off the main thread with no scroll listener.",
+    "The fallback scroll handler is passive and only attached while the container is on screen (IntersectionObserver).",
+    "Turned off when the user prefers reduced motion, with the image centered.",
+    "No fixed image height assumptions: the image covers the container at any size, and children render on top."
+  ]
+}

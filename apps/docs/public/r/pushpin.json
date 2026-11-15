@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pushpin",
+  "type": "registry:ui",
+  "title": "Pushpin",
+  "description": "Pin an element while its section scrolls, with pin-top, pinned and pin-bottom states.",
+  "registryDependencies": [
+    "https://materializedcss.dev/r/utils.json"
+  ],
+  "categories": [
+    "media & motion"
+  ],
+  "files": [
+    {
+      "path": "registry/materializedcss/components/ui/pushpin.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\n/** Materialize's three pushpin classes: before, while and after pinning. */\nexport type PushpinState = \"pin-top\" | \"pinned\" | \"pin-bottom\";\n\nexport interface PushpinProps extends React.ComponentProps<\"div\"> {\n  /** Distance in px from the top of the scroll container while pinned (Materialize `offset`). */\n  top?: number;\n  /** Called when the element starts or stops being pinned. */\n  onPinChange?: (state: PushpinState) => void;\n}\n\n/** Nearest ancestor that clips or scrolls (the box `position: sticky` sticks to), or `null` for the page. */\nfunction getScrollParent(element: HTMLElement): HTMLElement | null {\n  for (let node = element.parentElement; node && node !== document.body && node !== document.documentElement; node = node.parentElement) {\n    const style = getComputedStyle(node);\n    if (/(auto|scroll|hidden|overlay)/.test(`${style.overflowX}${style.overflowY}`)) return node;\n  }\n  return null;\n}\n\n/**\n * Pin an element while its section scrolls by (Materialize pushpin), using\n * `position: sticky` instead of a scroll listener. It pins once it reaches\n * `top` px from the top of its scroll container (the top boundary is its own\n * position) and is released at the end of its parent (the bottom boundary).\n * Two IntersectionObservers report the state in `data-state` and `onPinChange`.\n */\nexport function Pushpin({ top = 0, onPinChange, className, style, ref, ...props }: PushpinProps): React.JSX.Element {\n  const elementRef = React.useRef<HTMLDivElement | null>(null);\n  const [state, setState] = React.useState<PushpinState>(\"pin-top\");\n  const onPinChangeRef = React.useRef(onPinChange);\n  React.useEffect(() => {\n    onPinChangeRef.current = onPinChange;\n  });\n\n  const setRef = React.useCallback(\n    (node: HTMLDivElement | null): void => {\n      elementRef.current = node;\n      if (typeof ref === \"function\") ref(node);\n      else if (ref) ref.current = node;\n    },\n    [ref],\n  );\n\n  React.useEffect(() => {\n    const element = elementRef.current;\n    if (!element) return;\n    const root = getScrollParent(element);\n    let last: PushpinState | null = null;\n\n    const measure = (): void => {\n      const rootTop = root ? root.getBoundingClientRect().top + root.clientTop : 0;\n      const offset = element.getBoundingClientRect().top - rootTop;\n      const next: PushpinState = offset > top + 0.5 ? \"pin-top\" : offset < top - 0.5 ? \"pin-bottom\" : \"pinned\";\n      if (next === last) return;\n      last = next;\n      setState(next);\n      onPinChangeRef.current?.(next);\n    };\n\n    // Fires when the element sticks (it becomes 1px clipped by a line just below `top`) or unsticks.\n    const pinObserver = new IntersectionObserver(measure, { root, rootMargin: `-${top + 1}px 0px 0px 0px`, threshold: [1] });\n    // Fires when the end of the parent starts pushing the element up, and when it comes back.\n    const releaseObserver = new IntersectionObserver(measure, { root, rootMargin: `-${top}px 0px 0px 0px`, threshold: [1] });\n    pinObserver.observe(element);\n    releaseObserver.observe(element);\n    measure();\n    return () => {\n      pinObserver.disconnect();\n      releaseObserver.disconnect();\n    };\n  }, [top]);\n\n  return (\n    <div\n      ref={setRef}\n      data-slot=\"pushpin\"\n      data-state={state}\n      className={cn(\"sticky z-10\", className)}\n      style={{ top, ...style }}\n      {...props}\n    />\n  );\n}\n"
+    }
+  ]
+}

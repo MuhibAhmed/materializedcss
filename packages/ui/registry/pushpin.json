@@ -1,0 +1,15 @@
+{
+  "name": "pushpin",
+  "type": "registry:ui",
+  "title": "Pushpin",
+  "description": "Pin an element while its section scrolls, with pin-top, pinned and pin-bottom states.",
+  "category": "Media & Motion",
+  "registryDependencies": ["utils"],
+  "files": [{ "path": "components/ui/pushpin.tsx", "type": "registry:ui" }],
+  "improvements": [
+    "Uses position: sticky, so pinning is smooth and jank-free with no scroll listener or hard-coded pixel boundaries.",
+    "Boundaries follow the layout: it pins at its own position and is released at the end of its parent, even when content above changes height.",
+    "State changes are reported through IntersectionObservers as data-state and onPinChange.",
+    "Works inside scrollable containers as well as the page."
+  ]
+}
