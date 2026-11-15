@@ -51,6 +51,24 @@ Once the docs site is hosted, every component is also published as a shadcn-comp
 npx shadcn add https://materializedcss.dev/r/button.json
 ```
 
+## Components
+
+44 components, plus the hooks and utilities they share:
+
+| Category | Components |
+| --- | --- |
+| Actions | Button, FAB (fixed action button) |
+| Forms | Text field, Textarea, Checkbox, Radio group, Switch, Range, File input, Select (plus NativeSelect and MultiSelect), Autocomplete, Chip, Chips input, Datepicker, Timepicker |
+| Data display | Badge, Collection, Table, Calendar |
+| Layout | Card (with reveal), Collapsible, Footer |
+| Navigation | Navbar, Sidenav, Tabs, Breadcrumbs, Pagination, Table of contents (ScrollSpy) |
+| Overlays | Modal, Dropdown menu, Tooltip |
+| Feedback | Toast, Preloader, Progress, Tap target (feature discovery) |
+| Media and motion | Carousel, Slider, Parallax, Pushpin, Materialbox, Media |
+| Foundations | Typography, Divider, Icons |
+
+Hooks: `useRipple`, `useControllableState`, `useMediaQuery`, `useScrollSpy`.
+
 ## CLI
 
 | Command | What it does |
