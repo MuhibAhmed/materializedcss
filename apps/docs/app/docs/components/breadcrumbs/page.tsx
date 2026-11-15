@@ -53,10 +53,10 @@ export default function BreadcrumbsPage(): React.JSX.Element {
           Breadcrumbs inherit the text color, so they also work on the page background. Links accept icons, and{" "}
           <code>asChild</code> renders a router link.
         </p>
+        <ComponentPreview name="breadcrumbs-standalone">
+          <BreadcrumbsStandalone />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="breadcrumbs-standalone">
-        <BreadcrumbsStandalone />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

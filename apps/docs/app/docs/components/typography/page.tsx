@@ -43,27 +43,27 @@ export default function TypographyPage(): React.JSX.Element {
         <p>
           <code>Lead</code> introduces a section; <code>Muted</code> is for captions and metadata.
         </p>
+        <ComponentPreview name="typography-text" align="start">
+          <TypographyText />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="typography-text" align="start">
-        <TypographyText />
-      </ComponentPreview>
 
       <DocSection title="Blockquote">
         <p>A quotation with a 5px light-primary border on the left.</p>
+        <ComponentPreview name="typography-blockquote">
+          <TypographyBlockquote />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="typography-blockquote">
-        <TypographyBlockquote />
-      </ComponentPreview>
 
       <DocSection title="Flow text">
         <p>
           <code>FlowText</code> (or the <code>flow-text</code> utility) scales its size with the viewport using CSS{" "}
           <code>clamp()</code>, instead of Materialize&apos;s resize listener.
         </p>
+        <ComponentPreview name="typography-flow-text">
+          <TypographyFlowText />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="typography-flow-text">
-        <TypographyFlowText />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

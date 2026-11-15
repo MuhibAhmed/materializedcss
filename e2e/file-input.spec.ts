@@ -113,9 +113,7 @@ test.describe("FileInput", () => {
     await expect(scope.locator('[data-slot="file-input-path"]')).toHaveValue("");
   });
 
-  test("has no serious accessibility violations", async ({ page, isMobile }) => {
-    test.skip(isMobile, "docs chrome PropsTable overflow on phones");
-    // Scoped to the content: the docs header search button and active sidebar link are chrome.
-    await expectNoA11yViolations(page, "main");
+  test("has no serious accessibility violations", async ({ page }) => {
+    await expectNoA11yViolations(page, "[data-doc-content]");
   });
 });

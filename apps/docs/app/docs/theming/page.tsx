@@ -78,8 +78,8 @@ export default function ThemingPage(): React.JSX.Element {
       <DocSection title="Classic Materialize colors">
         <p>
           Materialize&apos;s original coral red <code>#ee6e73</code> and teal <code>#26a69a</code> don&apos;t reach WCAG AA
-          contrast with white text (about 3:1). The default theme deepens them slightly (<code>#d03f45</code> and{" "}
-          <code>#008577</code>, both above 4.5:1). If you need the exact original look, add the <code>theme-classic</code>{" "}
+          contrast with white text (about 3:1). The default theme deepens them slightly (<code>#cf3b41</code> and{" "}
+          <code>#007f71</code>, both above 4.5:1 with white text and on every surface). If you need the exact original look, add the <code>theme-classic</code>{" "}
           class to <code>&lt;html&gt;</code>:
         </p>
         <CodeBlock className="mt-4" code={`<html lang="en" className="theme-classic">`} />

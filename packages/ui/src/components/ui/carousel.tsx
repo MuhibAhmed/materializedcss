@@ -405,12 +405,16 @@ export function Carousel({
       const e = engine.current;
       const o = optionsRef.current;
       if (o.count === 0) return;
-      let diff = wrapIndex(e.center, o.count) - n;
+      // While a snap animation runs, continue from where it is heading so quick
+      // repeated clicks add up instead of being dropped (a Materialize bug).
+      const animating = e.amplitude !== 0 && e.dim > 0;
+      const from = animating ? Math.round(e.target / e.dim) : e.center;
+      let diff = wrapIndex(from, o.count) - n;
       if (!o.noWrap) {
         if (diff < 0 && Math.abs(diff + o.count) < Math.abs(diff)) diff += o.count;
         else if (diff > 0 && Math.abs(diff - o.count) < diff) diff -= o.count;
       }
-      e.target = e.dim * Math.round(e.offset / e.dim);
+      e.target = animating ? from * e.dim : e.dim * Math.round(e.offset / e.dim);
       if (diff < 0) e.target += e.dim * Math.abs(diff);
       else if (diff > 0) e.target -= e.dim * diff;
       startAnimation();
@@ -421,7 +425,8 @@ export function Carousel({
   const step = React.useCallback(
     (n: number): void => {
       const o = optionsRef.current;
-      let target = engine.current.center + n;
+      const e = engine.current;
+      let target = (e.amplitude !== 0 && e.dim > 0 ? Math.round(e.target / e.dim) : e.center) + n;
       if (target >= o.count || target < 0) {
         if (o.noWrap) return;
         target = wrapIndex(target, o.count);

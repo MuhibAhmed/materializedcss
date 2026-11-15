@@ -50,10 +50,10 @@ export default function TablePage(): React.JSX.Element {
           <code>striped</code> adds zebra rows, <code>highlight</code> tints rows on hover and <code>centered</code>{" "}
           centers every cell. They can be combined.
         </p>
+        <ComponentPreview name="table-variants">
+          <TableVariants />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="table-variants">
-        <TableVariants />
-      </ComponentPreview>
 
       <DocSection title="Responsive">
         <p>
@@ -62,10 +62,10 @@ export default function TablePage(): React.JSX.Element {
           scroll it. Materialize&apos;s flipped <code>.responsive-table</code> layout is intentionally not reproduced: it
           broke the reading order for screen readers.
         </p>
+        <ComponentPreview name="table-responsive" align="start">
+          <TableResponsive />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="table-responsive" align="start">
-        <TableResponsive />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

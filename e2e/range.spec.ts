@@ -125,8 +125,7 @@ test.describe("Range", () => {
     await expect(scope.locator("output")).toHaveText('{"volume":"71","age":["18","65"]}');
   });
 
-  test("has no serious accessibility violations", async ({ page, isMobile }) => {
-    test.skip(isMobile, "docs chrome PropsTable overflow on phones");
+  test("has no serious accessibility violations", async ({ page }) => {
     await expectNoA11yViolations(page, "[data-doc-content]");
   });
 });

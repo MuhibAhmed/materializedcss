@@ -38,20 +38,20 @@ export default function PaginationPage(): React.JSX.Element {
           with <code>siblingCount</code> neighbours, and ellipses for the gaps. The number of slots stays constant, so the
           controls don&apos;t jump around as you click.
         </p>
+        <ComponentPreview name="pagination-controlled">
+          <PaginationControlled />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="pagination-controlled">
-        <PaginationControlled />
-      </ComponentPreview>
 
       <DocSection title="Links">
         <p>
           Pass <code>getHref</code> to render real links (crawlable, open in a new tab), for example{" "}
           <code>{"(page) => `/blog?page=${page}`"}</code>. Without it the control renders buttons.
         </p>
+        <ComponentPreview name="pagination-links">
+          <PaginationLinks />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="pagination-links">
-        <PaginationLinks />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

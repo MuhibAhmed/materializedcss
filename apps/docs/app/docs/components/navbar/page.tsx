@@ -51,50 +51,50 @@ export default function NavbarPage(): React.JSX.Element {
           <code>aria-expanded</code> and <code>aria-controls</code> of your <a href="/docs/components/sidenav" className="underline">Sidenav</a>,
           and hide it on large screens with <code>className=&quot;lg:hidden&quot;</code> when the links are visible there.
         </p>
+        <ComponentPreview name="navbar-brand-position" align="start">
+          <NavbarBrandPosition />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="navbar-brand-position" align="start">
-        <NavbarBrandPosition />
-      </ComponentPreview>
 
       <DocSection title="Icons and buttons">
         <p>
           Icon-only links need an <code>aria-label</code>. Buttons placed in a <code>NavbarItem</code> get Materialize&apos;s
           15px side margins. A dropdown trigger can go in a <code>NavbarItem</code> the same way.
         </p>
+        <ComponentPreview name="navbar-icons" align="start">
+          <NavbarIcons />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="navbar-icons" align="start">
-        <NavbarIcons />
-      </ComponentPreview>
 
       <DocSection title="Extended">
         <p>
           <code>NavbarExtended</code> adds a second row for a large <code>NavbarTitle</code>, tabs or a floating action
           button.
         </p>
+        <ComponentPreview name="navbar-extended-demo" bleed align="start" className="min-h-0 pb-10">
+          <NavbarExtendedDemo />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="navbar-extended-demo" bleed align="start" className="min-h-0 pb-10">
-        <NavbarExtendedDemo />
-      </ComponentPreview>
 
       <DocSection title="Fixed">
         <p>
           <code>fixed</code> keeps the navbar at the top while the page scrolls. It uses <code>position: sticky</code>, so
           no spacer element is needed.
         </p>
+        <ComponentPreview name="navbar-fixed" bleed align="start" className="min-h-0">
+          <NavbarFixed />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="navbar-fixed" bleed align="start" className="min-h-0">
-        <NavbarFixed />
-      </ComponentPreview>
 
       <DocSection title="Search">
         <p>
           <code>NavbarSearch</code> fills the bar with a labelled search field. It turns white while focused; the close
           button (or Escape) clears it, and on an empty field calls <code>onClose</code> so you can hide it.
         </p>
+        <ComponentPreview name="navbar-search-demo" align="start">
+          <NavbarSearchDemo />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="navbar-search-demo" align="start">
-        <NavbarSearchDemo />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable title="Navbar" props={[{ name: "fixed", type: "boolean", default: "false", description: "Stick to the top while scrolling." }]} />

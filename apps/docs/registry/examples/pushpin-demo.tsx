@@ -21,7 +21,7 @@ export function PushpinDemo() {
         className="h-[360px] overflow-y-auto rounded-ui border border-border bg-surface outline-none focus-visible:focus-ring"
       >
         <div className="px-6 py-8 text-muted-foreground">Scroll down to pin the card.</div>
-        <div className="grid grid-cols-[1fr_180px] gap-6 px-6">
+        <div className="grid grid-cols-[1fr_130px] gap-4 px-4 sm:grid-cols-[1fr_180px] sm:gap-6 sm:px-6">
           <article className="space-y-6">
             {sections.map((title) => (
               <section key={title}>

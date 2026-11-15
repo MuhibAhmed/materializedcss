@@ -34,20 +34,20 @@ export default function PreloaderPage(): React.JSX.Element {
         <p>
           <code>sm</code> (36px), <code>md</code> (50px) and <code>lg</code> (64px), all with a 3px stroke.
         </p>
+        <ComponentPreview name="preloader-sizes">
+          <PreloaderSizes />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="preloader-sizes">
-        <PreloaderSizes />
-      </ComponentPreview>
 
       <DocSection title="Colors">
         <p>
           Use a theme color, any CSS color, or <code>multicolor</code> to cycle through blue, red, yellow and green like
           Materialize&apos;s Google-colored spinner.
         </p>
+        <ComponentPreview name="preloader-colors">
+          <PreloaderColors />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="preloader-colors">
-        <PreloaderColors />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

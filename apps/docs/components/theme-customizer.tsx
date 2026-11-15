@@ -25,7 +25,44 @@ export interface ThemeChoice {
 
 export const DEFAULT_THEME: ThemeChoice = { primary: "materialize-red", secondary: "teal", radius: 2 };
 
+/**
+ * The default theme does not use plain palette shades: theme.css deepens
+ * Materialize's red and teal just enough for AA. Mirror those exact values so
+ * the default selection generates the theme that is actually shipped.
+ */
+const THEME_DEFAULT_TOKENS: Record<"primary" | "secondary", { light: string[]; dark: string[] }> = {
+  primary: {
+    light: ["--primary: #cf3b41;", "--primary-foreground: #ffffff;", "--primary-light: #f8c1c3;", "--primary-dark: #a21318;"],
+    dark: ["--primary: #f07d82;", "--primary-foreground: #1a1a1a;", "--primary-light: #5c2a2c;", "--primary-dark: #f8c1c3;"],
+  },
+  secondary: {
+    light: [
+      "--secondary: #007f71;",
+      "--secondary-foreground: #ffffff;",
+      "--secondary-light: #b2dfdb;",
+      "--secondary-hover: #00796b;",
+      "--secondary-focus: #00695c;",
+    ],
+    dark: [
+      "--secondary: #4db6ac;",
+      "--secondary-foreground: #0d1f1d;",
+      "--secondary-light: #1f4a46;",
+      "--secondary-hover: #64c3b9;",
+      "--secondary-focus: #80cbc4;",
+    ],
+  },
+};
+
+const THEME_DEFAULT_BASE: Record<"primary" | "secondary", string> = { primary: "#cf3b41", secondary: "#007f71" };
+
+/** Swatch color for a palette entry (the shipped default for the default pick). */
+function swatchColor(prefix: "primary" | "secondary", name: PaletteColor): string {
+  if (name === DEFAULT_THEME[prefix]) return THEME_DEFAULT_BASE[prefix];
+  return shades(name)["700"] ?? "#000";
+}
+
 function tokenBlock(prefix: "primary" | "secondary", name: PaletteColor): { light: string[]; dark: string[] } {
+  if (name === DEFAULT_THEME[prefix]) return THEME_DEFAULT_TOKENS[prefix];
   const s = shades(name);
   // 700 keeps white text at WCAG AA for almost every hue; 300 does the same for dark text in dark mode.
   const base = s["700"] ?? "#000000";
@@ -59,10 +96,12 @@ export function themeCss(choice: ThemeChoice): string {
 
 function Swatches({
   label,
+  prefix,
   value,
   onChange,
 }: {
   label: string;
+  prefix: "primary" | "secondary";
   value: PaletteColor;
   onChange: (value: PaletteColor) => void;
 }): React.JSX.Element {
@@ -72,7 +111,7 @@ function Swatches({
       <div role="radiogroup" aria-label={label} className="flex flex-wrap gap-2">
         {CHROMATIC.map((name) => {
           const selected = name === value;
-          const color = shades(name)["700"] ?? "#000";
+          const color = swatchColor(prefix, name);
           return (
             <button
               key={name}
@@ -129,8 +168,8 @@ export function ThemeCustomizer({ className }: { className?: string }): React.JS
   return (
     <div className={cn("grid gap-6 rounded-md border border-border bg-surface p-6 shadow-z1 md:grid-cols-[1fr_1.1fr]", className)}>
       <div className="space-y-6">
-        <Swatches label="Primary" value={choice.primary} onChange={(primary) => update({ primary })} />
-        <Swatches label="Secondary" value={choice.secondary} onChange={(secondary) => update({ secondary })} />
+        <Swatches label="Primary" prefix="primary" value={choice.primary} onChange={(primary) => update({ primary })} />
+        <Swatches label="Secondary" prefix="secondary" value={choice.secondary} onChange={(secondary) => update({ secondary })} />
         <fieldset>
           <legend className="mb-2 text-sm font-medium text-foreground">Radius</legend>
           <div role="radiogroup" aria-label="Radius" className="flex flex-wrap gap-2">

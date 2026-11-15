@@ -83,10 +83,21 @@ export interface NavbarNavProps extends React.ComponentProps<"nav"> {
   "aria-label"?: string;
 }
 
-/** Navigation links (Materialize `nav ul`). Renders `<nav><ul>`; put `NavbarItem`s inside. */
+/**
+ * Navigation links (Materialize `nav ul`). Renders `<nav><ul>`; put `NavbarItem`s inside.
+ * On narrow screens links that do not fit scroll horizontally instead of being clipped.
+ */
 export function NavbarNav({ className, align = "end", children, ...props }: NavbarNavProps): React.JSX.Element {
   return (
-    <nav data-slot="navbar-nav" className={cn("flex h-full min-w-0", align === "end" ? "ml-auto" : "mr-auto", className)} {...props}>
+    <nav
+      data-slot="navbar-nav"
+      className={cn(
+        "flex h-full min-w-0 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+        align === "end" ? "ml-auto" : "mr-auto",
+        className,
+      )}
+      {...props}
+    >
       <ul className="m-0 flex h-full list-none items-stretch p-0">{children}</ul>
     </nav>
   );

@@ -139,9 +139,7 @@ test.describe("ChipsInput", () => {
     await expect(chips(scope)).toHaveText(["Go", "Rust", "Zig"].map((t) => new RegExp(t)));
   });
 
-  test("has no serious accessibility violations", async ({ page, isMobile }) => {
-    // At phone width the docs PropsTable scroll wrapper (docs chrome) is flagged; desktop runs cover this.
-    test.skip(isMobile, "docs chrome PropsTable overflow on phones");
+  test("has no serious accessibility violations", async ({ page }) => {
     await preview(page, "chips-input-suggestions").getByRole("combobox", { name: "Languages" }).pressSequentially("r");
     await expectNoA11yViolations(page, "[data-doc-content]");
   });

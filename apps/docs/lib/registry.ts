@@ -1,6 +1,6 @@
 import "server-only";
 
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { cache } from "react";
 
@@ -42,11 +42,17 @@ export function readExampleSource(name: string): string {
   return readFileSync(path.join(process.cwd(), "registry", "examples", `${name}.tsx`), "utf8").replace(/\r\n/g, "\n");
 }
 
+/** Whether `app/docs/components/<name>/page.tsx` exists. */
+function hasDocsPage(name: string): boolean {
+  return existsSync(path.join(process.cwd(), "app", "docs", "components", name, "page.tsx"));
+}
+
 /** Sidebar sections for documented components, grouped by registry category. */
 export const getComponentNav: () => NavSection[] = cache((): NavSection[] => {
   const groups = new Map<string, NavItem[]>();
   for (const item of getRegistry()) {
-    if (!item.category) continue;
+    // Categorized items without a docs page (e.g. icons) would be dead links.
+    if (!item.category || !hasDocsPage(item.name)) continue;
     const list = groups.get(item.category) ?? [];
     list.push({ title: item.title, href: `/docs/components/${item.name}` });
     groups.set(item.category, list);

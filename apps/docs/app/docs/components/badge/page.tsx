@@ -32,17 +32,17 @@ export default function BadgePage(): React.JSX.Element {
           The <code>new</code> variant appends the caption &quot;new&quot;. Pass <code>caption</code> to change it, or{" "}
           <code>caption={"{null}"}</code> to hide it. The caption is real text, so it is read aloud.
         </p>
+        <ComponentPreview name="badge-colors">
+          <BadgeColors />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="badge-colors">
-        <BadgeColors />
-      </ComponentPreview>
 
       <DocSection title="In a navbar">
         <p>Badges sit inline after the link text.</p>
+        <ComponentPreview name="badge-navbar" bleed align="start" className="min-h-0">
+          <BadgeNavbar />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="badge-navbar" bleed align="start" className="min-h-0">
-        <BadgeNavbar />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

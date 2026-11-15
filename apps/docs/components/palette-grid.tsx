@@ -5,14 +5,23 @@ import * as React from "react";
 import { palette, type PaletteColor } from "@/lib/palette";
 import { cn } from "@/lib/utils";
 
-/** Pick black or white text for a background hex (WCAG relative luminance). */
+/** WCAG relative luminance of sRGB channels in 0..1. */
+function luminance([r, g, b]: [number, number, number]): number {
+  const linear = (value: number): number => (value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4);
+  return 0.2126 * linear(r) + 0.7152 * linear(g) + 0.0722 * linear(b);
+}
+
+/** Pick black or white text for a background hex: whichever has the higher WCAG contrast. */
 export function readableOn(hex: string): string {
-  const channel = (offset: number): number => {
-    const value = parseInt(hex.slice(offset, offset + 2), 16) / 255;
-    return value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
-  };
-  const luminance = 0.2126 * channel(1) + 0.7152 * channel(3) + 0.0722 * channel(5);
-  return luminance > 0.36 ? "rgba(0,0,0,0.87)" : "#ffffff";
+  const rgb = [1, 3, 5].map((offset) => parseInt(hex.slice(offset, offset + 2), 16) / 255) as [number, number, number];
+  const background = luminance(rgb);
+  // The dark option is 87% black, so it is composited over the background.
+  const text = luminance(rgb.map((channel) => channel * 0.13) as [number, number, number]);
+  const onWhite = 1.05 / (background + 0.05);
+  const onBlack = (background + 0.05) / (text + 0.05);
+  // A few mid-tone shades need solid black to reach AA (4.5:1).
+  if (Math.max(onWhite, onBlack) < 4.5) return "#000000";
+  return onBlack >= onWhite ? "rgba(0,0,0,0.87)" : "#ffffff";
 }
 
 const MATERIALIZE_NAMES: Record<string, string> = {
@@ -51,7 +60,7 @@ export function PaletteGrid(): React.JSX.Element {
           <section key={name} aria-label={name} className="overflow-hidden rounded-md shadow-z1">
             <div className="flex h-24 flex-col justify-end p-4" style={{ background: base }}>
               <p className="m-0 text-lg font-medium capitalize" style={{ color: readableOn(base) }}>{name.replace(/-/g, " ")}</p>
-              <p className="m-0 font-mono text-xs opacity-80" style={{ color: readableOn(base) }}>
+              <p className="m-0 font-mono text-xs" style={{ color: readableOn(base) }}>
                 {base}
               </p>
             </div>
@@ -70,11 +79,11 @@ export function PaletteGrid(): React.JSX.Element {
                         shade === "a100" && "mt-1",
                       )}
                       style={{ background: hex, color: readableOn(hex) }}
-                      aria-label={`Copy ${utility} (${hex})`}
                     >
                       <span>
+                        <span className="sr-only">Copy {utility}: </span>
                         {copied === utility ? "Copied!" : shade}
-                        <span className="ml-2 opacity-70">{MATERIALIZE_NAMES[shade]}</span>
+                        <span className="ml-2">{MATERIALIZE_NAMES[shade]}</span>
                       </span>
                       <span>{hex}</span>
                     </button>

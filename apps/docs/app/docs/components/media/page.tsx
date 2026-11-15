@@ -36,10 +36,10 @@ export default function MediaPage(): React.JSX.Element {
           <code>CircleImage</code> crops any image to a circle with <code>object-fit: cover</code>, so non-square images are
           not squashed. <code>ResponsiveImage circle</code> does the same for fluid images.
         </p>
+        <ComponentPreview name="media-circle">
+          <MediaCircle />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="media-circle">
-        <MediaCircle />
-      </ComponentPreview>
 
       <DocSection title="Video embeds">
         <p>
@@ -47,10 +47,10 @@ export default function MediaPage(): React.JSX.Element {
           <code>&lt;object&gt;</code> at 16:9 (or any <code>ratio</code>) using CSS <code>aspect-ratio</code>.{" "}
           <code>ResponsiveVideo</code> is a <code>&lt;video&gt;</code> that scales down with its container.
         </p>
+        <ComponentPreview name="media-video">
+          <MediaVideo />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="media-video">
-        <MediaVideo />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

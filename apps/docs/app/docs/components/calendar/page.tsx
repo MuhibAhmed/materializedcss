@@ -18,7 +18,7 @@ export const metadata: Metadata = { title: "Calendar" };
 export default function CalendarPage(): React.JSX.Element {
   return (
     <ComponentDoc name="calendar">
-      <ComponentPreview name="calendar-demo">
+      <ComponentPreview name="calendar-demo" clientOnly>
         <CalendarDemo />
       </ComponentPreview>
 
@@ -54,7 +54,7 @@ export default function CalendarPage(): React.JSX.Element {
           Days outside <code>minDate</code>/<code>maxDate</code> are disabled, the previous/next buttons stop at those
           months, and keyboard focus is clamped to the range.
         </p>
-        <ComponentPreview name="calendar-min-max">
+        <ComponentPreview name="calendar-min-max" clientOnly>
           <CalendarMinMax />
         </ComponentPreview>
       </DocSection>
@@ -73,7 +73,7 @@ export default function CalendarPage(): React.JSX.Element {
         <p>
           Days listed in <code>events</code> get a dot, like Materialize&apos;s datepicker events.
         </p>
-        <ComponentPreview name="calendar-events">
+        <ComponentPreview name="calendar-events" clientOnly>
           <CalendarEvents />
         </ComponentPreview>
       </DocSection>

@@ -40,30 +40,30 @@ export default function CollectionPage(): React.JSX.Element {
           s. The <code>active</code> link gets <code>aria-current=&quot;page&quot;</code>. Use <code>asChild</code> to
           render a router link.
         </p>
+        <ComponentPreview name="collection-links">
+          <CollectionLinks />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="collection-links">
-        <CollectionLinks />
-      </ComponentPreview>
 
       <DocSection title="Header and secondary content">
         <p>
           A <code>CollectionHeader</code> indents the items. <code>CollectionSecondary</code> aligns icons, badges or
           meta text to the right.
         </p>
+        <ComponentPreview name="collection-with-header">
+          <CollectionWithHeader />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="collection-with-header">
-        <CollectionWithHeader />
-      </ComponentPreview>
 
       <DocSection title="Avatar content">
         <p>
           Set <code>avatar</code> on an item for the 84px layout with a 42px circle on the left. Pass an image with{" "}
           <code>asChild</code> or an icon to <code>CollectionAvatar</code>.
         </p>
+        <ComponentPreview name="collection-avatars">
+          <CollectionAvatars />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="collection-avatars">
-        <CollectionAvatars />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

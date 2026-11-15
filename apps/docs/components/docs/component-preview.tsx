@@ -1,3 +1,4 @@
+import { ClientOnly } from "~/components/docs/client-only";
 import { CodeBlock } from "~/components/docs/code-block";
 import { SimpleTabs } from "~/components/docs/simple-tabs";
 import { readExampleSource } from "~/lib/registry";
@@ -13,6 +14,8 @@ export interface ComponentPreviewProps {
   align?: "center" | "start";
   /** Remove the preview padding (full-bleed examples such as navbars). */
   bleed?: boolean;
+  /** Render the example only after hydration (examples that depend on today's date). */
+  clientOnly?: boolean;
 }
 
 /** Preview / Code tabs for a live example, like shadcn's component previews. */
@@ -22,6 +25,7 @@ export async function ComponentPreview({
   className,
   align = "center",
   bleed = false,
+  clientOnly = false,
 }: ComponentPreviewProps): Promise<React.JSX.Element> {
   const source = readExampleSource(name);
 
@@ -43,7 +47,7 @@ export async function ComponentPreview({
                 className,
               )}
             >
-              {children}
+              {clientOnly ? <ClientOnly>{children}</ClientOnly> : children}
             </div>
           ),
         },

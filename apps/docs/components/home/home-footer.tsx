@@ -57,7 +57,7 @@ export function HomeFooter({ componentsHref, componentCount }: HomeFooterProps):
       </FooterContent>
       <FooterCopyright className="dark:text-white/90">
         <span>MIT License. Not affiliated with Google.</span>
-        <span>Materialize &copy; 2014–2018 Materialize</span>
+        <span>Based on Materialize, &copy; 2014–2018 Materialize contributors</span>
       </FooterCopyright>
     </Footer>
   );

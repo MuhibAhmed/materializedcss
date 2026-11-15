@@ -46,10 +46,10 @@ export default function CardPage(): React.JSX.Element {
           Put an image in <code>CardImage</code>. A <code>CardTitle</code> inside it is overlaid in the bottom-left
           corner. Floating buttons can be positioned over the edge.
         </p>
+        <ComponentPreview name="card-with-image">
+          <CardWithImage />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="card-with-image">
-        <CardWithImage />
-      </ComponentPreview>
 
       <DocSection title="Card reveal">
         <p>
@@ -58,40 +58,40 @@ export default function CardPage(): React.JSX.Element {
           and Escape closes it and returns focus. The reveal parts live in <code>card-reveal.tsx</code> so the rest of the
           card stays a server component.
         </p>
+        <ComponentPreview name="card-reveal-demo">
+          <CardRevealDemo />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="card-reveal-demo">
-        <CardRevealDemo />
-      </ComponentPreview>
 
       <DocSection title="Horizontal">
         <p>
           Use <code>orientation=&quot;horizontal&quot;</code> and wrap the content and actions in{" "}
           <code>CardStacked</code>.
         </p>
+        <ComponentPreview name="card-horizontal">
+          <CardHorizontal />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="card-horizontal">
-        <CardHorizontal />
-      </ComponentPreview>
 
       <DocSection title="Sizes">
         <p>
           <code>sm</code>, <code>md</code> and <code>lg</code> fix the height to 300, 400 and 500px so cards in a grid line
           up. Overflowing content is clipped.
         </p>
+        <ComponentPreview name="card-sizes">
+          <CardSizes />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="card-sizes">
-        <CardSizes />
-      </ComponentPreview>
 
       <DocSection title="Panels and hoverable">
         <p>
           <code>CardPanel</code> is a padded surface with card elevation. Add <code>hoverable</code> (a prop on{" "}
           <code>Card</code>, or the class on anything) to lift it on hover.
         </p>
+        <ComponentPreview name="card-panels">
+          <CardPanels />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="card-panels">
-        <CardPanels />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

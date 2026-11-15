@@ -122,9 +122,7 @@ test.describe("Autocomplete", () => {
     await expect(scope.locator("output")).toHaveText('{"framework":"Svelte"}');
   });
 
-  test("has no serious accessibility violations (closed and open)", async ({ page, isMobile }) => {
-    // At phone width the docs PropsTable scroll wrapper (docs chrome) is flagged; desktop runs cover this.
-    test.skip(isMobile, "docs chrome PropsTable overflow on phones");
+  test("has no serious accessibility violations (closed and open)", async ({ page }) => {
     await expectNoA11yViolations(page, "[data-doc-content]");
     await preview(page, "autocomplete-demo").getByRole("combobox", { name: "Fruit" }).pressSequentially("ap");
     await expect(page.getByRole("listbox")).toBeVisible();

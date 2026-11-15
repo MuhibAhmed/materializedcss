@@ -1,12 +1,12 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
 
-import { expectNoA11yViolations } from "./utils";
+import { expectNoA11yViolations, waitForHydration } from "./utils";
 
 /** Open the homepage and wait for the demos to hydrate. */
 async function gotoHome(page: Page): Promise<void> {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await page.waitForLoadState("networkidle");
+  await waitForHydration(page);
 }
 
 /** A demo card in the mosaic, found by its heading. */
@@ -197,7 +197,7 @@ test.describe("Homepage", () => {
   test("has no serious accessibility violations in dark mode", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.reload();
-    await page.waitForLoadState("networkidle");
+    await waitForHydration(page);
     await expect(page.locator("html")).toHaveClass(/dark/);
     await expectNoA11yViolations(page);
   });

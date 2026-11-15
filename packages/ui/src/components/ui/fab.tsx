@@ -128,8 +128,20 @@ export function Fab({
       if (event.target instanceof Node && rootRef.current?.contains(event.target)) return;
       setOpen(false);
     };
+    // Safari does not focus a button on click, so Escape may never reach the trigger.
+    // Close on Escape from outside too; inside, the trigger and actions handle it.
+    const onKeyDown = (event: KeyboardEvent): void => {
+      if (event.key !== "Escape" || event.defaultPrevented) return;
+      const active = document.activeElement;
+      if (active instanceof Node && rootRef.current?.contains(active)) return;
+      setOpen(false);
+    };
     document.addEventListener("pointerdown", onPointerDown);
-    return () => document.removeEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, [open, setOpen, value]);
 
   return (

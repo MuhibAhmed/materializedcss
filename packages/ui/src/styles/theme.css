@@ -26,14 +26,15 @@
 
   /*
    * Materialize's coral red and teal, deepened just enough to reach WCAG AA
-   * (4.5:1) with white text. Add the "theme-classic" class for the exact
+   * (4.5:1) both with white text on them and as text on every surface
+   * (--surface and --surface-2). Add the "theme-classic" class for the exact
    * original colors.
    */
-  --primary: #d03f45;
+  --primary: #cf3b41;
   --primary-foreground: #ffffff;
   --primary-light: #f8c1c3;
   --primary-dark: #a21318;
-  --secondary: #008577;
+  --secondary: #007f71;
   --secondary-foreground: #ffffff;
   --secondary-hover: #00796b;
   --secondary-focus: #00695c;
@@ -94,7 +95,7 @@
 
   --success: #66bb6a;
   --success-foreground: #0f1f10;
-  --error: #ef5350;
+  --error: #e57373;
   --error-foreground: #1f0d0d;
   --warning: #ffa726;
   --link: #4fc3f7;
@@ -102,7 +103,7 @@
 
   --snackbar: #e8e8e8;
   --snackbar-foreground: rgb(0 0 0 / 0.87);
-  --snackbar-action: #00796b;
+  --snackbar-action: #00695c;
   --overlay: rgb(0 0 0 / 0.65);
 
   --disabled: rgb(255 255 255 / 0.12);

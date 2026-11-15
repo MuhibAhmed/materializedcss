@@ -31,10 +31,10 @@ export default function ProgressPage(): React.JSX.Element {
           Leave out <code>value</code> when the duration is unknown. The two bars loop exactly like Materialize&apos;s{" "}
           <code>.indeterminate</code>; with reduced motion a single bar sweeps slowly instead.
         </p>
+        <ComponentPreview name="progress-indeterminate">
+          <ProgressIndeterminate />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="progress-indeterminate">
-        <ProgressIndeterminate />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

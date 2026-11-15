@@ -275,13 +275,18 @@ export function SidenavClose(props: SidenavCloseProps): React.JSX.Element {
   return <Dialog.Close data-slot="sidenav-close" {...props} />;
 }
 
-/** Invisible 10px strip on the screen edge that starts the open gesture. Rendered while closed. */
+/**
+ * Invisible 10px strip on the screen edge that starts the open gesture. Active while closed.
+ * It stays mounted (hidden while open) so that with several drawers on the same edge the
+ * topmost strip, and so the drawer that answers the swipe, does not change after one of
+ * them has been opened and closed.
+ */
 function SidenavDragTarget({ className }: { className?: string }): React.JSX.Element | null {
   const context = useSidenav("SidenavContent");
   const onPointerDown = useDrag(context, "open");
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
-  if (!mounted || !context.draggable || context.open) return null;
+  if (!mounted || !context.draggable) return null;
   return createPortal(
     <div
       data-slot="sidenav-drag-target"
@@ -290,7 +295,12 @@ function SidenavDragTarget({ className }: { className?: string }): React.JSX.Ele
         if (event.pointerType === "mouse") return;
         onPointerDown(event);
       }}
-      className={cn("fixed inset-y-0 z-40 w-2.5 touch-pan-y", context.edge === "left" ? "left-0" : "right-0", className)}
+      className={cn(
+        "fixed inset-y-0 z-40 w-2.5 touch-pan-y",
+        context.edge === "left" ? "left-0" : "right-0",
+        className,
+        context.open && "hidden",
+      )}
     />,
     document.body,
   );
@@ -383,7 +393,7 @@ export function SidenavContent({
 
   const list = (
     <nav aria-label={label}>
-      <ul data-slot="sidenav-list" className="m-0 list-none! p-0!">{children}</ul>
+      <ul data-slot="sidenav-list" className="m-0 list-none p-0">{children}</ul>
     </nav>
   );
 
@@ -622,7 +632,7 @@ export function SidenavCollapsible({
             "data-[state=open]:animate-md-accordion-down data-[state=closed]:animate-md-accordion-up motion-reduce:animate-none!",
           )}
         >
-          <ul data-slot="sidenav-sublist" className="m-0 list-none! p-0! [&_[data-slot=sidenav-item]>*]:pl-14">{children}</ul>
+          <ul data-slot="sidenav-sublist" className="m-0 list-none p-0 [&_[data-slot=sidenav-item]>*]:pl-14">{children}</ul>
         </Collapsible.Content>
       </li>
     </Collapsible.Root>

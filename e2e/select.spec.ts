@@ -51,9 +51,14 @@ test.describe("Select", () => {
     await page.keyboard.press("Enter");
     await expect(page.getByRole("listbox")).toBeVisible();
     await expect(page.getByRole("option", { name: "Option 4 (sold out)" })).toHaveAttribute("aria-disabled", "true");
+    // Radix moves focus in a timeout after each arrow key, so wait for it before the next key.
+    await expect(page.getByRole("option", { name: "Option 1" })).toBeFocused();
     await page.keyboard.press("ArrowDown");
+    await expect(page.getByRole("option", { name: "Option 2" })).toBeFocused();
     await page.keyboard.press("ArrowDown");
+    await expect(page.getByRole("option", { name: "Option 3" })).toBeFocused();
     await page.keyboard.press("ArrowDown");
+    await expect(page.getByRole("option", { name: "Option 3" })).toBeFocused();
     await page.keyboard.press("Enter");
     await expect(trigger).toContainText("Option 3");
     await expect(trigger).toBeFocused();
@@ -179,9 +184,7 @@ test.describe("Select", () => {
     await expect(scope.locator("output")).toHaveText('{"plan":"team","billing":"monthly","extras":["backup","sso"]}');
   });
 
-  test("has no serious accessibility violations", async ({ page, isMobile }) => {
-    // At phone width the docs PropsTable scroll wrapper (docs chrome) is flagged; desktop runs cover this.
-    test.skip(isMobile, "docs chrome PropsTable overflow on phones");
+  test("has no serious accessibility violations", async ({ page }) => {
     await expectNoA11yViolations(page, "[data-doc-content]");
   });
 });

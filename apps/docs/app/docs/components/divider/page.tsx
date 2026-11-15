@@ -31,10 +31,10 @@ export default function DividerPage(): React.JSX.Element {
           In a flex row, a vertical divider stretches to the row height. Mark purely visual lines as{" "}
           <code>decorative</code>.
         </p>
+        <ComponentPreview name="divider-vertical">
+          <DividerVertical />
+        </ComponentPreview>
       </DocSection>
-      <ComponentPreview name="divider-vertical">
-        <DividerVertical />
-      </ComponentPreview>
 
       <DocSection title="API Reference">
         <PropsTable

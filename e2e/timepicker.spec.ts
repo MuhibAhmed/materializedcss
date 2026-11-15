@@ -9,8 +9,15 @@ const field = (page: Page, example: string): Locator =>
 const hours = (page: Page): Locator => dialog(page).getByRole("spinbutton", { name: "Hours" });
 const minutes = (page: Page): Locator => dialog(page).getByRole("spinbutton", { name: "Minutes" });
 
+/** Wait for the dialog's open (scale-in) animation, so measured boxes are final. */
+async function settled(page: Page): Promise<void> {
+  await expect(dialog(page)).toBeVisible();
+  await dialog(page).evaluate((el) => Promise.all(el.getAnimations({ subtree: true }).map((a) => a.finished)));
+}
+
 /** Click the center of a dial tick (ticks ignore pointer events; the plate handles them). */
 async function clickTick(page: Page, dial: "Hours" | "Minutes", label: string): Promise<void> {
+  await settled(page);
   const tick = dialog(page).getByRole("listbox", { name: dial }).getByRole("option", { name: label, exact: true });
   const box = await tick.boundingBox();
   if (!box) throw new Error(`no tick ${label}`);
@@ -52,6 +59,7 @@ test.describe("Timepicker", () => {
   test("dragging the hand snaps to the nearest value", async ({ page }) => {
     await field(page, "timepicker-demo").click();
     const plate = dialog(page).locator('[data-slot="timepicker-plate"]');
+    await settled(page);
     const box = await plate.boundingBox();
     if (!box) throw new Error("no plate");
     const cx = box.x + box.width / 2;
@@ -231,6 +239,7 @@ test.describe("Timepicker", () => {
   test("touch: tapping the dial picks a value", async ({ page }, testInfo) => {
     test.skip(!testInfo.project.use.hasTouch, "touch devices only");
     await field(page, "timepicker-demo").click();
+    await settled(page);
     const tick = dialog(page).getByRole("listbox", { name: "Hours" }).getByRole("option", { name: "4 AM", exact: true });
     const box = await tick.boundingBox();
     if (!box) throw new Error("no tick");
