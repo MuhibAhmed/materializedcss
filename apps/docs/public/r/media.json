@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "media",
+  "type": "registry:ui",
+  "title": "Media",
+  "description": "Responsive images, circle images and aspect-ratio video embeds.",
+  "registryDependencies": [
+    "https://materializedcss.dev/r/utils.json"
+  ],
+  "categories": [
+    "media & motion"
+  ],
+  "files": [
+    {
+      "path": "registry/materializedcss/components/ui/media.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface ResponsiveImageProps extends React.ComponentProps<\"img\"> {\n  /** Crop the image to a circle (Materialize `.circle`). Use a square image. */\n  circle?: boolean;\n}\n\n/**\n * Image that never grows wider than its container (Materialize `.responsive-img`).\n * Always pass a meaningful `alt` (or `alt=\"\"` for decorative images) and, when\n * known, `width`/`height` to avoid layout shift.\n */\nexport function ResponsiveImage({ className, circle = false, alt, ...props }: ResponsiveImageProps): React.JSX.Element {\n  return (\n    <img\n      data-slot=\"responsive-image\"\n      alt={alt}\n      className={cn(\"block h-auto max-w-full\", circle && \"aspect-square rounded-full object-cover\", className)}\n      {...props}\n    />\n  );\n}\n\nexport interface CircleImageProps extends Omit<React.ComponentProps<\"img\">, \"width\" | \"height\"> {\n  /** Diameter in px or any CSS length. */\n  size?: number | string;\n}\n\n/** Round avatar-style image (Materialize `img.circle`). */\nexport function CircleImage({ className, size = 80, style, alt, ...props }: CircleImageProps): React.JSX.Element {\n  return (\n    <img\n      data-slot=\"circle-image\"\n      alt={alt}\n      width={typeof size === \"number\" ? size : undefined}\n      height={typeof size === \"number\" ? size : undefined}\n      className={cn(\"inline-block shrink-0 rounded-full object-cover\", className)}\n      style={{ width: size, height: size, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport interface VideoContainerProps extends React.ComponentProps<\"div\"> {\n  /** Aspect ratio as a number (`16 / 9`) or a CSS ratio string (`\"4 / 3\"`). */\n  ratio?: number | string;\n}\n\n/**\n * Responsive embed (Materialize `.video-container`): keeps an `<iframe>`,\n * `<video>` or `<object>` at a fixed aspect ratio (16:9 by default) using CSS\n * `aspect-ratio` instead of the padding hack.\n */\nexport function VideoContainer({ className, ratio = 16 / 9, style, ...props }: VideoContainerProps): React.JSX.Element {\n  return (\n    <div\n      data-slot=\"video-container\"\n      className={cn(\n        \"relative w-full overflow-hidden\",\n        \"[&>embed]:absolute [&>embed]:inset-0 [&>embed]:size-full [&>iframe]:absolute [&>iframe]:inset-0 [&>iframe]:size-full [&>iframe]:border-0 [&>object]:absolute [&>object]:inset-0 [&>object]:size-full [&>video]:absolute [&>video]:inset-0 [&>video]:size-full\",\n        className,\n      )}\n      style={{ aspectRatio: typeof ratio === \"number\" ? String(ratio) : ratio, ...style }}\n      {...props}\n    />\n  );\n}\n\n/** `<video>` that scales down with its container (Materialize `video.responsive-video`). */\nexport function ResponsiveVideo({ className, ...props }: React.ComponentProps<\"video\">): React.JSX.Element {\n  return <video data-slot=\"responsive-video\" className={cn(\"block h-auto max-w-full\", className)} {...props} />;\n}\n"
+    }
+  ]
+}

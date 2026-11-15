@@ -1,0 +1,26 @@
+{
+  "name": "breadcrumbs",
+  "type": "registry:ui",
+  "title": "Breadcrumbs",
+  "description": "A trail of links to the current page with chevron separators, standalone or inside a navbar.",
+  "category": "Navigation",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "icons"
+  ],
+  "files": [
+    {
+      "path": "components/ui/breadcrumbs.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "A nav landmark labelled \"Breadcrumb\" with an ordered list, following the WAI-ARIA breadcrumb pattern.",
+    "The last crumb has aria-current=\"page\"; separators are inline SVGs hidden from screen readers instead of icon-font pseudo-elements.",
+    "Inherits the text color, so the same component works on a navbar or on a light or dark page.",
+    "Wraps on narrow screens instead of overflowing."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer",
+  "type": "registry:ui",
+  "title": "Footer",
+  "description": "Page footer with columns, links and a copyright strip.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://materializedcss.dev/r/utils.json"
+  ],
+  "categories": [
+    "layout"
+  ],
+  "files": [
+    {
+      "path": "registry/materializedcss/components/ui/footer.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\nimport { Slot } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\n/** Page footer (Materialize `footer.page-footer`): primary background with light text. */\nexport function Footer({ className, ...props }: React.ComponentProps<\"footer\">): React.JSX.Element {\n  return (\n    <footer\n      data-slot=\"footer\"\n      className={cn(\"w-full bg-primary pt-5 text-primary-foreground\", className)}\n      {...props}\n    />\n  );\n}\n\n/** Centered container (Materialize `.container`) laying out footer columns in a responsive grid. */\nexport function FooterContent({ className, ...props }: React.ComponentProps<\"div\">): React.JSX.Element {\n  return (\n    <div\n      data-slot=\"footer-content\"\n      className={cn(\"mx-auto grid w-[90%] max-w-[1280px] gap-x-8 gap-y-4 pb-5 md:grid-cols-[2fr_1fr]\", className)}\n      {...props}\n    />\n  );\n}\n\n/** A column of the footer. */\nexport function FooterSection({ className, ...props }: React.ComponentProps<\"section\">): React.JSX.Element {\n  return <section data-slot=\"footer-section\" className={cn(\"min-w-0\", className)} {...props} />;\n}\n\nexport interface FooterTitleProps extends React.ComponentProps<\"h2\"> {\n  /** Heading element. The default `h2` is styled like Materialize's footer `h5`. */\n  as?: \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"p\";\n}\n\n/** Column heading (Materialize footer `h5`). */\nexport function FooterTitle({ className, as: Comp = \"h2\", ...props }: FooterTitleProps): React.JSX.Element {\n  return (\n    <Comp\n      data-slot=\"footer-title\"\n      className={cn(\"mt-[1.0933rem] mb-[0.656rem] text-h5 font-normal leading-[1.1]\", className)}\n      {...props}\n    />\n  );\n}\n\n/** Body text in a footer column. */\nexport function FooterText({ className, ...props }: React.ComponentProps<\"p\">): React.JSX.Element {\n  return <p data-slot=\"footer-text\" className={cn(\"m-0 font-light leading-normal\", className)} {...props} />;\n}\n\n/** List of footer links. Wrap it in `<nav aria-label>` if it is a navigation menu. */\nexport function FooterLinks({ className, ...props }: React.ComponentProps<\"ul\">): React.JSX.Element {\n  return <ul data-slot=\"footer-links\" className={cn(\"m-0 list-none space-y-1 p-0 [&>li]:list-none\", className)} {...props} />;\n}\n\nexport interface FooterLinkProps extends React.ComponentProps<\"a\"> {\n  /** Render the child element (e.g. Next.js `Link`) instead of an `<a>`. */\n  asChild?: boolean;\n}\n\n/** Light link for use on the footer background. */\nexport function FooterLink({ className, asChild = false, ...props }: FooterLinkProps): React.JSX.Element {\n  const Comp = asChild ? Slot.Root : \"a\";\n  return (\n    <Comp\n      data-slot=\"footer-link\"\n      className={cn(\n        \"rounded-ui text-inherit no-underline underline-offset-4 outline-none hover:underline focus-visible:focus-ring focus-visible:outline-current!\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\n/** Bottom strip with the copyright notice (Materialize `.footer-copyright`). */\nexport function FooterCopyright({ className, children, ...props }: React.ComponentProps<\"div\">): React.JSX.Element {\n  return (\n    <div\n      data-slot=\"footer-copyright\"\n      className={cn(\"flex min-h-[50px] items-center bg-black/15 py-2.5 font-light text-primary-foreground/90 dark:bg-white/15\", className)}\n      {...props}\n    >\n      <div className=\"mx-auto flex w-[90%] max-w-[1280px] flex-wrap items-center justify-between gap-x-6 gap-y-1\">{children}</div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

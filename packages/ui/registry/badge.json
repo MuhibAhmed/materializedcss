@@ -1,0 +1,24 @@
+{
+  "name": "badge",
+  "type": "registry:ui",
+  "title": "Badge",
+  "description": "Counts and \"new\" notification badges for collections, navbars and lists.",
+  "category": "Data Display",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/badge.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "The caption (\"new\" or your own) is real text, so screen readers announce \"4 new\" instead of just \"4\".",
+    "Uses inline-flex instead of float: right, so badges align in any flex row without clearfix hacks.",
+    "Theme colors (secondary, primary, error, success) that follow dark mode."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "table",
+  "type": "registry:ui",
+  "title": "Table",
+  "description": "Data tables with striped rows, hover highlight, centered text and a responsive scroll container.",
+  "category": "Data Display",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/table.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "Responsive tables scroll horizontally in a container instead of Materialize's flipped layout, which broke the reading order for screen readers.",
+    "Header cells default to scope=\"col\", and TableCaption and TableFooter are included.",
+    "Stripes and hover colors are translucent, so they work on cards and in dark mode."
+  ]
+}

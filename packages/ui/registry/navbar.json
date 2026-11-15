@@ -1,0 +1,28 @@
+{
+  "name": "navbar",
+  "type": "registry:ui",
+  "title": "Navbar",
+  "description": "Top app bar with a brand logo, links, icons, buttons, an extended row, sticky positioning and a search field.",
+  "category": "Navigation",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "icons",
+    "use-controllable-state"
+  ],
+  "files": [
+    {
+      "path": "components/ui/navbar.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "Links live in a labelled nav landmark, and the active link has aria-current=\"page\".",
+    "Flexbox layout instead of floats and an absolutely positioned logo, so links never overlap the brand.",
+    "Focus rings are drawn in the bar's text color, so they stay visible on any background.",
+    "The search field has a real label, clears on Escape or with a labelled button, and works controlled or uncontrolled.",
+    "The menu button is a real button that passes aria-expanded and aria-controls to your side navigation."
+  ]
+}

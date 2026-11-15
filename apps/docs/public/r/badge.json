@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:ui",
+  "title": "Badge",
+  "description": "Counts and \"new\" notification badges for collections, navbars and lists.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://materializedcss.dev/r/utils.json"
+  ],
+  "categories": [
+    "data display"
+  ],
+  "files": [
+    {
+      "path": "registry/materializedcss/components/ui/badge.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\nimport { cva } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport const badgeVariants = cva(\n  [\n    \"inline-flex h-[22px] min-w-12 shrink-0 items-center justify-center gap-1 whitespace-nowrap px-1.5 text-center align-middle leading-[22px]\",\n  ],\n  {\n    variants: {\n      variant: {\n        /** Materialize `span.badge`: plain grey count. */\n        default: \"text-base text-muted-foreground\",\n        /** Materialize `span.badge.new`: filled, light weight, with a caption. */\n        new: \"rounded-ui text-[0.8rem] font-light\",\n      },\n      color: {\n        default: \"\",\n        primary: \"\",\n        secondary: \"\",\n        error: \"\",\n        success: \"\",\n      },\n    },\n    compoundVariants: [\n      { variant: \"new\", color: [\"default\", \"secondary\"], className: \"bg-secondary text-secondary-foreground\" },\n      { variant: \"new\", color: \"primary\", className: \"bg-primary text-primary-foreground\" },\n      { variant: \"new\", color: \"error\", className: \"bg-error text-error-foreground\" },\n      { variant: \"new\", color: \"success\", className: \"bg-success text-success-foreground\" },\n    ],\n    defaultVariants: { variant: \"default\", color: \"default\" },\n  },\n);\n\nexport interface BadgeProps extends Omit<React.ComponentProps<\"span\">, \"color\"> {\n  /** `default` is Materialize's plain count; `new` is the filled notification badge. */\n  variant?: \"default\" | \"new\" | null | undefined;\n  /** Fill color of a `new` badge. `default` is the secondary (teal) color. */\n  color?: \"default\" | \"primary\" | \"secondary\" | \"error\" | \"success\" | null | undefined;\n  /**\n   * Text appended after the content (Materialize `data-badge-caption`). Defaults to\n   * `\"new\"` for the `new` variant; pass `\"\"` or `null` to hide it. Unlike\n   * Materialize's CSS `content`, the caption is real text that screen readers announce.\n   */\n  caption?: React.ReactNode;\n}\n\n/**\n * Small count or status label (Materialize `span.badge`). Place it at the end\n * of collection items, navbar links or dropdown items.\n */\nexport function Badge({ className, variant, color, caption, children, ...props }: BadgeProps): React.JSX.Element {\n  const resolvedCaption = caption === undefined ? (variant === \"new\" ? \"new\" : null) : caption;\n  const hasCaption = resolvedCaption !== null && resolvedCaption !== \"\" && resolvedCaption !== false;\n  return (\n    <span\n      data-slot=\"badge\"\n      data-variant={variant ?? \"default\"}\n      className={cn(badgeVariants({ variant, color }), className)}\n      {...props}\n    >\n      {children}\n      {hasCaption ? <span data-slot=\"badge-caption\">{resolvedCaption}</span> : null}\n    </span>\n  );\n}\n"
+    }
+  ]
+}

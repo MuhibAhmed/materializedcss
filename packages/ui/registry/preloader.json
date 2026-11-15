@@ -1,0 +1,25 @@
+{
+  "name": "preloader",
+  "type": "registry:ui",
+  "title": "Preloader",
+  "description": "Material circular spinner with Materialize's exact timings, three sizes and a four-color mode.",
+  "category": "Feedback",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/preloader.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "One component instead of fifteen nested divs to copy by hand.",
+    "role=\"status\" with an accessible label (\"Loading\" by default).",
+    "Any theme color or CSS color, not only the four built-in Google colors.",
+    "With reduced motion the arc stops filling and unfilling and only turns slowly."
+  ]
+}

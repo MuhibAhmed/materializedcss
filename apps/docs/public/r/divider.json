@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider",
+  "type": "registry:ui",
+  "title": "Divider",
+  "description": "A 1px horizontal or vertical line in the border color.",
+  "registryDependencies": [
+    "https://materializedcss.dev/r/utils.json"
+  ],
+  "categories": [
+    "foundations"
+  ],
+  "files": [
+    {
+      "path": "registry/materializedcss/components/ui/divider.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface DividerProps extends React.ComponentProps<\"div\"> {\n  /** Direction of the line. Vertical dividers stretch to the height of a flex row. */\n  orientation?: \"horizontal\" | \"vertical\";\n  /**\n   * Purely visual line: hidden from assistive technology (`role=\"none\"`). By\n   * default the divider is exposed as `role=\"separator\"`.\n   */\n  decorative?: boolean;\n}\n\n/** 1px line in the border color (Materialize `.divider`). */\nexport function Divider({ className, orientation = \"horizontal\", decorative = false, ...props }: DividerProps): React.JSX.Element {\n  return (\n    <div\n      data-slot=\"divider\"\n      data-orientation={orientation}\n      role={decorative ? \"none\" : \"separator\"}\n      aria-orientation={decorative || orientation === \"horizontal\" ? undefined : \"vertical\"}\n      className={cn(\n        \"shrink-0 overflow-hidden bg-border\",\n        orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px self-stretch\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n"
+    }
+  ]
+}

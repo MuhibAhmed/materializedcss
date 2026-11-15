@@ -1,0 +1,21 @@
+{
+  "name": "divider",
+  "type": "registry:ui",
+  "title": "Divider",
+  "description": "A 1px horizontal or vertical line in the border color.",
+  "category": "Foundations",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/divider.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "Exposed as role=\"separator\" (or hidden with decorative) instead of an empty div.",
+    "Vertical orientation for toolbars and flex rows.",
+    "Uses the border token, so it adapts to dark mode."
+  ]
+}

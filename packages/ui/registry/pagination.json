@@ -1,0 +1,27 @@
+{
+  "name": "pagination",
+  "type": "registry:ui",
+  "title": "Pagination",
+  "description": "Square page links with chevrons, as composable parts or a ready-made control with ellipses.",
+  "category": "Navigation",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "icons",
+    "use-controllable-state"
+  ],
+  "files": [
+    {
+      "path": "components/ui/pagination.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "PaginationControl computes the visible range with ellipses for any number of pages; Materialize left that to you.",
+    "The current page has aria-current=\"page\" and previous/next chevrons have accessible names.",
+    "Disabled chevrons use aria-disabled, so keyboard focus is not lost when you reach the first or last page.",
+    "Render real links (getHref) for crawlable, server-side pagination, or buttons with onPageChange."
+  ]
+}

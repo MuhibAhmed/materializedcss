@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "type": "registry:ui",
+  "title": "Progress",
+  "description": "Thin linear progress bar: determinate with a smooth width transition, or the two-bar indeterminate loop.",
+  "registryDependencies": [
+    "https://materializedcss.dev/r/utils.json"
+  ],
+  "categories": [
+    "feedback"
+  ],
+  "files": [
+    {
+      "path": "registry/materializedcss/components/ui/progress.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst tokenColors = {\n  secondary: { bar: \"bg-secondary\", track: \"bg-secondary-light\", bars: \"before:bg-secondary after:bg-secondary\" },\n  primary: { bar: \"bg-primary\", track: \"bg-primary-light\", bars: \"before:bg-primary after:bg-primary\" },\n} as const;\n\nexport interface ProgressProps extends Omit<React.ComponentProps<\"div\">, \"color\"> {\n  /**\n   * Completion from `min` to `max`. Leave it `undefined` (or `null`) for an\n   * indeterminate bar that loops while the duration is unknown.\n   */\n  value?: number | null | undefined;\n  /** Lower bound of `value`. */\n  min?: number;\n  /** Upper bound of `value`. */\n  max?: number;\n  /** Accessible name, e.g. \"Uploading photo\". Required unless you pass `aria-label` or `aria-labelledby`. */\n  label?: string;\n  /** Text read by screen readers instead of the percentage, e.g. \"3 of 10 files\". */\n  valueText?: string;\n  /** Bar color. */\n  color?: \"secondary\" | \"primary\";\n}\n\n/**\n * Linear progress bar (Materialize `.progress`): 4px track, determinate fill\n * that animates its width, or Materialize's two-bar indeterminate animation.\n */\nexport function Progress({\n  className,\n  value,\n  min = 0,\n  max = 100,\n  label,\n  valueText,\n  color = \"secondary\",\n  ...props\n}: ProgressProps): React.JSX.Element {\n  const indeterminate = value === undefined || value === null || Number.isNaN(value);\n  const clamped = indeterminate ? 0 : Math.min(Math.max(value, min), max);\n  const percent = max > min ? ((clamped - min) / (max - min)) * 100 : 0;\n  const colors = tokenColors[color];\n\n  return (\n    <div\n      role=\"progressbar\"\n      aria-label={label}\n      aria-valuemin={min}\n      aria-valuemax={max}\n      aria-valuenow={indeterminate ? undefined : clamped}\n      aria-valuetext={indeterminate ? undefined : valueText}\n      data-slot=\"progress\"\n      data-state={indeterminate ? \"indeterminate\" : percent >= 100 ? \"complete\" : \"loading\"}\n      className={cn(\"relative block h-1 w-full overflow-hidden rounded-[2px]\", colors.track, className)}\n      {...props}\n    >\n      {indeterminate ? (\n        <div\n          data-slot=\"progress-indicator\"\n          className={cn(\n            \"absolute inset-0\",\n            \"before:absolute before:inset-y-0 before:will-change-[left,right] before:animate-md-indeterminate\",\n            \"after:absolute after:inset-y-0 after:will-change-[left,right] after:animate-md-indeterminate-short\",\n            // Reduced motion: a slow, gentle sweep instead of the fast two-bar loop.\n            \"motion-reduce:before:animate-[md-indeterminate_6s_linear_infinite] motion-reduce:after:hidden\",\n            colors.bars,\n          )}\n        />\n      ) : (\n        <div\n          data-slot=\"progress-indicator\"\n          className={cn(\"absolute inset-y-0 left-0 transition-[width] duration-300 ease-linear motion-reduce:transition-none\", colors.bar)}\n          style={{ width: `${percent}%` }}\n        />\n      )}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

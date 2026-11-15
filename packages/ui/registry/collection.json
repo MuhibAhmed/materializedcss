@@ -1,0 +1,25 @@
+{
+  "name": "collection",
+  "type": "registry:ui",
+  "title": "Collection",
+  "description": "Bordered lists with headers, avatars, secondary content and link collections.",
+  "category": "Data Display",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/collection.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "Real list semantics: ul/li for collections, and nav > ul > li > a for link collections.",
+    "The active link gets aria-current=\"page\", not just a color.",
+    "Secondary content is laid out with flexbox instead of floats, so it stays aligned at any height.",
+    "Visible keyboard focus for links and dark-mode aware borders and surfaces."
+  ]
+}

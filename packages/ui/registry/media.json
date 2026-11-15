@@ -1,0 +1,21 @@
+{
+  "name": "media",
+  "type": "registry:ui",
+  "title": "Media",
+  "description": "Responsive images, circle images and aspect-ratio video embeds.",
+  "category": "Media & Motion",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/media.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "VideoContainer uses CSS aspect-ratio instead of the padding-bottom hack and accepts any ratio.",
+    "Works with iframe, video, object and embed elements.",
+    "CircleImage crops with object-fit, so non-square images are not squashed."
+  ]
+}

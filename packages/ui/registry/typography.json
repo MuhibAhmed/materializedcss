@@ -1,0 +1,24 @@
+{
+  "name": "typography",
+  "type": "registry:ui",
+  "title": "Typography",
+  "description": "Materialize headings, blockquotes, flow text and text helpers built on Roboto.",
+  "category": "Foundations",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/typography.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "Heading separates the semantic level from the visual size, so the document outline stays correct.",
+    "Flow text uses CSS clamp() instead of JavaScript resize listeners.",
+    "Colors come from tokens, so text, quotes and muted copy adapt to dark mode."
+  ]
+}

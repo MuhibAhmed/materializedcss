@@ -1,0 +1,32 @@
+{
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "Raised surfaces with images, titles, actions, a reveal panel, horizontal layout and fixed sizes.",
+  "category": "Layout",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "utils",
+    "icons",
+    "use-controllable-state"
+  ],
+  "files": [
+    {
+      "path": "components/ui/card.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "components/ui/card-reveal.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "The reveal activator is a real button with aria-expanded and aria-controls instead of a clickable span.",
+    "Opening the reveal moves focus into the panel; Escape or the close button closes it and returns focus to the activator.",
+    "The hidden reveal panel is inert, so keyboard users never tab into invisible content.",
+    "Reveal state can be controlled (open / onOpenChange) and the slide respects reduced motion.",
+    "Card, CardContent and the other static parts stay server components; only the reveal parts ship JavaScript."
+  ]
+}

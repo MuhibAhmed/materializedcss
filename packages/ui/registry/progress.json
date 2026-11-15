@@ -1,0 +1,22 @@
+{
+  "name": "progress",
+  "type": "registry:ui",
+  "title": "Progress",
+  "description": "Thin linear progress bar: determinate with a smooth width transition, or the two-bar indeterminate loop.",
+  "category": "Feedback",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/progress.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "role=\"progressbar\" with aria-valuemin, aria-valuemax and aria-valuenow (omitted while indeterminate) and a label.",
+    "Values are clamped and can use any min/max range, with optional aria-valuetext.",
+    "The indeterminate animation turns into a slow single sweep for users who prefer reduced motion.",
+    "Track and bar colors follow the theme and dark mode."
+  ]
+}

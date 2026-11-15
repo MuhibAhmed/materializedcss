@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumbs",
+  "type": "registry:ui",
+  "title": "Breadcrumbs",
+  "description": "A trail of links to the current page with chevron separators, standalone or inside a navbar.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://materializedcss.dev/r/utils.json",
+    "https://materializedcss.dev/r/icons.json"
+  ],
+  "categories": [
+    "navigation"
+  ],
+  "files": [
+    {
+      "path": "registry/materializedcss/components/ui/breadcrumbs.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\nimport { Slot } from \"radix-ui\";\n\nimport { ChevronRightIcon } from \"@/components/ui/icons\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface BreadcrumbsProps extends React.ComponentProps<\"nav\"> {\n  /** Accessible name of the landmark. */\n  \"aria-label\"?: string;\n}\n\n/**\n * Breadcrumb trail (Materialize `.breadcrumb`). Inherits the text color, so it\n * works inside a `Navbar` or on its own. Renders `<nav aria-label=\"Breadcrumb\">`.\n */\nexport function Breadcrumbs({ className, \"aria-label\": ariaLabel = \"Breadcrumb\", ...props }: BreadcrumbsProps): React.JSX.Element {\n  return <nav data-slot=\"breadcrumbs\" aria-label={ariaLabel} className={cn(\"text-lg\", className)} {...props} />;\n}\n\n/** Ordered list of crumbs. */\nexport function BreadcrumbList({ className, ...props }: React.ComponentProps<\"ol\">): React.JSX.Element {\n  return (\n    <ol\n      data-slot=\"breadcrumb-list\"\n      className={cn(\"m-0 flex list-none flex-wrap items-center gap-y-1 p-0 break-words\", className)}\n      {...props}\n    />\n  );\n}\n\n/** One crumb. */\nexport function BreadcrumbItem({ className, ...props }: React.ComponentProps<\"li\">): React.JSX.Element {\n  return <li data-slot=\"breadcrumb-item\" className={cn(\"inline-flex items-center gap-1.5\", className)} {...props} />;\n}\n\nexport interface BreadcrumbLinkProps extends React.ComponentProps<\"a\"> {\n  /** Render the child element (e.g. Next.js `Link`) instead of an `<a>`. */\n  asChild?: boolean;\n}\n\n/** Link to an ancestor page. */\nexport function BreadcrumbLink({ className, asChild = false, ...props }: BreadcrumbLinkProps): React.JSX.Element {\n  const Comp = asChild ? Slot.Root : \"a\";\n  return (\n    <Comp\n      data-slot=\"breadcrumb-link\"\n      className={cn(\n        \"inline-flex items-center gap-1.5 rounded-ui text-inherit no-underline outline-none transition-opacity hover:underline hover:underline-offset-4 focus-visible:focus-ring\",\n        \"[&_svg]:size-6 [&_.material-icons]:text-2xl\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\n/** The current page: the last crumb, with `aria-current=\"page\"`. */\nexport function BreadcrumbPage({ className, ...props }: React.ComponentProps<\"span\">): React.JSX.Element {\n  return (\n    <span\n      data-slot=\"breadcrumb-page\"\n      aria-current=\"page\"\n      className={cn(\"inline-flex items-center gap-1.5 font-medium [&_svg]:size-6 [&_.material-icons]:text-2xl\", className)}\n      {...props}\n    />\n  );\n}\n\n/** Chevron between crumbs. Decorative: hidden from assistive technology. */\nexport function BreadcrumbSeparator({ className, children, ...props }: React.ComponentProps<\"li\">): React.JSX.Element {\n  return (\n    <li\n      data-slot=\"breadcrumb-separator\"\n      role=\"presentation\"\n      aria-hidden=\"true\"\n      className={cn(\"mx-1.5 inline-flex items-center opacity-70 [&_svg]:size-6\", className)}\n      {...props}\n    >\n      {children ?? <ChevronRightIcon />}\n    </li>\n  );\n}\n"
+    }
+  ]
+}

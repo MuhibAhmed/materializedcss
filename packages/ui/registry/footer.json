@@ -1,0 +1,25 @@
+{
+  "name": "footer",
+  "type": "registry:ui",
+  "title": "Footer",
+  "description": "Page footer with columns, links and a copyright strip.",
+  "category": "Layout",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/footer.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "improvements": [
+    "Text and links use the primary foreground color, so they meet WCAG AA contrast instead of light grey on coral.",
+    "The copyright strip is darker in light mode and lighter in dark mode to keep its text readable.",
+    "Responsive grid columns without the 12-column grid classes.",
+    "Footer links show a focus ring and an underline on hover."
+  ]
+}
