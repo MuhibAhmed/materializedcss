@@ -49,3 +49,9 @@ export const designNav: NavSection = {
     { title: "Grid & helpers", href: "/docs/grid" },
   ],
 };
+
+/** Full-page demos built from the components (header and mobile menu only, not the docs sidebar). */
+export const examplesNav: NavSection = {
+  title: "Examples",
+  items: [{ title: "Store", href: "/examples/store" }],
+};

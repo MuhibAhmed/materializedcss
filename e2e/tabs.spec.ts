@@ -53,6 +53,17 @@ test.describe("Tabs", () => {
     await expectIndicatorAligned(demo);
   });
 
+  test("a mouse click does not show the keyboard focus ring, but arrow keys do", async ({ page }) => {
+    const demo = preview(page, "tabs-demo");
+    const ring = (name: string) => demo.getByRole("tab", { name }).evaluate((el) => getComputedStyle(el).boxShadow);
+    await demo.getByRole("tab", { name: "Test 4" }).click();
+    await expect(demo.getByRole("tab", { name: "Test 4" })).toBeFocused();
+    expect(await ring("Test 4")).not.toContain("inset");
+    await page.keyboard.press("ArrowLeft");
+    await expect(demo.getByRole("tab", { name: "Test 2" })).toBeFocused();
+    await expect.poll(() => ring("Test 2")).toContain("inset");
+  });
+
   test("the trailing edge of the indicator lags behind (stretch animation)", async ({ page }) => {
     const demo = preview(page, "tabs-demo");
     await demo.getByRole("tab", { name: "Test 4" }).click();

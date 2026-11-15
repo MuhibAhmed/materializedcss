@@ -29,7 +29,7 @@ export function TapTargetDemo() {
         <TapTargetDescription>
           Use the plus button to start a new list item. Everything you add is saved as you type.
         </TapTargetDescription>
-        <Button variant="flat" className="mt-3 text-primary-foreground" onClick={() => setOpen(false)}>
+        <Button variant="flat" className="-mx-4 mt-3 text-primary-foreground" onClick={() => setOpen(false)}>
           Got it
         </Button>
       </TapTargetContent>

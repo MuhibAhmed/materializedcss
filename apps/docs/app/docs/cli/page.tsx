@@ -312,7 +312,7 @@ export default function CliPage(): React.JSX.Element {
         <Callout title="Coming from shadcn/ui?" tone="warning">
           materializedcss&apos;s <code>lib/utils.ts</code> also exports <code>composeEventHandlers</code> and{" "}
           <code>prefersReducedMotion</code>. If <code>init</code> keeps your existing utils file, it lists any missing
-          exports so you can add them (or re-run with <code>--force</code>).
+          exports so you can add them (or re-run with <code className="whitespace-nowrap">--force</code>).
         </Callout>
       </DocSection>
 

@@ -141,7 +141,10 @@ export interface CarouselProps extends Omit<React.ComponentProps<"div">, "ref" |
   numVisible?: number;
   /** Settling time constant in ms for the snap / momentum animation. */
   duration?: number;
-  /** Height of the carousel (px number or any CSS length). */
+  /**
+   * Height of the carousel (px number or any CSS length). Applied to the root, so a
+   * height utility in `className` (e.g. `h-full`) or `style.height` overrides it.
+   */
   height?: number | string;
   /** Controlled active slide index. */
   activeIndex?: number;
@@ -232,6 +235,7 @@ export function Carousel({
   autoplay = false,
   labels: labelsProp,
   fixedContent,
+  style,
   ...props
 }: CarouselProps): React.JSX.Element {
   const labels = { ...defaultLabels, ...labelsProp };
@@ -656,7 +660,8 @@ export function Carousel({
         aria-roledescription="carousel"
         data-slot="carousel"
         data-full-width={fullWidth ? "" : undefined}
-        className={cn("relative w-full", className)}
+        className={cn("relative h-(--carousel-height) w-full", className)}
+        style={{ ["--carousel-height" as string]: typeof height === "number" ? `${height}px` : height, ...style }}
         {...props}
       >
         <div
@@ -671,9 +676,8 @@ export function Carousel({
           onClickCapture={onClickCapture}
           onKeyDown={onKeyDown}
           onDragStart={(event) => event.preventDefault()}
-          style={{ height: typeof height === "number" ? `${height}px` : height }}
           className={cn(
-            "relative w-full origin-[0%_50%] touch-pan-y select-none overflow-hidden outline-none [perspective:500px] [transform-style:preserve-3d] focus-visible:focus-ring",
+            "relative size-full origin-[0%_50%] touch-pan-y select-none overflow-hidden outline-none [perspective:500px] [transform-style:preserve-3d] focus-visible:focus-ring",
             count > 1 && "cursor-grab active:cursor-grabbing",
           )}
         >

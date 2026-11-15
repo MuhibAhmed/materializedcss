@@ -72,6 +72,9 @@ export function Checkbox({
               "transition-[border-color,background-color] duration-200 motion-reduce:transition-none",
               "group-data-[state=checked]/checkbox:border-secondary group-data-[state=checked]/checkbox:bg-secondary group-data-[state=indeterminate]/checkbox:border-secondary group-data-[state=indeterminate]/checkbox:bg-secondary",
               "group-data-[disabled]/checkbox:border-transparent group-data-[disabled]/checkbox:bg-foreground/35",
+              // Grey out checked / indeterminate boxes too (these need the extra specificity to beat the state colors).
+              "group-data-[disabled]/checkbox:group-data-[state=checked]/checkbox:border-transparent group-data-[disabled]/checkbox:group-data-[state=checked]/checkbox:bg-foreground/35",
+              "group-data-[disabled]/checkbox:group-data-[state=indeterminate]/checkbox:border-transparent group-data-[disabled]/checkbox:group-data-[state=indeterminate]/checkbox:bg-foreground/35",
             )}
           />
           <span
@@ -84,7 +87,8 @@ export function Checkbox({
               "group-data-[state=checked]/checkbox:border-2 group-data-[state=checked]/checkbox:border-t-transparent group-data-[state=checked]/checkbox:border-l-transparent",
               "group-data-[state=checked]/checkbox:border-r-secondary-foreground group-data-[state=checked]/checkbox:border-b-secondary-foreground",
               "group-data-[state=indeterminate]/checkbox:top-[9px] group-data-[state=indeterminate]/checkbox:left-1 group-data-[state=indeterminate]/checkbox:h-0.5 group-data-[state=indeterminate]/checkbox:w-3 group-data-[state=indeterminate]/checkbox:rotate-0 group-data-[state=indeterminate]/checkbox:border-0 group-data-[state=indeterminate]/checkbox:bg-secondary-foreground",
-              "group-data-[disabled]/checkbox:border-r-surface group-data-[disabled]/checkbox:border-b-surface",
+              // Only the checked tick is recolored; an unchecked tick must stay transparent (no stray mark).
+              "group-data-[disabled]/checkbox:group-data-[state=checked]/checkbox:border-r-surface group-data-[disabled]/checkbox:group-data-[state=checked]/checkbox:border-b-surface",
               "group-data-[disabled]/checkbox:group-data-[state=indeterminate]/checkbox:bg-surface",
             )}
           />

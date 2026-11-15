@@ -27,7 +27,8 @@ export function Navbar({ className, fixed = false, ...props }: NavbarProps): Rea
       data-fixed={fixed ? "" : undefined}
       className={cn(
         "relative w-full bg-primary text-primary-foreground shadow-z1",
-        fixed && "sticky top-0 z-[997]",
+        // z-40: above page content, below z-50 overlays (modal, sidenav, scrims).
+        fixed && "sticky top-0 z-40",
         className,
       )}
       {...props}

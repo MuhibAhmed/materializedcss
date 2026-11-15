@@ -21,15 +21,32 @@ export function TableOfContents(): React.JSX.Element | null {
     setHeadings(nodes.map((node) => ({ id: node.id, text: node.textContent?.replace(/#$/, "").trim() ?? "" })));
     if (!nodes.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { rootMargin: "-80px 0px -70% 0px" },
-    );
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    // The active heading is the last one scrolled past the sticky header (plus some slack), or
+    // the last heading once the page is scrolled to the bottom. Computed from positions on every
+    // scroll frame, so it is never stale, unlike observing headings entering a band.
+    const OFFSET = 120;
+    let frame = 0;
+    const update = (): void => {
+      frame = 0;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      let current = nodes[0]!;
+      for (const node of nodes) {
+        if (node.getBoundingClientRect().top <= OFFSET) current = node;
+        else break;
+      }
+      setActive(atBottom ? nodes[nodes.length - 1]!.id : current.id);
+    };
+    const onScroll = (): void => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(frame);
+    };
   }, [pathname]);
 
   if (headings.length < 2) return null;

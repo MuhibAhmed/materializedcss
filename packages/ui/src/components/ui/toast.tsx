@@ -423,6 +423,10 @@ export function Toaster({
         {assertive}
       </div>
       <div
+        // aria-live="off" (the default for a plain div, so nothing is announced twice) keeps the
+        // toast list out of the aria-hidden that an open Modal/Sidenav puts on the rest of the
+        // page, so a toast's action button stays reachable by assistive tech.
+        aria-live="off"
         className={cn(
           "pointer-events-none fixed bottom-0 left-0 z-[10000] flex w-full flex-col",
           "min-[601px]:bottom-[7%] min-[601px]:left-[5%] min-[601px]:w-auto min-[601px]:max-w-[90%] min-[601px]:items-start",

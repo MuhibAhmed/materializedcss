@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CodeBlock } from "~/components/docs/code-block";
-import { Callout, DocHeader, DocSection } from "~/components/docs/doc-parts";
+import { Callout, DocHeader, DocSection, PagerLinks } from "~/components/docs/doc-parts";
 import { ThemeCustomizer } from "~/components/theme-customizer";
 
 export const metadata: Metadata = { title: "Theming" };
@@ -66,8 +66,8 @@ export default function ThemingPage(): React.JSX.Element {
             <tbody>
               {TOKENS.map(([token, description]) => (
                 <tr key={token} className="border-b border-border last:border-0">
-                  <td className="whitespace-nowrap px-4 py-2.5 font-mono text-[12px] text-secondary">{token}</td>
-                  <td className="px-4 py-2.5 text-muted-foreground">{description}</td>
+                  <td className="px-4 py-2.5 align-top font-mono text-[12px] text-secondary sm:whitespace-nowrap">{token}</td>
+                  <td className="px-4 py-2.5 align-top text-muted-foreground">{description}</td>
                 </tr>
               ))}
             </tbody>
@@ -97,6 +97,7 @@ export default function ThemingPage(): React.JSX.Element {
           <a href="/docs/colors">Colors</a>.
         </p>
       </DocSection>
+      <PagerLinks prev={{ title: "CLI", href: "/docs/cli" }} next={{ title: "Dark mode", href: "/docs/dark-mode" }} />
     </article>
   );
 }

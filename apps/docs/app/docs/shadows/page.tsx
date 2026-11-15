@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CodeBlock } from "~/components/docs/code-block";
-import { DocHeader, DocSection } from "~/components/docs/doc-parts";
+import { DocHeader, DocSection, PagerLinks } from "~/components/docs/doc-parts";
 
 export const metadata: Metadata = { title: "Shadows" };
 
@@ -25,7 +25,7 @@ export default function ShadowsPage(): React.JSX.Element {
       />
 
       <DocSection title="Elevation">
-        <div className="grid grid-cols-2 gap-8 rounded-md bg-surface-2 p-8 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 rounded-md bg-surface-2 p-8 pb-16 sm:grid-cols-4">
           {DEPTHS.map((depth) => (
             <div key={depth.cls} className={`flex aspect-square flex-col items-center justify-center rounded-ui bg-surface text-center ${depth.cls}`}>
               <span className="font-mono text-sm text-foreground">{depth.cls}</span>
@@ -46,6 +46,7 @@ export default function ShadowsPage(): React.JSX.Element {
 <div className="shadow-z1 transition-shadow hover:shadow-z3">Custom transition</div>`}
         />
       </DocSection>
+      <PagerLinks prev={{ title: "Typography", href: "/docs/typography" }} next={{ title: "Grid & helpers", href: "/docs/grid" }} />
     </article>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CodeBlock } from "~/components/docs/code-block";
-import { DocHeader, DocSection } from "~/components/docs/doc-parts";
+import { DocHeader, DocSection, PagerLinks } from "~/components/docs/doc-parts";
 import { PaletteGrid } from "~/components/palette-grid";
 
 export const metadata: Metadata = { title: "Colors" };
@@ -40,6 +40,7 @@ export default function ColorsPage(): React.JSX.Element {
       <DocSection title="Palette">
         <PaletteGrid />
       </DocSection>
+      <PagerLinks prev={{ title: "Dark mode", href: "/docs/dark-mode" }} next={{ title: "Typography", href: "/docs/typography" }} />
     </article>
   );
 }

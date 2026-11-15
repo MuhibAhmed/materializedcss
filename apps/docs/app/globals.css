@@ -71,7 +71,7 @@
     font-size: 0.85em;
     color: var(--foreground);
   }
-  & :where(ul:not([data-slot], [data-preview] *, [data-slot] *)) {
+  & :where(ul:not([class]):not([data-slot], [data-preview] *, [data-slot] *)) {
     list-style: disc;
     padding-left: 1.25rem;
     color: var(--muted-foreground);

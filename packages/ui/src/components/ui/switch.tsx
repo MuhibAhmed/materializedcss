@@ -69,6 +69,8 @@ export function Switch({
           "transition-[translate,background-color] duration-300 ease-in-out motion-reduce:transition-none",
           "data-[state=checked]:translate-x-[18px] data-[state=checked]:bg-secondary",
           "group-disabled/switch:bg-md-grey-500 group-disabled/switch:shadow-none dark:group-disabled/switch:bg-md-grey-700",
+          // A disabled "on" thumb is grey too (Materialize); the extra state selector outranks `bg-secondary`.
+          "group-disabled/switch:data-[state=checked]:bg-md-grey-500 dark:group-disabled/switch:data-[state=checked]:bg-md-grey-700",
           // Halo (Materialize .lever:before): grows to 2.4x on keyboard focus and while pressed.
           "before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-foreground/10 before:content-['']",
           "before:scale-100 before:opacity-0 before:transition-[scale,opacity] before:duration-100 motion-reduce:before:transition-none",
@@ -91,19 +93,24 @@ export function Switch({
             id={labelId}
             htmlFor={id}
             data-slot="switch-label"
-            className={cn("mr-2 cursor-pointer text-base text-foreground select-none", labelClassName)}
+            className={cn(
+              "mr-2 cursor-pointer text-base text-foreground select-none",
+              // Dim the label like Checkbox and RadioGroup do when disabled.
+              props.disabled && "cursor-default text-foreground/45",
+              labelClassName,
+            )}
           >
             {label}
           </label>
         ) : null}
         {has(offLabel) ? (
-          <label htmlFor={id} aria-hidden="true" data-slot="switch-off-label" className="cursor-pointer text-sm text-muted-foreground select-none">
+          <label htmlFor={id} aria-hidden="true" data-slot="switch-off-label" className={cn("cursor-pointer text-sm text-muted-foreground select-none", props.disabled && "cursor-default")}>
             {offLabel}
           </label>
         ) : null}
         {lever}
         {has(onLabel) ? (
-          <label htmlFor={id} aria-hidden="true" data-slot="switch-on-label" className="cursor-pointer text-sm text-muted-foreground select-none">
+          <label htmlFor={id} aria-hidden="true" data-slot="switch-on-label" className={cn("cursor-pointer text-sm text-muted-foreground select-none", props.disabled && "cursor-default")}>
             {onLabel}
           </label>
         ) : null}

@@ -8,7 +8,6 @@ export function PaginationLinks() {
       aria-label="Blog pages"
       defaultPage={3}
       total={10}
-      siblingCount={2}
       getHref={(page) => `#page-${page}`}
     />
   );

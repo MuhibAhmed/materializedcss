@@ -98,7 +98,7 @@ export function PropsTable({ props, title }: { props: PropDoc[]; title?: string 
         aria-label={title ? `${title} props` : "Props"}
         className="overflow-x-auto rounded-md border border-border outline-none focus-visible:focus-ring"
       >
-        <table className="w-full text-left text-sm">
+        <table className="w-full min-w-[40rem] text-left text-sm">
           <thead className="bg-surface-2 text-muted-foreground">
             <tr>
               <th className="px-4 py-2.5 font-medium">Prop</th>

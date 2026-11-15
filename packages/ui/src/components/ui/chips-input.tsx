@@ -123,6 +123,7 @@ export function ChipsInput({
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [announcement, setAnnouncement] = React.useState("");
   const [pendingFocus, setPendingFocus] = React.useState<number | "input" | null>(null);
+  const [focused, setFocused] = React.useState(false);
 
   const tags = chips.map(chipTag);
   const full = chips.length >= limit;
@@ -292,8 +293,17 @@ export function ChipsInput({
         data-slot="chips-input"
         data-disabled={disabled ? "" : undefined}
         data-invalid={invalid ? "true" : undefined}
+        onFocus={() => setFocused(true)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false);
+        }}
         className={cn(
-          textFieldControlVariants({ variant, prefix: hasPrefix }),
+          // Not a CSS `peer`: a <div> always matches `:not(:placeholder-shown)`, which would keep the label
+          // floated over an empty field. The label floats from state instead (see `TextFieldLabel` below).
+          textFieldControlVariants({ variant, prefix: hasPrefix })
+            .split(" ")
+            .filter((token) => token !== "peer")
+            .join(" "),
           "flex h-auto cursor-text flex-wrap items-center gap-1.5",
           variant === "standard"
             ? "min-h-12 py-1.5 focus-within:border-secondary focus-within:shadow-[0_1px_0_0_var(--secondary)]"
@@ -387,8 +397,10 @@ export function ChipsInput({
           htmlFor={id}
           variant={variant}
           hasPrefix={hasPrefix}
-          floating={chips.length > 0 || text.length > 0}
-          className={cn(invalid && "text-error peer-focus-within:text-error")}
+          floating={focused || chips.length > 0 || text.length > 0}
+          className={cn(
+            disabled ? "text-foreground/45" : invalid ? "text-error" : focused ? "text-secondary" : undefined,
+          )}
         >
           {label}
         </TextFieldLabel>

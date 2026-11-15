@@ -317,7 +317,7 @@ export function Datepicker({
     return (
       <Popover.Root open={open} onOpenChange={setOpen}>
         <Popover.Anchor asChild>
-          <div ref={fieldRef} data-slot="datepicker" dir={dir} className={cn("relative w-full max-w-xs", className)}>
+          <div ref={fieldRef} data-slot="datepicker" dir={dir} className={cn("relative w-full", className)}>
             {field}
             {hidden}
           </div>
@@ -385,7 +385,7 @@ export function Datepicker({
   );
 
   return (
-    <div ref={fieldRef} data-slot="datepicker" dir={dir} className={cn("relative w-full max-w-xs", className)}>
+    <div ref={fieldRef} data-slot="datepicker" dir={dir} className={cn("relative w-full", className)}>
       {field}
       {hidden}
       <PickerModal

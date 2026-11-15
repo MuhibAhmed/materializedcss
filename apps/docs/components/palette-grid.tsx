@@ -52,7 +52,7 @@ export function PaletteGrid(): React.JSX.Element {
   }, [copied]);
 
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {(Object.keys(palette) as PaletteColor[]).map((name) => {
         const shades = palette[name] as Record<string, string>;
         const base = shades["500"] ?? "#000";
@@ -64,7 +64,7 @@ export function PaletteGrid(): React.JSX.Element {
                 {base}
               </p>
             </div>
-            <ul>
+            <ul className="m-0 list-none p-0">
               {Object.entries(shades).map(([shade, hex]) => {
                 const utility = `bg-md-${name}-${shade}`;
                 return (

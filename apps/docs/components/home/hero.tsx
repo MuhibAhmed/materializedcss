@@ -57,6 +57,9 @@ export function Hero({ componentsHref }: HeroProps): React.JSX.Element {
             >
               <Link href={componentsHref}>Browse components</Link>
             </Button>
+            <Button asChild size="lg" variant="flat" className="text-primary-foreground hover:bg-white/15 dark:text-white">
+              <Link href="/examples/store">See the store demo</Link>
+            </Button>
           </div>
           <div
             data-slot="install-command"

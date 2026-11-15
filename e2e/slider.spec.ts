@@ -87,6 +87,15 @@ test.describe("Slider", () => {
     await expect(activeSlide(manual)).toHaveAttribute("aria-label", "3 of 3");
   });
 
+  test("the height lives on the root, so a consumer height sizes the whole slider", async ({ page }) => {
+    const root = preview(page, "slider-demo").locator('[data-slot="slider"]');
+    const heights = () =>
+      root.evaluate((el) => [el, el.querySelector('[data-slot="slider-slides"]')!].map((n) => n.getBoundingClientRect().height));
+    expect(await heights()).toEqual([440, 400]); // 400px slides + 40px indicator row, as in Materialize
+    await root.evaluate((el) => (el.style.height = "300px"));
+    expect(await heights()).toEqual([300, 260]);
+  });
+
   test("has no serious accessibility violations", async ({ page }) => {
     await expectNoA11yViolations(page, "[data-doc-content]");
   });

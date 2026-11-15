@@ -156,6 +156,10 @@ export function ModalContent({
   const block = (event: Event): void => {
     if (!dismissible) event.preventDefault();
   };
+  // A toast action (e.g. "Undo") fired from inside the modal must not dismiss it.
+  const blockOutside = (event: Event): void => {
+    if (!dismissible || (event.target instanceof Element && event.target.closest('[data-slot="toaster"]'))) event.preventDefault();
+  };
 
   return (
     <Dialog.Portal container={container}>
@@ -185,7 +189,7 @@ export function ModalContent({
         className={cn(modalContentVariants({ variant }), className)}
         onEscapeKeyDown={composeEventHandlers(onEscapeKeyDown, block)}
         onPointerDownOutside={composeEventHandlers(onPointerDownOutside, block)}
-        onInteractOutside={composeEventHandlers(onInteractOutside, block)}
+        onInteractOutside={composeEventHandlers(onInteractOutside, blockOutside)}
         onKeyDown={preventScrolling ? onKeyDown : composeEventHandlers(onKeyDown, trapTab)}
         {...props}
       >

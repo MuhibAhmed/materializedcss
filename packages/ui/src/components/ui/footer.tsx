@@ -76,12 +76,16 @@ export function FooterLink({ className, asChild = false, ...props }: FooterLinkP
   );
 }
 
-/** Bottom strip with the copyright notice (Materialize `.footer-copyright`). */
+/**
+ * Bottom strip with the copyright notice (Materialize `.footer-copyright`). The text
+ * inherits the footer color at full strength so it keeps AA contrast on the darker
+ * strip, including on custom footer backgrounds.
+ */
 export function FooterCopyright({ className, children, ...props }: React.ComponentProps<"div">): React.JSX.Element {
   return (
     <div
       data-slot="footer-copyright"
-      className={cn("flex min-h-[50px] items-center bg-black/15 py-2.5 font-light text-primary-foreground/90 dark:bg-white/15", className)}
+      className={cn("flex min-h-[50px] items-center bg-black/15 py-2.5 font-light dark:bg-white/15", className)}
       {...props}
     >
       <div className="mx-auto flex w-[90%] max-w-[1280px] flex-wrap items-center justify-between gap-x-6 gap-y-1">{children}</div>

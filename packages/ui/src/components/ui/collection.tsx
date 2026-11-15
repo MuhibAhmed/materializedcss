@@ -88,9 +88,15 @@ export function CollectionTitle({ className, ...props }: React.ComponentProps<"s
 }
 
 /** Right-aligned secondary content: an icon link, a badge or meta text (Materialize `.secondary-content`). */
-export function CollectionSecondary({ className, ...props }: React.ComponentProps<"span">): React.JSX.Element {
+export interface CollectionSecondaryProps extends React.ComponentProps<"span"> {
+  /** Merge props onto the single child (e.g. a link or button) instead of rendering a `<span>`. */
+  asChild?: boolean;
+}
+
+export function CollectionSecondary({ className, asChild = false, ...props }: CollectionSecondaryProps): React.JSX.Element {
+  const Comp = asChild ? Slot.Root : "span";
   return (
-    <span
+    <Comp
       data-slot="collection-secondary"
       className={cn(
         "ml-auto inline-flex shrink-0 items-center gap-1 text-secondary group-data-[active]/collection-item:text-secondary-foreground",

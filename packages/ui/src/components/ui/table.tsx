@@ -109,6 +109,6 @@ export function TableCell({ className, ...props }: React.ComponentProps<"td">): 
 /** `<caption>`: a short description of the table, read first by screen readers. */
 export function TableCaption({ className, ...props }: React.ComponentProps<"caption">): React.JSX.Element {
   return (
-    <caption data-slot="table-caption" className={cn("caption-bottom py-3 text-sm text-muted-foreground", className)} {...props} />
+    <caption data-slot="table-caption" className={cn("caption-bottom py-3 text-sm text-muted-foreground [text-align:inherit]", className)} {...props} />
   );
 }

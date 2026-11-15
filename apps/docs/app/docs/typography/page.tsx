@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CodeBlock } from "~/components/docs/code-block";
-import { DocHeader, DocSection } from "~/components/docs/doc-parts";
+import { DocHeader, DocSection, PagerLinks } from "~/components/docs/doc-parts";
 
 export const metadata: Metadata = { title: "Typography" };
 
@@ -48,8 +48,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <DocSection title="Headings">
         <div className="space-y-4 overflow-hidden rounded-md border border-border p-6">
           {HEADINGS.map((heading) => (
-            <div key={heading.cls} className="flex items-baseline justify-between gap-6">
-              <p className={`${heading.cls} truncate font-normal text-foreground`}>{heading.label}</p>
+            <div
+              key={heading.cls}
+              className="flex flex-col items-start gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+            >
+              <p className={`${heading.cls} min-w-0 font-normal text-foreground sm:truncate`}>{heading.label}</p>
               <code className="shrink-0 text-xs">
                 {heading.cls} · {heading.size}
               </code>
@@ -77,6 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <p className="font-bold">Bold 700</p>
         </div>
       </DocSection>
+      <PagerLinks prev={{ title: "Colors", href: "/docs/colors" }} next={{ title: "Shadows", href: "/docs/shadows" }} />
     </article>
   );
 }

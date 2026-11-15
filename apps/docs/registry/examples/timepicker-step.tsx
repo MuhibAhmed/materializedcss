@@ -3,6 +3,7 @@ import { Timepicker } from "@/components/ui/timepicker";
 export function TimepickerStep() {
   return (
     <Timepicker
+      className="max-w-xs"
       label="Meeting"
       locale="en-US"
       step={15}

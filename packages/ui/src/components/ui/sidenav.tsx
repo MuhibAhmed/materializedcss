@@ -352,6 +352,7 @@ export function SidenavContent({
   style,
   onClick,
   onPointerDown,
+  onInteractOutside,
   ...props
 }: SidenavContentProps): React.JSX.Element {
   const context = useSidenav("SidenavContent");
@@ -386,6 +387,11 @@ export function SidenavContent({
     },
     [context],
   );
+
+  // A toast action (e.g. "Undo" after removing a cart item) must not close the sidenav.
+  const keepOpenForToasts = (event: Event): void => {
+    if (event.target instanceof Element && event.target.closest('[data-slot="toaster"]')) event.preventDefault();
+  };
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>): void => {
     if (closeOnClick && event.target instanceof Element && event.target.closest("a[href]")) setOpen(false);
@@ -450,6 +456,7 @@ export function SidenavContent({
           style={style}
           onPointerDown={composeEventHandlers(onPointerDown, onDragClose)}
           onClick={composeEventHandlers(onClick, handleClick)}
+          onInteractOutside={composeEventHandlers(onInteractOutside, keepOpenForToasts)}
           {...props}
         >
           <Dialog.Title className="sr-only">{label}</Dialog.Title>

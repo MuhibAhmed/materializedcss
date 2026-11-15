@@ -299,7 +299,7 @@ export function Timepicker({
   ) : undefined;
 
   return (
-    <div data-slot="timepicker" dir={dir} className={cn("relative w-full max-w-xs", className)}>
+    <div data-slot="timepicker" dir={dir} className={cn("relative w-full", className)}>
       <PickerInput
         {...inputProps}
         ref={mergePickerRefs(ref, inputRef)}

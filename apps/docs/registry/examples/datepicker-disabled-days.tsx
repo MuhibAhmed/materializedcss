@@ -9,6 +9,7 @@ const isHoliday = (date: Date) =>
 export function DatepickerDisabledDays() {
   return (
     <Datepicker
+      className="max-w-xs"
       label="Appointment"
       locale="en-US"
       disableWeekends

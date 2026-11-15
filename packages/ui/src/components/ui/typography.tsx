@@ -67,9 +67,22 @@ export interface FlowTextProps extends React.ComponentProps<"p"> {
   as?: "p" | "div";
 }
 
-/** Large, light text that scales smoothly with the viewport (Materialize `.flow-text`). */
+/**
+ * Large, light text that scales smoothly with the viewport (Materialize `.flow-text`).
+ * Spelled out as standard utilities (not the `flow-text` utility) so `text-*`, `leading-*`
+ * and `font-*` classes passed in `className` override it.
+ */
 export function FlowText({ className, as: Comp = "p", ...props }: FlowTextProps): React.JSX.Element {
-  return <Comp data-slot="flow-text" className={cn("flow-text text-foreground", className)} {...props} />;
+  return (
+    <Comp
+      data-slot="flow-text"
+      className={cn(
+        "text-[length:clamp(1.2rem,0.9rem+0.9vw,1.6rem)] leading-[1.6] font-light text-foreground",
+        className,
+      )}
+      {...props}
+    />
+  );
 }
 
 /** Introductory paragraph: larger and lighter than body text. */

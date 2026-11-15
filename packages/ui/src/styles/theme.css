@@ -570,4 +570,20 @@
     background-color: var(--background);
     color: var(--foreground);
   }
+
+  /*
+   * Browser autofill paints a tinted box (Chrome: light blue) behind the value with an
+   * !important UA rule that author styles can't override. Delaying the background-color
+   * transition indefinitely keeps the field's own (transparent) background, so autofilled
+   * fields look like any other filled field. Text color is restored via text-fill-color.
+   */
+  :is(input, textarea, select):is(:autofill, :-webkit-autofill) {
+    -webkit-text-fill-color: var(--foreground);
+    caret-color: var(--foreground);
+    transition:
+      background-color 600000s 0s,
+      color 600000s 0s,
+      box-shadow 0.3s,
+      border-color 0.3s !important;
+  }
 }

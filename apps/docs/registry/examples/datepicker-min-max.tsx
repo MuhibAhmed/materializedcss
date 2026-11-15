@@ -8,6 +8,7 @@ export function DatepickerMinMax() {
 
   return (
     <Datepicker
+      className="max-w-xs"
       label="Delivery date"
       locale="en-US"
       minDate={today}

@@ -376,6 +376,8 @@ export interface AutocompleteListboxProps extends Omit<React.ComponentProps<"div
   state: AutocompleteState;
   /** Accessible name of the listbox. */
   label?: string;
+  /** Id of the element that names the listbox (wins over `label`), e.g. the field's label. */
+  labelledBy?: string;
   /** Shown when nothing matches. `null` hides the popup instead. */
   emptyMessage?: React.ReactNode;
   /** Shown while `loadOptions` is pending. */
@@ -388,6 +390,7 @@ export interface AutocompleteListboxProps extends Omit<React.ComponentProps<"div
 export function AutocompleteListbox({
   state,
   label,
+  labelledBy,
   emptyMessage = "No results",
   loadingMessage = "Loading…",
   renderOption,
@@ -429,7 +432,13 @@ export function AutocompleteListbox({
             {...props}
           >
             {results.length > 0 ? (
-              <div id={state.listboxId} role="listbox" aria-label={label} className="py-0">
+              <div
+                id={state.listboxId}
+                role="listbox"
+                aria-labelledby={labelledBy}
+                aria-label={labelledBy ? undefined : label}
+                className="py-0"
+              >
                 {results.map((option, index) => {
                   const text = optionLabel(option);
                   return (
@@ -568,8 +577,12 @@ export function Autocomplete({
   onInput,
   ref,
   label,
+  id: idProp,
   ...props
 }: AutocompleteProps): React.JSX.Element {
+  const autoId = React.useId();
+  const id = idProp ?? autoId;
+  const hasLabel = label !== undefined && label !== null && label !== false;
   const [uncontrolled, setUncontrolled] = React.useState(defaultValue);
   const value = valueProp ?? uncontrolled;
   const setValue = (next: string): void => {
@@ -612,6 +625,7 @@ export function Autocomplete({
           if (ref) ref.current = node;
           return undefined;
         }}
+        id={id}
         label={label}
         type="text"
         disabled={disabled}
@@ -624,7 +638,7 @@ export function Autocomplete({
       />
       <AutocompleteListbox
         state={state}
-        label={typeof label === "string" ? label : undefined}
+        labelledBy={hasLabel ? `${id}-label` : undefined}
         emptyMessage={emptyMessage}
         loadingMessage={loadingMessage}
         renderOption={renderOption}

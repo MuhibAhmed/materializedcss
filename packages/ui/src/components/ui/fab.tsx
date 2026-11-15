@@ -153,9 +153,9 @@ export function Fab({
         data-direction={direction}
         className={cn(
           toolbar
-            ? cn("pointer-events-none inset-x-0 bottom-0 z-[997] h-14", position === "fixed" ? "fixed" : "absolute")
+            ? cn("pointer-events-none inset-x-0 bottom-0 z-40 h-14", position === "fixed" ? "fixed" : "absolute")
             : position === "fixed"
-              ? "fixed bottom-[23px] right-[23px] z-[997]"
+              ? "fixed bottom-[23px] right-[23px] z-40"
               : "relative inline-flex",
           className,
         )}

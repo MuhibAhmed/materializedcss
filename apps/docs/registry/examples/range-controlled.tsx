@@ -20,14 +20,14 @@ export function RangeControlled() {
         formatValue={(value) => `${value}°`}
         getAriaValueText={(value) => `${value} degrees Celsius`}
       />
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <Button variant="flat" onClick={() => setTemperature([18])}>
           Eco (18°)
         </Button>
         <Button variant="flat" onClick={() => setTemperature([23])}>
           Comfort (23°)
         </Button>
-        <span className="ml-auto text-sm text-muted-foreground">Current: {temperature[0]}°C</span>
+        <span className="ml-auto whitespace-nowrap text-sm text-muted-foreground">Current: {temperature[0]}°C</span>
       </div>
     </div>
   );

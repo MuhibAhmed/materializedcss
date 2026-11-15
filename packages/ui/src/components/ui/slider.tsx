@@ -33,7 +33,11 @@ const defaultLabels: SliderLabels = {
 export interface SliderProps extends Omit<React.ComponentProps<"div">, "onChange"> {
   /** Accessible name of the slide show region. */
   "aria-label"?: string;
-  /** Height of the slides (px number or any CSS length, e.g. `"100dvh"`). */
+  /**
+   * Height of the slides (px number or any CSS length, e.g. `"100dvh"`); the indicator row
+   * adds 40px below. A height utility in `className` (e.g. `h-full`) or `style.height` sizes
+   * the whole slider instead, and the slides fill what the indicators leave.
+   */
   height?: number | string;
   /** Show the dot indicators below the slides. */
   indicators?: boolean;
@@ -84,6 +88,8 @@ export function Slider({
     onChange: onIndexChange,
   });
   const current = count > 0 ? ((index % count) + count) % count : 0;
+  const showIndicators = indicators && count > 1;
+  const slidesHeight = typeof height === "number" ? `${height}px` : height;
 
   const goTo = React.useCallback(
     (next: number): void => {
@@ -121,8 +127,14 @@ export function Slider({
         role="region"
         aria-roledescription="carousel"
         data-slot="slider"
-        className={cn("relative w-full", className)}
-        style={{ ...style, ["--slider-duration" as string]: `${duration}ms` }}
+        className={cn("relative flex h-(--slider-height) w-full flex-col", className)}
+        style={{
+          // The root carries the height (slides + indicator row, as in Materialize), so a
+          // height utility in `className` or `style.height` sizes the whole slider.
+          ["--slider-height" as string]: showIndicators ? `calc(${slidesHeight} + 2.5rem)` : slidesHeight,
+          ...style,
+          ["--slider-duration" as string]: `${duration}ms`,
+        }}
         {...props}
       >
         <div
@@ -130,8 +142,7 @@ export function Slider({
           tabIndex={0}
           aria-live={autoplayState.playing ? "off" : "polite"}
           onKeyDown={onKeyDown}
-          style={{ height: typeof height === "number" ? `${height}px` : height }}
-          className="relative overflow-hidden bg-md-grey-500 outline-none focus-visible:focus-ring"
+          className="relative min-h-0 flex-1 overflow-hidden bg-md-grey-500 outline-none focus-visible:focus-ring"
         >
           {slides.map((child, i) => (
             <SliderIndexContext.Provider key={child.key ?? i} value={i}>
@@ -153,8 +164,8 @@ export function Slider({
           </button>
         ) : null}
 
-        {indicators && count > 1 ? (
-          <div data-slot="slider-indicators" className="flex h-10 items-center justify-center gap-1">
+        {showIndicators ? (
+          <div data-slot="slider-indicators" className="flex h-10 shrink-0 items-center justify-center gap-1">
             {slides.map((_, i) => (
               <button
                 key={i}

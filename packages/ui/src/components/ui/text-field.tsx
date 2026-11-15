@@ -278,9 +278,11 @@ export function TextFieldPrefix({ className, variant = "standard", ...props }: T
       className={cn(
         "pointer-events-none absolute flex items-center justify-center text-muted-foreground transition-colors duration-200",
         "group-focus-within/tf:text-secondary group-has-[[aria-invalid=true]]/tf:text-error",
+        // The Material Icons stylesheet sets `font-size: 24px` on `.material-icons` outside any layer, so the
+        // Materialize 2rem prefix size has to be forced for icon-font prefixes.
         variant === "standard"
-          ? "top-2 left-0 h-8 w-12 text-[2rem] [&_svg]:size-8"
-          : "top-4 left-3 h-6 w-6 text-2xl [&_svg]:size-6",
+          ? "top-2 left-0 h-8 w-12 text-[2rem] [&_svg]:size-8 [&_.material-icons]:text-[2rem]!"
+          : "top-4 left-3 h-6 w-6 text-2xl [&_svg]:size-6 [&_.material-icons]:text-2xl!",
         className,
       )}
       {...props}
@@ -535,6 +537,7 @@ export function TextField({
       />
       {label !== undefined && label !== null ? (
         <TextFieldLabel
+          id={`${id}-label`}
           htmlFor={id}
           variant={variant}
           hasPrefix={hasPrefix}

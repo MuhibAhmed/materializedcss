@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CodeBlock } from "~/components/docs/code-block";
-import { Callout, DocHeader, DocSection } from "~/components/docs/doc-parts";
+import { Callout, DocHeader, DocSection, PagerLinks } from "~/components/docs/doc-parts";
 import { getComponentNav } from "~/lib/registry";
 
 export const metadata: Metadata = { title: "Introduction" };
@@ -82,6 +82,7 @@ export default function Page() {
           and Kevin Louie (MIT). This project is an independent reimplementation.
         </Callout>
       </DocSection>
+      <PagerLinks next={{ title: "Installation", href: "/docs/installation" }} />
     </article>
   );
 }

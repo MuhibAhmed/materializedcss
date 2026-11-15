@@ -231,8 +231,29 @@ export interface TabsTriggerProps extends React.ComponentProps<typeof TabsPrimit
   ripple?: boolean;
 }
 
+/**
+ * Radix focuses a tab from script on mousedown, which Chrome treats as `:focus-visible`, so a plain
+ * click would show the keyboard focus ring and tint. Mark pointer-initiated focus and hide them for it;
+ * the mark is cleared on the next key press or blur so keyboard focus stays clearly visible.
+ */
+function markPointerFocus(event: React.PointerEvent<HTMLButtonElement>): void {
+  event.currentTarget.setAttribute("data-pointer-focus", "");
+}
+
+function clearPointerFocus(event: React.SyntheticEvent<HTMLButtonElement>): void {
+  event.currentTarget.removeAttribute("data-pointer-focus");
+}
+
 /** A single tab: uppercase 14px label, 48px tall, 24px side padding (12px on small screens). */
-export function TabsTrigger({ className, ripple = true, disabled, onPointerDown, ...props }: TabsTriggerProps): React.JSX.Element {
+export function TabsTrigger({
+  className,
+  ripple = true,
+  disabled,
+  onPointerDown,
+  onKeyDown,
+  onBlur,
+  ...props
+}: TabsTriggerProps): React.JSX.Element {
   const { transparent, fixedWidth } = React.useContext(TabsListContext);
   const startRipple = useRipple({ disabled: !ripple || Boolean(disabled) });
 
@@ -240,17 +261,19 @@ export function TabsTrigger({ className, ripple = true, disabled, onPointerDown,
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       disabled={disabled}
-      onPointerDown={composeEventHandlers(onPointerDown, startRipple)}
+      onPointerDown={composeEventHandlers(onPointerDown, markPointerFocus, startRipple)}
+      onKeyDown={composeEventHandlers(clearPointerFocus, onKeyDown)}
+      onBlur={composeEventHandlers(clearPointerFocus, onBlur)}
       className={cn(
         "relative inline-flex h-12 min-w-0 shrink-0 cursor-pointer select-none items-center justify-center overflow-hidden px-6 text-sm uppercase leading-[48px] max-md:grow max-md:px-3",
         "transition-[color,background-color] duration-[280ms] ease-out",
-        "outline-none focus-visible:shadow-[inset_0_0_0_2px_var(--ring)]",
+        "outline-none focus-visible:not-data-[pointer-focus]:shadow-[inset_0_0_0_2px_var(--ring)]",
         "disabled:cursor-default disabled:pointer-events-none",
         "[&>span]:truncate [&_svg]:size-5",
         fixedWidth && "grow basis-0",
         transparent
-          ? "text-white/70 hover:text-white focus-visible:bg-white/20 data-[state=active]:text-white disabled:text-white/40"
-          : "text-muted-foreground hover:text-primary focus-visible:bg-primary/20 data-[state=active]:text-primary disabled:text-disabled-foreground",
+          ? "text-white/70 hover:text-white focus-visible:not-data-[pointer-focus]:bg-white/20 data-[state=active]:text-white disabled:text-white/40"
+          : "text-muted-foreground hover:text-primary focus-visible:not-data-[pointer-focus]:bg-primary/20 data-[state=active]:text-primary disabled:text-disabled-foreground",
         className,
       )}
       {...props}

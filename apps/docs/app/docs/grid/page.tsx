@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CodeBlock } from "~/components/docs/code-block";
-import { DocHeader, DocSection } from "~/components/docs/doc-parts";
+import { DocHeader, DocSection, PagerLinks } from "~/components/docs/doc-parts";
 
 export const metadata: Metadata = { title: "Grid & helpers" };
 
@@ -36,9 +36,9 @@ export default function GridPage(): React.JSX.Element {
       <DocSection title="12-column grid">
         <p>
           Materialize used <code>.row</code> and <code>.col s12 m6 l4</code> with a 1.5rem gutter. Use Tailwind&apos;s grid
-          with <code>gap-6</code>:
+          with <code className="whitespace-nowrap">gap-6</code>:
         </p>
-        <div className="my-6 grid grid-cols-12 gap-6 text-center text-sm text-secondary-foreground">
+        <div className="my-6 grid grid-cols-12 gap-2 text-center sm:gap-6 text-sm text-secondary-foreground">
           <div className="col-span-12 rounded-ui bg-secondary p-3">s12</div>
           {Array.from({ length: 2 }, (_, i) => (
             <div key={`m6-${i}`} className="col-span-12 rounded-ui bg-secondary p-3 sm:col-span-6">
@@ -94,14 +94,15 @@ export default function GridPage(): React.JSX.Element {
             <tbody>
               {HELPERS.map(([from, to]) => (
                 <tr key={from} className="border-t border-border">
-                  <td className="whitespace-nowrap px-4 py-2.5 font-mono text-[12px] text-foreground">{from}</td>
-                  <td className="px-4 py-2.5 font-mono text-[12px] text-secondary">{to}</td>
+                  <td className="px-4 py-2.5 align-top font-mono text-[12px] text-foreground sm:whitespace-nowrap">{from}</td>
+                  <td className="px-4 py-2.5 align-top font-mono text-[12px] text-secondary">{to}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </DocSection>
+      <PagerLinks prev={{ title: "Shadows", href: "/docs/shadows" }} next={{ title: "Divider", href: "/docs/components/divider" }} />
     </article>
   );
 }

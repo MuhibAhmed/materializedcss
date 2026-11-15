@@ -72,11 +72,12 @@ export function PickerInput({
         aria-invalid={invalid || undefined}
         aria-describedby={cn(describedBy, helperId) || undefined}
         className={cn(
-          "peer block h-12 w-full rounded-none border-0 border-b border-solid border-input bg-transparent px-0 text-base text-foreground",
+          // Same box as `TextField` (h-12 + mb-2) so pickers line up with text fields and selects.
+          "peer m-0 mb-2 block h-12 w-full rounded-none border-0 border-b border-solid border-input bg-transparent px-0 text-base text-foreground",
           "outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground",
           "focus:border-secondary focus:shadow-[0_1px_0_0_var(--secondary)]",
           "aria-invalid:border-error aria-invalid:focus:shadow-[0_1px_0_0_var(--error)]",
-          "disabled:cursor-default disabled:border-dotted disabled:text-disabled-foreground",
+          "disabled:cursor-default disabled:border-dotted disabled:border-foreground/40 disabled:text-disabled-foreground",
           "read-only:focus:border-input read-only:focus:shadow-none",
           endAdornment ? "pe-10" : undefined,
           className,
@@ -88,11 +89,15 @@ export function PickerInput({
           htmlFor={id}
           data-slot="picker-label"
           className={cn(
-            "pointer-events-none absolute start-0 top-0 origin-[0_100%] translate-y-3 text-base text-muted-foreground",
-            "transition-[transform,color] duration-200 ease-out rtl:origin-[100%_100%] motion-reduce:transition-none",
-            "peer-focus:-translate-y-3.5 peer-focus:scale-[0.8] peer-focus:text-secondary",
-            "peer-data-float:-translate-y-3.5 peer-data-float:scale-[0.8]",
+            // Same geometry as `TextFieldLabel`, so floated labels line up with text fields side by side.
+            "pointer-events-none absolute start-0 top-0 origin-top-left translate-y-3 truncate text-base leading-6 text-muted-foreground",
+            "transition-[translate,scale,color] duration-200 ease-out rtl:origin-top-right motion-reduce:transition-none",
+            "peer-focus:-translate-y-3.5 peer-focus:scale-80 peer-focus:text-secondary",
+            "peer-data-float:-translate-y-3.5 peer-data-float:scale-80",
+            "peer-autofill:-translate-y-3.5 peer-autofill:scale-80 peer-[:-webkit-autofill]:-translate-y-3.5 peer-[:-webkit-autofill]:scale-80",
             "peer-read-only:peer-focus:text-muted-foreground peer-aria-invalid:text-error peer-disabled:text-disabled-foreground",
+            // Keep a long label clear of the icon button.
+            endAdornment ? "max-w-[calc(100%-3rem)]" : "max-w-[calc(100%-1rem)]",
           )}
         >
           {label}
@@ -107,7 +112,7 @@ export function PickerInput({
         <p
           id={helperId}
           data-slot="picker-helper"
-          className={cn("mt-1 text-xs text-muted-foreground", invalid && "text-error")}
+          className={cn("m-0 min-h-[18px] text-xs leading-[18px] text-muted-foreground", invalid && "text-error")}
         >
           {helperText}
         </p>

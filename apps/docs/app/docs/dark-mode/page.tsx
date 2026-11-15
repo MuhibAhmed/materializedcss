@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CodeBlock } from "~/components/docs/code-block";
-import { DocHeader, DocSection } from "~/components/docs/doc-parts";
+import { DocHeader, DocSection, PagerLinks } from "~/components/docs/doc-parts";
 
 export const metadata: Metadata = { title: "Dark mode" };
 
@@ -87,6 +87,7 @@ document.documentElement.classList.toggle("dark", stored ? stored === "dark" : p
 }`}
         />
       </DocSection>
+      <PagerLinks prev={{ title: "Theming", href: "/docs/theming" }} next={{ title: "Colors", href: "/docs/colors" }} />
     </article>
   );
 }

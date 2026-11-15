@@ -39,7 +39,12 @@ export function SimpleTabs({
 
   return (
     <div className={className}>
-      <div role="tablist" aria-label={label} className={cn("flex gap-1 border-b border-border", listClassName)}>
+      <div role="tablist" aria-label={label} className={cn(
+          // The bottom rule is an inset shadow so the row can scroll sideways on narrow screens
+          // without clipping the active tab's indicator.
+          "flex gap-1 overflow-x-auto shadow-[inset_0_-1px_0_var(--color-border)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+          listClassName,
+        )}>
         {tabs.map((tab, index) => {
           const selected = tab.value === active;
           return (
@@ -57,8 +62,8 @@ export function SimpleTabs({
               onClick={() => setActive(tab.value)}
               onKeyDown={(event) => onKeyDown(event, index)}
               className={cn(
-                "relative -mb-px cursor-pointer px-4 py-2.5 text-sm font-medium uppercase tracking-wide transition-colors",
-                "border-b-2 outline-none focus-visible:bg-surface-hover",
+                "relative shrink-0 cursor-pointer whitespace-nowrap px-3 py-2.5 sm:px-4 text-sm font-medium uppercase tracking-wide transition-colors",
+                "border-b-2 outline-none focus-visible:bg-surface-hover focus-visible:inset-ring-2 focus-visible:inset-ring-ring",
                 selected ? "border-secondary text-foreground" : "border-transparent text-muted-foreground hover:text-foreground",
               )}
             >

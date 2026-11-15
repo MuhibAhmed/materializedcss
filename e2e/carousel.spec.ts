@@ -193,6 +193,15 @@ test.describe("Carousel", () => {
     await expect(page).toHaveURL(/#first-panel$/);
   });
 
+  test("the height lives on the root, so a consumer height sizes the whole carousel", async ({ page }) => {
+    const root = preview(page, "carousel-demo").locator('[data-slot="carousel"]');
+    const heights = () =>
+      root.evaluate((el) => [el, el.querySelector('[data-slot="carousel-viewport"]')!].map((n) => n.getBoundingClientRect().height));
+    expect(await heights()).toEqual([400, 400]);
+    await root.evaluate((el) => (el.style.height = "250px"));
+    expect(await heights()).toEqual([250, 250]);
+  });
+
   test("has no serious accessibility violations", async ({ page }) => {
     await expectNoA11yViolations(page, "[data-doc-content]");
   });
