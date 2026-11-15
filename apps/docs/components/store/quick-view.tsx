@@ -50,14 +50,13 @@ function QuickViewBody({ product, onDone }: { product: Product; onDone: () => vo
 
   return (
     <div className="grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-      <div className="relative bg-md-grey-100 [--qv-h:clamp(240px,60vw,420px)] dark:bg-md-grey-900 md:min-h-[420px] md:rounded-l-ui md:[--qv-h:100%]">
+      <div className="relative bg-md-grey-100 dark:bg-md-grey-900 md:min-h-[420px] md:rounded-l-ui">
         <Carousel
           key={hex}
           fullWidth
           indicators
           aria-label={`${product.name} photos`}
-          height="var(--qv-h)"
-          className="md:absolute md:inset-0"
+          className="h-[clamp(240px,60vw,420px)] md:absolute md:inset-0 md:h-full"
         >
           {VIEWS.map(({ view, label }) => (
             <CarouselItem key={view}>

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/autocomplete";
 import { Chip } from "@/components/ui/chip";
 import {
+  floatedLabelClearance,
   hasFieldError,
   joinIds,
   TextFieldFooter,
@@ -190,6 +191,7 @@ export function ChipsInput({
     minLength: suggestionMinLength,
     disabled: !hasSuggestions || disabled || full,
     showEmpty: false,
+    labelClearance: label !== undefined && label !== null ? floatedLabelClearance[variant] : 0,
     exclude: allowDuplicates ? undefined : (option) => tags.includes(option.value),
     onSelect: (option) => {
       if (add(option.image ? { tag: option.value, image: option.image } : option.value)) setText("");

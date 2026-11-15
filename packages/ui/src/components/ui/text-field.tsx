@@ -117,6 +117,12 @@ export const textFieldLabelVariants = cva(
 const ALWAYS_FLOATING_TYPES = new Set(["date", "time", "datetime-local", "month", "week", "color", "file", "range"]);
 
 /** True for an `error` prop value that marks the field invalid. */
+/**
+ * How far (px) a floated label rises above the top of its field's control. Popups that open
+ * upward from the control are pushed up by this much so they don't cover the label.
+ */
+export const floatedLabelClearance: Record<TextFieldVariant, number> = { standard: 16, outlined: 12 };
+
 export function hasFieldError(error: React.ReactNode): boolean {
   return error !== undefined && error !== null && error !== false && error !== "";
 }

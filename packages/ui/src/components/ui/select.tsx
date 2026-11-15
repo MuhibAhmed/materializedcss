@@ -6,6 +6,7 @@ import { Popover, Select as SelectPrimitive } from "radix-ui";
 import { useControllableState } from "@/hooks/use-controllable-state";
 import { ArrowDropDownIcon, ExpandLessIcon, ExpandMoreIcon } from "@/components/ui/icons";
 import {
+  floatedLabelClearance,
   TextFieldFooter,
   TextFieldLabel,
   TextFieldPrefix,
@@ -243,10 +244,13 @@ export function Select({
           position="popper"
           sideOffset={0}
           collisionPadding={8}
+          style={{ ["--label-clearance" as string]: `${label !== undefined && label !== null ? floatedLabelClearance[variant] : 0}px` }}
           data-slot="select-content"
           className={cn(
             dropdownContentClasses,
             "max-h-[min(var(--radix-select-content-available-height),22rem)] min-w-(--radix-select-trigger-width) origin-(--radix-select-content-transform-origin)",
+            // Opening upward: clear the floated label instead of covering it.
+            "data-[side=top]:-translate-y-(--label-clearance) data-[side=top]:max-h-[min(calc(var(--radix-select-content-available-height)-var(--label-clearance)),22rem)]",
             contentClassName,
           )}
         >
@@ -708,10 +712,13 @@ export function MultiSelect({
           sideOffset={0}
           collisionPadding={8}
           onOpenAutoFocus={onOpenAutoFocus}
+          style={{ ["--label-clearance" as string]: `${label !== undefined && label !== null ? floatedLabelClearance[variant] : 0}px` }}
           data-slot="multi-select-content"
           className={cn(
             dropdownContentClasses,
             "flex max-h-[min(var(--radix-popover-content-available-height),22rem)] w-(--radix-popover-trigger-width) min-w-48 flex-col origin-(--radix-popover-content-transform-origin)",
+            // Opening upward: clear the floated label instead of covering it.
+            "data-[side=top]:-translate-y-(--label-clearance) data-[side=top]:max-h-[min(calc(var(--radix-popover-content-available-height)-var(--label-clearance)),22rem)]",
             contentClassName,
           )}
         >

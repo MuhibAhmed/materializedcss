@@ -3,7 +3,7 @@
 import * as React from "react";
 import { autoUpdate, flip, FloatingPortal, offset, shift, size, useFloating } from "@floating-ui/react";
 
-import { TextField, type TextFieldProps } from "@/components/ui/text-field";
+import { floatedLabelClearance, TextField, type TextFieldProps } from "@/components/ui/text-field";
 import { cn, composeEventHandlers } from "@/lib/utils";
 
 /* -------------------------------------------------------------------------------------------------
@@ -105,6 +105,8 @@ export interface UseAutocompleteOptions {
   disabled?: boolean | undefined;
   /** Whether a "no results" message is shown (keeps the popup open when empty). */
   showEmpty?: boolean | undefined;
+  /** Extra gap (px) kept above the reference when the popup flips upward, e.g. to clear a floated label. */
+  labelClearance?: number | undefined;
 }
 
 export interface AutocompleteState {
@@ -163,6 +165,7 @@ export function useAutocomplete({
   onSelect,
   disabled = false,
   showEmpty = true,
+  labelClearance = 0,
 }: UseAutocompleteOptions): AutocompleteState {
   const baseId = React.useId();
   const listboxId = `${baseId}-listbox`;
@@ -242,7 +245,7 @@ export function useAutocomplete({
     strategy: "fixed",
     whileElementsMounted: autoUpdate,
     middleware: [
-      offset(0),
+      offset(({ placement }) => (placement.startsWith("top") ? labelClearance : 0)),
       flip({ padding: 8 }),
       shift({ padding: 8 }),
       size({
@@ -577,6 +580,7 @@ export function Autocomplete({
   onInput,
   ref,
   label,
+  variant = "standard",
   id: idProp,
   ...props
 }: AutocompleteProps): React.JSX.Element {
@@ -601,6 +605,7 @@ export function Autocomplete({
     filter,
     disabled,
     showEmpty: emptyMessage !== null,
+    labelClearance: hasLabel ? floatedLabelClearance[variant] : 0,
     onSelect: (option) => {
       setValue(option.value);
       onAutocomplete?.(option);
@@ -627,6 +632,7 @@ export function Autocomplete({
         }}
         id={id}
         label={label}
+        variant={variant}
         type="text"
         disabled={disabled}
         value={value}
