@@ -165,7 +165,11 @@ export function ThemeCustomizer({ className }: { className?: string }): React.JS
         <div className="absolute right-2 top-2">
           <CopyButton value={css} />
         </div>
-        <pre className="h-full max-h-[340px] overflow-auto rounded-md bg-surface-2 p-4 pr-12 font-mono text-[12px] leading-5 text-foreground">
+        <pre
+          tabIndex={0}
+          aria-label="Generated theme CSS"
+          className="h-full max-h-[340px] overflow-auto rounded-md bg-surface-2 p-4 pr-12 font-mono text-[12px] leading-5 text-foreground outline-none focus-visible:focus-ring"
+        >
           {css}
         </pre>
       </div>
