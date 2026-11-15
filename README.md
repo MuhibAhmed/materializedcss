@@ -14,6 +14,7 @@ Copy the components into your app with one command, or install them from npm.
 ![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
 ![Radix UI](https://img.shields.io/badge/Radix-accessible-161618?logo=radixui&logoColor=white)
+[![npm](https://img.shields.io/npm/v/materializedcss?color=ee6e73)](https://www.npmjs.com/package/materializedcss)
 ![License: MIT](https://img.shields.io/badge/License-MIT-26a69a)
 
 <img src=".github/assets/home-light.png" alt="materializedcss landing page" width="900" />
@@ -99,21 +100,109 @@ The code is now in your project, so you can change anything you like.
 
 ### Option 2: install the npm package
 
+Use this when you'd rather get updates from npm than own the source. Your app needs React 19 and Tailwind CSS v4.
+
 ```bash
 npm install materializedcss
 ```
 
+**1. Add the styles.** In your global stylesheet, import the theme after Tailwind:
+
 ```css
-/* your global stylesheet */
 @import "tailwindcss";
-@import "materializedcss/styles.css"; /* theme tokens + tells Tailwind to scan the package */
+@import "materializedcss/styles.css";
 ```
 
-```tsx
-import { Button, Card } from "materializedcss";
-// or one component per entry point:
-import { Modal } from "materializedcss/modal";
+This adds the theme tokens (palette, z-depth shadows, motion), registers the `dark:` variant and tells Tailwind to scan the package, so the component classes get generated.
+
+**2. Load Roboto.** The design is built around it, and the components don't bundle fonts. In Next.js, use `next/font/google`; anywhere else, add the link tag:
+
+```html
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
 ```
+
+**3. Use the components.**
+
+```tsx
+import { Button, Checkbox, Datepicker, Select, SelectItem, TextField, toast, Toaster } from "materializedcss";
+import { Modal, ModalClose, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalTrigger } from "materializedcss/modal";
+
+export default function BookingForm() {
+  return (
+    <form className="grid max-w-sm gap-6" onSubmit={(e) => { e.preventDefault(); toast("Booked!"); }}>
+      <TextField label="Name" required />
+      <Select label="Room">
+        <SelectItem value="single">Single</SelectItem>
+        <SelectItem value="double">Double</SelectItem>
+      </Select>
+      <Datepicker label="Check-in" />
+      <Checkbox label="Send me a reminder" variant="filled-in" />
+
+      <Modal>
+        <ModalTrigger asChild>
+          <Button type="button" variant="flat">House rules</Button>
+        </ModalTrigger>
+        <ModalContent>
+          <ModalHeader>
+            <ModalTitle>House rules</ModalTitle>
+          </ModalHeader>
+          <ModalFooter>
+            <ModalClose asChild>
+              <Button variant="flat">Got it</Button>
+            </ModalClose>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+      <Button type="submit">Book now</Button>
+      <Toaster />
+    </form>
+  );
+}
+```
+
+Every component file starts with `"use client"`, so in the Next.js App Router you can import them straight into Server Components.
+
+| Import path | What you get |
+| --- | --- |
+| `materializedcss` | Every component, hook and utility |
+| `materializedcss/<component>` | One component, e.g. `materializedcss/datepicker` or `materializedcss/dropdown-menu` |
+| `materializedcss/hooks/<hook>` | One hook, e.g. `materializedcss/hooks/use-ripple` |
+| `materializedcss/utils` | The `cn()` class-name helper |
+| `materializedcss/styles.css` | Theme tokens plus the Tailwind `@source` for the package |
+| `materializedcss/theme.css` | The theme tokens on their own |
+
+**Dark mode:** put the `dark` class on `<html>`. With [next-themes](https://github.com/pacocoursey/next-themes), use `<ThemeProvider attribute="class">`.
+
+**Theming:** override the CSS variables after the import, for example to use Materialize's teal as the primary color:
+
+```css
+:root {
+  --primary: #00796b;
+  --primary-foreground: #ffffff;
+  --radius: 4px;
+}
+```
+
+The [theming docs](https://muhibahmed.github.io/materializedcss/docs/theming/) list every token and include a live theme generator.
+
+<details>
+<summary>Installing from GitHub Packages instead of npm</summary>
+
+Each release is also published to GitHub Packages as `@muhibahmed/materializedcss`. GitHub requires a token even for public packages: create a classic personal access token with the `read:packages` scope, then add an `.npmrc` next to your `package.json`:
+
+```ini
+@muhibahmed:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+```bash
+npm install @muhibahmed/materializedcss
+```
+
+Then import from `@muhibahmed/materializedcss` (and `@muhibahmed/materializedcss/styles.css`) instead of `materializedcss`.
+
+</details>
 
 ### Option 3: the shadcn CLI
 
@@ -122,10 +211,6 @@ Each component is also published as a shadcn-compatible registry item on the doc
 ```bash
 npx shadcn add https://muhibahmed.github.io/materializedcss/r/button.json
 ```
-
-> [!NOTE]
-> The package isn't on npm yet. Until it is, build it from this repo and install the tarball:
-> `npm install && npm run build:ui && npm pack -w materializedcss`, then `npm install ./materializedcss-0.1.0.tgz` in your app.
 
 ## Components
 

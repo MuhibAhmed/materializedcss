@@ -1,0 +1,62 @@
+name: Release
+
+# Push a tag that matches packages/ui/package.json's version (e.g. `git tag v0.2.0 && git push origin v0.2.0`).
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write # create the GitHub release
+  packages: write # publish to GitHub Packages
+  id-token: write # npm trusted publishing (provenance)
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+          scope: "@muhibahmed"
+      - run: npm ci
+      - run: npm run build:ui
+
+      - name: Check the tag matches the package version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: test "v$(node -p "require('./packages/ui/package.json').version")" = "$GITHUB_REF_NAME"
+
+      - name: Pack the tarball for the release
+        working-directory: packages/ui
+        run: npm pack
+
+      # Runs once trusted publishing is set up for this workflow on npmjs.com and the
+      # repository variable NPM_TRUSTED_PUBLISHING is "true". Skips versions already on npm.
+      - name: Publish to npm
+        if: vars.NPM_TRUSTED_PUBLISHING == 'true'
+        working-directory: packages/ui
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "materializedcss@$version" version --registry https://registry.npmjs.org >/dev/null 2>&1; then
+            echo "materializedcss@$version is already on npm"
+          else
+            npm publish --access public --provenance --registry https://registry.npmjs.org
+          fi
+
+      # GitHub Packages only accepts packages scoped to the repository owner.
+      - name: Publish to GitHub Packages
+        working-directory: packages/ui
+        run: |
+          npm pkg set name=@muhibahmed/materializedcss
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create the GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        run: gh release create "$GITHUB_REF_NAME" packages/ui/materializedcss-*.tgz --title "$GITHUB_REF_NAME" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
