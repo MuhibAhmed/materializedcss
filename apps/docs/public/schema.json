@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://materializedcss.dev/schema.json",
+  "title": "materialized.json",
+  "description": "Configuration for the materializedcss CLI.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "style": { "type": "string", "enum": ["default"] },
+    "rsc": { "type": "boolean", "description": "Keep \"use client\" directives (React Server Components)." },
+    "tsx": { "type": "boolean", "enum": [true] },
+    "tailwind": {
+      "type": "object",
+      "properties": {
+        "css": { "type": "string", "description": "Path to the global CSS file that imports Tailwind." },
+        "cssVariables": { "type": "boolean", "enum": [true] }
+      },
+      "required": ["css"]
+    },
+    "aliases": {
+      "type": "object",
+      "properties": {
+        "components": { "type": "string" },
+        "ui": { "type": "string" },
+        "lib": { "type": "string" },
+        "hooks": { "type": "string" },
+        "utils": { "type": "string" }
+      },
+      "required": ["components", "ui", "lib", "hooks", "utils"]
+    },
+    "registry": { "type": "string", "description": "Base URL of a remote registry (<url>/<name>.json)." }
+  },
+  "required": ["tailwind", "aliases"]
+}
